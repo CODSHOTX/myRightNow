@@ -8,12 +8,18 @@ import { Button } from "@rneui/base";
 
 export default function SignInWelcomeScreen({navigation}){
         return(
-            <View style={{flex:1}}>
-        <View style ={{flex:3, justifyContent:'flex-start',alignItems:'center',  paddingTop:20}}>
-        <Text style={{fontSize:26,color:colors.buttons, fontWeight:'bold'}}>DISCOVER SHOPS</Text>
-        <Text style={{fontSize:26,color:colors.buttons, fontWeight:'bold'}}>IN YOUR AREA</Text>
-
+            <View style={{flex:3, backgroundColor:colors.green}}>
+               
+        <View style ={{flex:3, justifyContent:'flex-start',alignItems:'center', marginVertical:225,  paddingTop:5}}>
+        <Image 
+                source={require('../../images/logo.png')}
+                
+                />
+        <Text style={{fontSize:46,color:colors.headerText, fontWeight:'bold', }}>RightNOW</Text>
+        
     </View>
+    {// slider 
+}{/*
     <View style={{flex:4, justifyContent:"center"}}>
 <Swiper autoplay ={true}>
      <View style={styles.slide1}>
@@ -41,18 +47,23 @@ style ={{height:"100%", width:"100%"}}
 />
      </View>
 </Swiper>
-    </View>
+   
+</View>
+*/}
+<View>
+
+</View>
 <View style ={{flex:4, justifyContent:"flex-end", marginBottom:20}}>
 <View style={{marginHorizontal:20, marginTop:30}}>
     <Button 
     title="SIGN IN"
-    buttonStyle = {parameters.styledButton}
+    buttonStyle = {parameters.welSignupBut}
     titleStyle = {parameters.buttonTitle}
     onPress ={()=>{
         navigation.navigate("SigininScreen")
     }}
     />
-</View>
+</View> 
 <View style ={{ marginHorizontal:20, marginTop:10}}>
                 <Button 
                 title="Create an account"
@@ -91,7 +102,7 @@ const styles = StyleSheet.create({
         borderRadius:12,
         borderWidth:1,
         borderColor:"#116530",
-        height:40,
+        height:50,
         paddingHorizontal:20,
         
     },

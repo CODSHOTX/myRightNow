@@ -27,6 +27,18 @@ export const parameters ={
         width:'100%'
 
     },
+
+    welSignupBut:{
+        backgroundColor:"#116530",
+        alignContent:"center",
+        justifyContent:"center",
+        borderRadius:12,
+        borderWidth:1,
+        borderColor: "white",
+        height:50,
+        paddingHorizontal:20,
+        width:'100%'
+    },
     buttonTitle:{
         color:"white",
         fontSize:20,
