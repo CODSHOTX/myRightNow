@@ -1,7 +1,7 @@
 export const colors = {
     buttons:"#116530",
     grey1: '#3B3B3B',
-    grey2: '#5e6939e',
+    grey2: '#525252',
     grey3: '#86939e',
     grey4:'#bdc6cf',
     grey5: '#C5C5C5',
