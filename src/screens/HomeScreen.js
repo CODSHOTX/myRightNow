@@ -1,25 +1,25 @@
 import React,{useState} from "react";
 import {View, Text, StyleSheet, TouchableOpacity, Pressable, ScrollView, FlatList, Image, Dimensions} from 'react-native';
 import { Icon } from "@rneui/base";
-import HomeHeader from "../../components/HomeHeader";
-import { colors } from "../../global/styles";
-import { filterData, vendorsData  } from "../../global/data";
-import { Colors } from "react-native/Libraries/NewAppScreen";
-import VendorCard from "../../components/VendorCard";
+import HomeHeader from "../components/HomeHeader";
+import { colors } from "../global/styles";
+import { filterData, vendorsData  } from "../global/data";
+import VendorCard from "../components/VendorCard";
+import CountDown from "react-native-countdown-component";
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 
-export default function HomeScreen(){
+export default function HomeScreen({navigation}){
     const [delivery, setDelivery] = useState(true)
     const [indexCheck, setIndexCheck] = useState("0")
     return(
         <View style={styles.container}>
-            <HomeHeader />
+            <HomeHeader navigation={navigation} />
 <ScrollView
     stickyHeaderIndices={[0]}
     showsVerticalScrollIndicator={true}
 >
-    <View >
+    <View style ={{backgroundColor:colors.cardbackground, paddingBottom:5}}>
             <View style = {{marginTop:10, flexDirection:"row",justifyContent:'space-evenly'}}>
                 <TouchableOpacity 
                  onPress ={()=>{
@@ -35,6 +35,7 @@ export default function HomeScreen(){
                 <TouchableOpacity
                 onPress ={()=>{
                     setDelivery(false)
+                    navigation.navigate("VendorsMapScreen")
                 }}
                 >
                 
@@ -107,24 +108,104 @@ source ={item.image}
            <View style={styles.headerTextView}><Text style={styles.headerText}>Free Delivery now:</Text></View>
             
             <View>
+            <View style={{flexDirection:'row', alignItems:'center', padding:10}}>
+                    <Text style={{marginLeft:15, fontSize:16, marginTop:-10, marginRight:5}}>Options changing in</Text>
+                  
+                </View>
+
                 <FlatList
                     style={{marginTop:10, marginBottom:10}}
                     horizontal ={true}
                     data = {vendorsData}
                     keyExtractor={(item, index)=>index.toString()}
+                    showsHorizontalScrollIndicator={false}
 
                     renderItem={({item})=>(
-                        <View>
+                        <View style={{marginRight:5}}>
                             <VendorCard 
                                 screenWidth={SCREEN_WIDTH*0.8}
                                 images={item.images}
+                                vendorName={item.VedorName}
+                                farAway={item.farAway}
+                                businessAddress={item.businessAddress}
+                                averageReview={item.averageReview}
+                                numberOfReview={item.numberOfReview}
                             />
                         </View>
                     )}
                 />
             </View>
+
+            
+           <View style={styles.headerTextView}><Text style={styles.headerText}>Promotions available:</Text></View>
+            
+            <View>
+                <FlatList
+                    style={{marginTop:10, marginBottom:10}}
+                    horizontal ={true}
+                    data = {vendorsData}
+                    keyExtractor={(item, index)=>index.toString()}
+                    showsHorizontalScrollIndicator={false}
+
+                    renderItem={({item})=>(
+                        <View style={{marginRight:5}}>
+                            <VendorCard 
+                                screenWidth={SCREEN_WIDTH*0.8}
+                                images={item.images}
+                                vendorName={item.VedorName}
+                                farAway={item.farAway}
+                                businessAddress={item.businessAddress}
+                                averageReview={item.averageReview}
+                                numberOfReview={item.numberOfReview}
+                            />
+                        </View>
+                    )}
+                />
+            </View>
+
+<View>
+<View style={styles.headerTextView}><Text style={styles.headerText}>Shops Nearby</Text></View>
+
+<View style={{width:SCREEN_WIDTH, paddingTop:10}}>
+    {
+vendorsData.map(item=>(
+    <View key ={item.id} style = {{paddingBottom:20}}>
+        <VendorCard
+            screenWidth={SCREEN_WIDTH*0.95}
+            images={item.images}
+            vendorName={item.VedorName}
+            farAway={item.farAway}
+            businessAddress={item.businessAddress}
+            averageReview={item.averageReview}
+            numberOfReview={item.numberOfReview}/>
+        
+        </View>
+))
+    }
+</View>
+</View>
+
+
+
             </ScrollView>
-           
+           {delivery &&
+            <View style={styles.floatButton}>
+            <TouchableOpacity
+                onPress={()=>{
+                    navigation.navigate('VendorsMapScreen')
+                }}
+            >
+
+                <Icon 
+                name="place"
+                type="material"
+                size={32}
+                color={colors.buttons}
+                
+                />
+                <Text style={{color:colors.grey2}}>Map</Text>
+            </TouchableOpacity>
+           </View>}
         </View>
     )
 }
@@ -211,6 +292,15 @@ const styles =StyleSheet.create({
             fontWeight:"bold",
             color:colors.grey2
         },
+        floatButton:{
+            position:'absolute',
+            bottom:10,right:15,
+            backgroundColor:'white',
+            elevation:10,
+            width:60, height:60,
+            borderRadius:30,
+            alignItems:"center"
+        }
 
 
 })

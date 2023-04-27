@@ -22,13 +22,12 @@ export default function VendorCard({
             <View style={{...styles.cardView,width:screenWidth}}>
                    <Image 
                         style={{...styles.image, width:screenWidth}}
-                        
-                        source={{uri:images}}
+                       // source={require('../images/durmaz.jpg')}
+                                                source={{uri:images}}                        
                         
                    />
-            </View>
 
-            <View>
+<View>
                 <View>
                     <Text style={styles.vendorName}>{vendorName}</Text>
                 </View>
@@ -50,9 +49,12 @@ export default function VendorCard({
                     </View>
                 </View>
             </View>
+            </View>
+
+           
             <View style={styles.review}>
                 <Text style={styles.average}>{averageReview}</Text>
-                <Text> {numberOfReview} reviews</Text>
+                <Text style={styles.numOfRev}> {numberOfReview} reviews</Text>
             </View>
         </TouchableOpacity>
     )
@@ -79,7 +81,8 @@ const styles = StyleSheet.create({
             fontSize:17,
             fontWeight:'bold',
             color:colors.grey1,
-            marginTop:5
+            marginTop:5,
+            marginLeft:10
         },
         distance:{
             flex:4,
@@ -114,5 +117,11 @@ const styles = StyleSheet.create({
         fontSize:20,
         fontWeight:"bold",
         marginTop:-3
-    }
+        },
+        numOfRev:{
+            color:"white",
+            marginRight:10,
+            marginLeft:0,
+            fontSize:13
+        }
 })
