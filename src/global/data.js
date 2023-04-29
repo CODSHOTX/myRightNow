@@ -1,11 +1,10 @@
 
 export const filterData = [{name:"Fast food", image: require('../images/burger.jpg'),id:"0"},
-                            {name:"Fashion", image: require('../images/burger.jpg'), id:"1"},
-                            {name:"Health", image: require('../images/burger.jpg'), id:"2"},
-                            {name:"Electronics", image: require('../images/burger.jpg'), id:"3"},
-                            {name:"Gaming", image: require('../images/burger.jpg'), id:"4"},
-                            {name:"Phones", image: require('../images/burger.jpg'), id:"5"},
-                            {name:"Sport", image: require('../images/burger.jpg'), id:"6"},
+                            {name:"Fashion", image: require('../images/clothes.jpg'), id:"1"},
+                            {name:"Health", image: require('../images/drugs_76x63.jpg'), id:"2"},
+                            {name:"Electronics", image: require('../images/electronics_76x63.jpg'), id:"3"},
+                            {name:"Gaming", image: require('../images/gaming_76x63.jpeg'), id:"4"},                            
+                            {name:"Shipping", image: require('../images/logo_76x63.png'), id:"5"},
 
                         ];
 

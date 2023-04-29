@@ -14,7 +14,7 @@ const BadgeIcon = withBadge(0)(Icon)
             color={colors.cardbackground}
             size = {32}
             onPress={()=>{
-                navigation.dispatch(DrawerActions.toggleDrawer());
+                navigation.toggleDrawer();
             }
             }
             />

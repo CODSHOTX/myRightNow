@@ -28,7 +28,7 @@ const Auth = createStackNavigator();
              />
 
 <Auth.Screen 
-            name ="HomeScreen"    component = {HomeScreen}   
+            name ="RootClientTabs"    component = {RootClientTabs}   
             options ={{
                 headerShown: false,
                 ...TransitionPresets.RevealFromBottomAndroid
@@ -42,6 +42,10 @@ const Auth = createStackNavigator();
                 ...TransitionPresets.RevealFromBottomAndroid
             }}          
              />
+
+
         </Auth.Navigator>
+
+
     )
  }
