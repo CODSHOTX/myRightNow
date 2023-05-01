@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "86422342206",
+    "project_id": "rightnow-e7d0e",
+    "storage_bucket": "rightnow-e7d0e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86422342206:android:a7d6406debf18162059f6f",
+        "android_client_info": {
+          "package_name": "com.group4.rightnow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86422342206-gvucdfbc0md3b8e1dt6p1vjudmri1vsk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXUdxfkyfAYY3zU67mFdjHEjEbSUV9_ds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "86422342206-gvucdfbc0md3b8e1dt6p1vjudmri1vsk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
