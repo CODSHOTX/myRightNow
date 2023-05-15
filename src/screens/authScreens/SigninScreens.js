@@ -4,12 +4,17 @@ import *  as Animatable from 'react-native-animatable'
 import { colors, parameters, title } from "../../global/styles";
 import Header from "../../components/Header"  
 import { Icon, Button, SocialIcon } from "@rneui/base";
+import {firebase} from '../../../firebaseConfig';
+
+
 
 export default function SignInScreen({navigation}){
     const[textInput2Fossued, setTextInput2Fossued]=useState(false)
 
     const textInput1 = useRef(1)
     const textInput2 = useRef(2)
+
+    
     return( 
         
         <View style ={styles.container}>
@@ -100,6 +105,9 @@ export default function SignInScreen({navigation}){
                 title="Create an account"
                 buttonStyle ={styles.createButton}
                 titleStyle ={styles.createButtonTitle}
+                onPress={()=>{
+                    navigation.navigate("SignUpScreen")
+                }}
                 />
              </View>
         </View>

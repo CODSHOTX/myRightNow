@@ -69,6 +69,9 @@ style ={{height:"100%", width:"100%"}}
                 title="Create an account"
                 buttonStyle ={styles.createButton}
                 titleStyle ={styles.createButtonTitle}
+                onPress={()=>{
+                    navigation.navigate("SignUpScreen")
+                }}
                 />
              </View>
 </View>
