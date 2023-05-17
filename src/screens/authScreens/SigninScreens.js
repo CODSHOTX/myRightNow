@@ -14,7 +14,16 @@ export default function SignInScreen({navigation}){
     const textInput1 = useRef(1)
     const textInput2 = useRef(2)
 
-    
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    loginUser=async(email, password) =>{
+        try {
+            await firebase.auth().signInWithEmailAndPassword(email, password)
+        } catch (error){
+            alert(error.message)
+        }
+    }
     return( 
         
         <View style ={styles.container}>
@@ -33,6 +42,9 @@ export default function SignInScreen({navigation}){
                     style={styles.TextInput}
                     placeholder="Email"
                     ref ={textInput1}
+                    onChangeText={(email) => setEmail(email)}
+                    autoCapitalize="none"
+                    autoCorrect={false}
                     />
                 </View>
                  <View style={styles.TextInput2}>
@@ -53,6 +65,10 @@ export default function SignInScreen({navigation}){
                     onBlur ={()=>{
                         setTextInput2Fossued(true)
                     }}
+                    onChangeText={(password)=> setPassword(password)}
+                    autoCapitalize="none"
+                    autoCorrect={false}
+                    secureTextEntry={true}
                     />
                 <Animatable.View animation={textInput2Fossued?"":"fadeInLeft"} duration={400} >
                 
@@ -70,7 +86,7 @@ export default function SignInScreen({navigation}){
                 title="Log in"
                 buttonStyle = {parameters.styledButton}
                 titleStyle = {parameters.buttonTitle}
-                onPress={()=>{navigation.navigate('RootClientTabs')}}
+                onPress={()=>loginUser(email, password)}
                  />
              </View>
              <View style = {{alignItems:"center", marginTop:5 }}>

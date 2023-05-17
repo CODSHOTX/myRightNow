@@ -6,12 +6,29 @@ import { colors } from "../global/styles";
 import { filterData, vendorsData  } from "../global/data";
 import VendorCard from "../components/VendorCard";
 import CountDown from "react-native-countdown-component";
+import { useEffect } from "react";
+import {firebase} from '../../firebaseConfig'
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 
 export default function HomeScreen({navigation}){
     const [delivery, setDelivery] = useState(true)
     const [indexCheck, setIndexCheck] = useState("0")
+    
+    const [fiName, setFname]=useState('')
+
+    useEffect(()=> {
+        firebase.firestore().collection('users')
+        .doc(firebase.auth().currentUser.uid).get()
+        .then((snapshot)=>{
+            if(snapshot.exists){
+                setFname(snapshot.data())
+            } 
+            else {
+                console.log('User does not exist')
+            }
+        })
+    }, [])
     return(
         <View style={styles.container}>
             <HomeHeader navigation={navigation} />

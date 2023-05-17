@@ -7,10 +7,46 @@ import { Formik } from "formik";
 import { Icon } from "@rneui/themed";
 import * as Animatable from 'react-native-animatable';
 import { Button } from "@rneui/base";
-
+import {firebase} from '../../../firebaseConfig';
 const initialValue ={pNumber:'', fName:'', lName:'', password:'', email:''}
 const SignUpscreen = ({navigation}) => {
+const [emails, setEmail]=useState('')
+const [fiName, setFname]=useState('')
+const [laName, setLname]=useState('')
+const [passwordz, setPassword]=useState('')
+const [phNum, setPhNum]=useState('')
 
+registerUser = async(phNum, emails, passwordz, fiName, laName,)=>{
+    await firebase.auth().createUserWithEmailAndPassword(emails, passwordz )
+    .then(() => {
+        firebase.auth().currentUser.sendEmailVerification({
+            handleCodeInApp: true,
+            url:'https://rightnow-e7d0e.firebaseapp.com'
+        })
+        .then(()=>{
+            alert('Verification email sent')
+        }).catch((error)=>{
+            alert(error.message)
+        })
+        .then(()=> {
+            firebase.firestore().collection('users')
+            .doc(firebase.auth().currentUser.uid)
+            .set({
+                phNum,
+                fiName,
+                laName,
+                emails,
+            })
+        })
+        .catch((error)=>{
+            alert(error.message)
+        })
+        
+    })
+    .catch((error => {
+        alert(error.message)
+    }))
+}
 const[passwordFocussed, setPasswordFocussed] = useState(false)
 const[passwordBlured, setPasswordBlured]=useState(false)
     return (
@@ -32,8 +68,9 @@ const[passwordBlured, setPasswordBlured]=useState(false)
                                     style = {styles.input1}
                                     keyboardType="number-pad"
                                     autoFocus = {true}
-                                    onChangeText={props.handleChange('pNumber')}
-                                    value={props.values.pNumber}
+                                    //onChangeText={props.handleChange('pNumber')}
+                                    onChangeText={(phNum)=> setPhNum(phNum)}
+                                  //  value={props.values.pNumber}
                                     />                            
                         </View>
                         <View style={styles.view6}>
@@ -42,8 +79,9 @@ const[passwordBlured, setPasswordBlured]=useState(false)
                                     style = {styles.input1}
                                     keyboardType="name-phone-pad"
                                     autoFocus = {false}
-                                    onChangeText={props.handleChange('fName')}
-                                    value={props.values.fName}
+                                    //onChangeText={props.handleChange('fName')}
+                                    onChangeText={(fiName)=> setFname(fiName)}
+                                   // value={props.values.fName}
                                     />                            
                         
                        
@@ -54,8 +92,9 @@ const[passwordBlured, setPasswordBlured]=useState(false)
                                     style = {styles.input1}
                                     keyboardType="name-phone-pad"
                                     autoFocus = {false}
-                                    onChangeText={props.handleChange('lName')}
-                                    value={props.values.lName}
+                                    //onChangeText={props.handleChange('lName')}
+                                    //value={props.values.lName}
+                                    onChangeText={(laName)=> setLname(laName)}
                                     />                            
                         </View>
                         
@@ -74,8 +113,9 @@ const[passwordBlured, setPasswordBlured]=useState(false)
                                     style = {styles.input4}
                                     keyboardType="email-address"
                                     autoFocus = {false}
-                                    onChangeText={props.handleChange('email')}
-                                    value={props.values.email}
+                                    //onChangeText={props.handleChange('email')}
+                                    //value={props.values.email}
+                                    onChangeText={(emails)=> setEmail(emails)}
                                     />                            
                         </View>
                         </View>
@@ -94,8 +134,9 @@ const[passwordBlured, setPasswordBlured]=useState(false)
                                     style = {{flex:1, height:45, marginLeft:9}}
                                     keyboardType="email-address"
                                     autoFocus = {false}
-                                    onChangeText={props.handleChange('password')}
-                                    value={props.values.password}
+                                   /* onChangeText={props.handleChange('password')}
+                                    value={props.values.password}*/
+                                    onChangeText={(passwordz)=> setPassword(passwordz)}
                                     onFocus={()=>{setPasswordFocussed(true)}}
                                     onBlur={()=>{setPasswordBlured(true)}}
                                     />   
@@ -115,7 +156,8 @@ const[passwordBlured, setPasswordBlured]=useState(false)
                                 title= "Create my account"
                                 buttonStyle ={styles.button1}
                                 titleStyle ={styles.tittle1}
-                                onPress={props.handleSubmit}
+                               // onPress={props.handleSubmit}
+                               onPress={()=>registerUser(phNum, emails, passwordz, fiName, laName)}
                             />
                         </View>
                         </View>

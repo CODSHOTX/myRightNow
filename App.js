@@ -5,6 +5,7 @@ import {firebase} from './firebaseConfig'
 import {View, Text, StyleSheet, StatusBar} from 'react-native'
 import {colors} from "./src/global/styles";
 import RootNavigator from "./src/navigation/rootNavigator";
+import UserStack from './src/navigation/userStack';
 
 
 export default function App(){
@@ -20,6 +21,7 @@ export default function App(){
     const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged)
     return subscriber;
   }, []);
+  if (initializing) return null;
     if (!user){
       return(
         <View style={styles.container}>
@@ -31,6 +33,15 @@ export default function App(){
         </View>
       )
     }
+    return(
+      <View style={styles.container}>
+          <StatusBar
+            barStyle="light-content"
+            backgroundColor={colors.statusbar}
+          />
+       <UserStack/>
+        </View>
+    );
   
 }
 

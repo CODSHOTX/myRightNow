@@ -36,25 +36,15 @@ const Auth = createStackNavigator();
             }}          
              />
 
-<Auth.Screen 
-            name ="RootClientTabs"    component = {RootClientTabs}   
-            options ={{
-                headerShown: false,
-                ...TransitionPresets.RevealFromBottomAndroid
-            }}          
-             />
 
-<Auth.Screen 
-            name ="VendorsMapScreen"    component = {VendorsMapScreen}   
-            options ={{
-                headerShown: false,
-                ...TransitionPresets.RevealFromBottomAndroid
-            }}          
-             />
 
 
         </Auth.Navigator>
 
+        
+
 
     )
  }
+
+ 
