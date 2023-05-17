@@ -13,7 +13,7 @@ export default function ClientStack(){
         <Auth.Navigator>
 
 <Auth.Screen 
-            name ="RootClientTabs"    component = {RootClientTabs}   
+            name ="DrawerNavigator"    component = {DrawerNavigator}   
             options ={{
                 headerShown: false,
                 ...TransitionPresets.RevealFromBottomAndroid
