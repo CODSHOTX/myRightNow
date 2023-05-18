@@ -3,6 +3,7 @@ import React from "react";
 import { createStackNavigator, TransitionPresets } from "@react-navigation/stack";
 
 import RootClientTabs from "./ClientTabs";
+import EditProfileScreen from "../screens/userScreens/EditProfileScreen";
 import VendorsMapScreen from "../screens/VendorsMapScreen";
 import DrawerNavigator from "./DrawerNavigator";
 
@@ -27,6 +28,13 @@ export default function ClientStack(){
                 ...TransitionPresets.RevealFromBottomAndroid
             }}          
              />
+
+<Auth.Screen
+            name="EditProfileScreen" component={EditProfileScreen}
+            options ={{
+                headerShown: false,
+                ...TransitionPresets.RevealFromBottomAndroid
+            }}          />
             </Auth.Navigator>
     )
 

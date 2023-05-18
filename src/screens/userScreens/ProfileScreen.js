@@ -1,25 +1,25 @@
-import React from "react";
-
+import React, { useState, useRef } from "react";
 import { View, Text, StyleSheet, Dimensions, TextInput } from 'react-native';
-import { colors, parameters, title } from "../global/styles";
-import HomeHeader from "../components/HomeHeader"
+import { colors, parameters, title } from "../../global/styles";
+import Header from "../../components/Header"
 import { Avatar } from 'react-native-paper';
 import { Table, TableWrapper, Col } from 'react-native-table-component';
 import { Button } from "@rneui/base";
 
 
 
-export default function MyAccountScreen({navigation}){
 
+function ProfileScreen({ navigation }) {
     return (
         <View style={styles.container}>
-          <HomeHeader navigation={navigation} />
+            <Header title="Profile" type="arrow-left" navigation={navigation} />
+
             <View >
 
                 <Table >
                     <TableWrapper style={{ flexDirection: 'row' }}>
                         <TableWrapper style={styles.profile} >
-                            <Avatar.Image size={120} source={require('../images/avater.jpg')} />
+                            <Avatar.Image size={120} source={require('../../images/ProfilePic/profile.jpg')} />
                         </TableWrapper>
 
                         <TableWrapper style={styles.detail}>
@@ -28,7 +28,7 @@ export default function MyAccountScreen({navigation}){
                         </TableWrapper>
                     </TableWrapper>
 
-                </Table> 
+                </Table>
             </View>
             <View style={{ marginTop: 30, marginHorizontal: 80, }}>
 
@@ -44,6 +44,7 @@ export default function MyAccountScreen({navigation}){
         </View >
     )
 }
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -68,3 +69,5 @@ const styles = StyleSheet.create({
 
     }
 });
+
+export default ProfileScreen
