@@ -44,26 +44,7 @@ export default function RootClientTabs(){
             />
 
 
-<ClientTabs.Screen
-                
-                name="SearchScreen" 
-                component={SearchScreen}
-                options={
-                    {
-                        headerShown:false,
-                        tabBarLabel : "Search",
-                        tabBarIcon:({color,size})=>(
-                            <Icon 
-                            name="search"
-                            type="material"
-                            color={color}
-                            size={size}
-                            />
-                        )
 
-                    }
-                }
-            />
 
 <ClientTabs.Screen
                 name="MyOrderScreen" 

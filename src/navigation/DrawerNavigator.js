@@ -2,7 +2,7 @@ import * as React from 'react';
 import { createDrawerNavigator,  } from "@react-navigation/drawer";
 import DrawerContent from '../screens/DrawerContent';
 import RootClientTabs from "./ClientTabs";
-
+import DriverConsoleScreen from '../screens/DriverConsoleScreen';
 import { Icon } from "@rneui/base";
 import { colors } from "../global/styles";
 
@@ -35,9 +35,9 @@ export default function DrawerNavigator(){
                 }}
             />
 
-{/*<Drawer.Screen
-                name="RootClientTabs"
-                component={RootClientTabs}
+<Drawer.Screen
+                name="DriverConsoleScreen"
+                component={DriverConsoleScreen}
 
                 options={
                     {
@@ -52,7 +52,7 @@ export default function DrawerNavigator(){
                             />
                     )
                 }}
-            />*/}
+            />
        </Drawer.Navigator>
     
     )
