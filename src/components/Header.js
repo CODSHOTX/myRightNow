@@ -1,38 +1,27 @@
 import React from "react";
-import {View, Text, StyleSheet, Dimensions} from 'react-native'
-import {colors, parameters} from '../global/styles'
+import { View, Text } from "react-native";
+import { colors } from "../global/styles";
 import { Icon } from "@rneui/base";
+import { headerStyle } from "./componentsStyles/headerStyle";
+import { SafeAreaView } from "react-native";
 
-export default function Header({title,type, navigation}){
-    return(
-        
-        <View style ={styles.header}>
-            <View style={{marginLeft:20}}>
-            <Icon 
-                type ="material-community"
-                name ={type}
-                color = {colors.headerText}
-                size ={28}
-                onPress ={()=>{navigation.goBack()}}
-                />
-               
-        </View>
-        <View>
-                    <Text style={styles.headerText}>{title}</Text>
-                </View>
-        </View>
-    )
+export default function Header({ title, type, navigation }) {
+  return (
+    <SafeAreaView style={headerStyle.header}>
+      <View style={{ marginLeft: 20 }}>
+        <Icon
+          type="material-community"
+          name={type}
+          color={colors.headerText}
+          size={28}
+          onPress={() => {
+            navigation.goBack();
+          }}
+        />
+      </View>
+      <View>
+        <Text style={headerStyle.headerText}>{title}</Text>
+      </View>
+    </SafeAreaView>
+  );
 }
-const styles = StyleSheet.create({
-    header :{
-        flexDirection:"row",
-        backgroundColor: colors.green,
-        height:parameters.headerHeight
-    },
-    headerText:{
-        color:colors.headerText,
-        fontSize:22,
-        fontWeight:"bold",
-        marginLeft:30
-    }
-})

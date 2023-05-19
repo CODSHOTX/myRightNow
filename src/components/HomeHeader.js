@@ -1,12 +1,14 @@
 import React from "react";
-
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text } from 'react-native';
 import { Icon, withBadge } from "@rneui/base";
-import {colors,parameters} from '../global/styles'
+import {colors} from "../global/styles";
+import { homeheaderStyle } from "./componentsStyles/homeheaderStyle";
 
 export default function HomeHeader({navigation}){
-const BadgeIcon = withBadge(0)(Icon)
-    return(<View style={styles.header}>
+
+    const BadgeIcon = withBadge(0)(Icon);
+
+    return(<View style={homeheaderStyle.header}>
         <View style={{alignItems:"center", justifyContent:'center', marginLeft:15}}>
             <Icon
             type="material-community"
@@ -35,11 +37,3 @@ const BadgeIcon = withBadge(0)(Icon)
     </View>)
 }
 
-const styles = StyleSheet.create({
-    header:{
-        flexDirection:'row',
-        backgroundColor:colors.buttons,
-        height:parameters.headerHeight,
-        justifyContent:'space-between'
-    }
-})
