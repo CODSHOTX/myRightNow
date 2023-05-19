@@ -48,7 +48,7 @@ export default function MyAccountScreen({navigation}){
                         </TableWrapper>
 
                         <TableWrapper style={styles.detail}>
-                            <Col data={[name.fiName+lName.laName, email.emails, pNum.phNum, country.country, city.city, address.street]}
+                            <Col data={[name.fiName+" "+lName.laName, email.emails, pNum.phNum, country.country, city.city, address.street]}
                                 heightArr={[30, 30, 30, 30, 30, 30]} width={200} />
                         </TableWrapper>
                     </TableWrapper>
