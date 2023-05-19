@@ -178,7 +178,7 @@ const[passwordBlured, setPasswordBlured]=useState(false)
                                 title="Sign-In"
                                 buttonStyle={styles.button2}
                                 titleStyle={styles.title2}
-                                onPress={()=>{navigation.navigate('SignInScreen')}}
+                                onPress={()=>{navigation.navigate('SigininScreen')}}
                             
                             />
 

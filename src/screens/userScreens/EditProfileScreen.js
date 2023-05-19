@@ -1,52 +1,43 @@
 import React, { useState, useRef } from "react";
-import { View, Text, StyleSheet, Dimensions, TextInput } from 'react-native'
+import { View, Text, StyleSheet, Dimensions, TextInput, SafeAreaView } from 'react-native'
 import *  as Animatable from 'react-native-animatable'
 import { colors, parameters, title } from "../../global/styles";
 import Header from "../../components/Header";
 import { Icon, Button, SocialIcon } from "@rneui/base";
 
+
 export default function EditProfileScreen({navigation}) {
     return (
         <View style={styles.container}>
-             <Header
+               <Header
              title="Edit Profile" type="arrow-left" navigation={navigation}  />
+             
 
 
             <View style={{ marginTop: 20 }}>
+               
                 <View >
                     <TextInput
                         style={styles.TextInput}
-                        placeholder="Alpha Sumareh"
+                        placeholder="Phone Number"
                     />
                 </View>
                 <View >
                     <TextInput
                         style={styles.TextInput}
-                        placeholder="Alpha@gmail.com"
+                        placeholder="Country"
                     />
                 </View>
                 <View >
                     <TextInput
                         style={styles.TextInput}
-                        placeholder="05332681470"
+                        placeholder="City"
                     />
                 </View>
                 <View >
                     <TextInput
                         style={styles.TextInput}
-                        placeholder="North Cyprus"
-                    />
-                </View>
-                <View >
-                    <TextInput
-                        style={styles.TextInput}
-                        placeholder="Gazimagusa"
-                    />
-                </View>
-                <View >
-                    <TextInput
-                        style={styles.TextInput}
-                        placeholder="Messan Apt. Salamis Road"
+                        placeholder="Street address"
                     />
                 </View>
 
