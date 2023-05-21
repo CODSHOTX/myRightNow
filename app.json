@@ -19,7 +19,7 @@
       "buildNumber": "1.0.0",
       "supportsTablet": true,
       "config": {
-        "googleMapsApiKey": "AIzaSyDi9uElsTfa0hs8HRpAW7bVnAYcw1gJKoU"
+        "googleMapsApiKey": "AIzaSyDudiLNW2DhHRr3f_nuirYkmY7asuHSa2Q"
       }
     },
     "android": {
@@ -31,12 +31,17 @@
       },
       "config": {
         "googleMaps": {
-          "apiKey": "AIzaSyA_qJAfp0L9PYZ_gibjRuyThGezuwi4jWk"
+          "apiKey": "AIzaSyBcR4pkViLtew8Uh1TtZCEqXL2Ips-7Qjw"
         }
       }
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "d2dd62ea-b5f6-436c-bc90-b9f3c6f6291f"
+      }
     }
   }
 }

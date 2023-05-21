@@ -25,7 +25,7 @@ export default function SignInScreen({ navigation }) {
   };
   return (
     <SafeAreaView style={signinscreenStyle.container}>
-      <Header title="rightNOW" type="arrow-left" navigation={navigation} />
+      <Header title="RightNOW" type="arrow-left" navigation={navigation} />
       <View style={signinscreenStyle.backcolor}>
 
 

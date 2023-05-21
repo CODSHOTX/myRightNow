@@ -11,23 +11,22 @@ const Drawer = createDrawerNavigator();
 export default function DrawerNavigator() {
   return (
     <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
-<Drawer.Screen
-  name="RootClientTabs"
-  component={RootClientTabs}
-  options={{
-    title: "Client",
-    headerShown: false,
-    drawerIcon: ({ focused, size }) => (
-      <Icon
-        type="material-community"
-        name="home"
-        color={focused ? "#74D24F" : "black"}
-        size={size}
+      <Drawer.Screen
+        name="RootClientTabs"
+        component={RootClientTabs}
+        options={{
+          title: "Client",
+          headerShown: false,
+          drawerIcon: ({ focused, size }) => (
+            <Icon
+              type="material-community"
+              name="home"
+              color={focused ? "#74D24F" : "black"}
+              size={size}
+            />
+          ),
+        }}
       />
-    ),
-  }}
-/>
-
 
       <Drawer.Screen
         name="DriverConsoleScreen"
