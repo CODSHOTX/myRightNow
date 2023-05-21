@@ -19,7 +19,11 @@
       "buildNumber": "1.0.0",
       "supportsTablet": true,
       "config": {
+<<<<<<< HEAD
         "googleMapsApiKey": "AIzaSyDudiLNW2DhHRr3f_nuirYkmY7asuHSa2Q"
+=======
+        "googleMapsApiKey": " "
+>>>>>>> 29756108dc834f1ef34ebffeb7cb5650d10c3d69
       }
     },
     "android": {
@@ -31,7 +35,11 @@
       },
       "config": {
         "googleMaps": {
+<<<<<<< HEAD
           "apiKey": "AIzaSyBcR4pkViLtew8Uh1TtZCEqXL2Ips-7Qjw"
+=======
+          "apiKey": " "
+>>>>>>> 29756108dc834f1ef34ebffeb7cb5650d10c3d69
         }
       }
     },
