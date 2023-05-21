@@ -1,5 +1,5 @@
 import React from "react";
-import {View, Text } from 'react-native';
+import {View, Text, SafeAreaView } from 'react-native';
 import { Icon, withBadge } from "@rneui/base";
 import {colors} from "../global/styles";
 import { homeheaderStyle } from "./componentsStyles/homeheaderStyle";
@@ -8,12 +8,13 @@ export default function HomeHeader({navigation}){
 
     const BadgeIcon = withBadge(0)(Icon);
 
-    return(<View style={homeheaderStyle.header}>
-        <View style={{alignItems:"center", justifyContent:'center', marginLeft:15}}>
+    return(
+    <SafeAreaView style={homeheaderStyle.header}>
+        <View style={homeheaderStyle.veiw1}>
             <Icon
             type="material-community"
             name="menu"
-            color={colors.cardbackground}
+            color="#74D24F"
             size = {32}
             onPress={()=>{
                 navigation.toggleDrawer()
@@ -21,19 +22,20 @@ export default function HomeHeader({navigation}){
             }
             />
         </View>
-        <View style={{alignItems:"center", justifyContent:"center"}}>
-            <Text style ={{color:colors.cardbackground, fontSize:25, fontWeight:'bold'}}>rightNOW</Text>
+        <View style={homeheaderStyle.veiw2}>
+            <Text style ={homeheaderStyle.text1}>RightNOW</Text>
         </View>
 
-        <View style={{alignItems:"center", justifyContent:"center", marginRight:15}}>
+        <View style={homeheaderStyle.veiw3}>
             <BadgeIcon
             type ="material-community"
             name="cart"
             size={35}
-            color={colors.cardbackground}
+            color="#74D24F"
             />
         </View>
 
-    </View>)
+    </SafeAreaView>
+    )
 }
 

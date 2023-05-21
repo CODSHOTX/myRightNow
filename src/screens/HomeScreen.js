@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Pressable, ScrollView, FlatList, Image, Dimensions,  SafeAreaView} from "react-native";
-import { homeStyle } from "./ScreenStyles/HomeStyle";
+import { homeStyle } from "../screens/screenStyles/HomeStyle"
 import { Icon } from "@rneui/base";
 import HomeHeader from "../components/HomeHeader";
 import { colors } from "../global/styles";
@@ -12,7 +12,6 @@ import { firebase } from "../../firebaseConfig";
 
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
-<<<<<<< HEAD
 export default function HomeScreen({ navigation }) {
   const [delivery, setDelivery] = useState(true);
   const [indexCheck, setIndexCheck] = useState("0");
@@ -30,126 +29,18 @@ export default function HomeScreen({ navigation }) {
           setFname(snapshot.data());
         } else {
           console.log("User does not exist");
-=======
-export default function HomeScreen({navigation}){
-    const [delivery, setDelivery] = useState(true)
-    const [indexCheck, setIndexCheck] = useState("0")
-    
-    const [address, setAddress]=useState('')
-
-    useEffect(()=> {
-        firebase.firestore().collection('users')
-        .doc(firebase.auth().currentUser.uid).get()
-        .then((snapshot)=>{
-            if(snapshot.exists){
-                setAddress(snapshot.data())
-            } 
-            else {
-                console.log('User does not exist')
-            }
-        })
-    }, [])
-    return(
-        <View style={styles.container}>
-            <HomeHeader navigation={navigation} />
-<ScrollView
-    stickyHeaderIndices={[0]}
-    showsVerticalScrollIndicator={true}
->
-    <View style ={{backgroundColor:colors.cardbackground, paddingBottom:5}}>
-            <View style = {{marginTop:10, flexDirection:"row",justifyContent:'space-evenly'}}>
-                <TouchableOpacity 
-                 onPress ={()=>{
-                    setDelivery(true)
-                }}
-                >
-                    
-                    <View style ={{...styles.deliveryButton,backgroundColor:delivery?colors.buttons :colors.grey5}}>
-<Text style = {styles.deliveryText}>Delivery</Text>
-                    </View>
-                </TouchableOpacity>
-
-                <TouchableOpacity
-                onPress ={()=>{
-                    setDelivery(false)
-                    navigation.navigate("VendorsMapScreen")
-                }}
-                >
-                
-                    <View style ={{...styles.deliveryButton,backgroundColor:delivery?colors.grey5 :colors.buttons}}>
-<Text style = {styles.deliveryText}>Pick Up</Text>
-                    </View>
-                </TouchableOpacity>
-            </View>
-
-            </View>
-            <View style ={styles.filterView}>
-<View style={styles.addressView}>
-    <View style={{flexDirection:"row",alignItems:'center',paddingLeft:10 }}>
-        <Icon
-            type="material-community"
-            name = "map-marker"
-            color="#BF181D"
-            size ={26}
-        />
-        <Text style={{marginLeft:5}}>{address.street}</Text>
-    </View>
-
-    <View style={styles.clock}>
-        <Icon
-            type="material-community"
-            name = "clock-time-four"
-            color={colors.grey1}
-            size ={26}
-        />
-        <Text style={{marginLeft:5}}>Now</Text>
-    </View>
-
-</View>
-<View>
-<Icon
-            type="material-community"
-            name = "tune"
-            color={colors.grey1}
-            size ={26}
-        />
-</View>
-</View>
-<View style={styles.headerTextView}><Text style={styles.headerText}>Categories:</Text></View>
-           
-           <View>
-            <FlatList 
-            horizontal ={true}
-            showsHorizontalScrollIndicator={false}
-            data= {filterData}
-            keyExtractor={(item)=>item.id}
-            extraData={indexCheck}
-            renderItem={({item, index})=>(
-<Pressable 
-onPress= {()=>{setIndexCheck(item.id)}}>
-    <View style={indexCheck === item.id ? {...styles.smallCardSelected} : {...styles.smallCard}}>
-<Image 
-
-style={{height:60,width:60,borderRadius:30}}
-source ={item.image}
-/> 
-<View>
-    <Text style ={indexCheck === item.id ? {...styles.smallCardTextSelected}:{...styles.smallCardText}}>{item.name}</Text>
-</View>
-    </View>
-</Pressable>
-            )
->>>>>>> fd3d0bd7688722323528df6858e665f6ef65b445
         }
       });
   }, []);
 
   return (
-    <SafeAreaView style={homeStyle.container}>
+    <SafeAreaView style={homeStyle.safeview}>
+      <View style={homeStyle.container}>
+
       <HomeHeader navigation={navigation} />
       <ScrollView stickyHeaderIndices={[0]} showsVerticalScrollIndicator={true}>
         <View
-          style={{ backgroundColor: colors.cardbackground, paddingBottom: 5 }}
+          style={homeStyle.view2}
         >
           <View
             style={{
@@ -166,7 +57,7 @@ source ={item.image}
               <View
                 style={{
                   ...homeStyle.deliveryButton,
-                  backgroundColor: delivery ? colors.buttons : colors.grey5,
+                  backgroundColor: delivery ? "#74D24F" : "#F5F5F5",
                 }}
               >
                 <Text style={homeStyle.deliveryText}>Delivery</Text>
@@ -182,7 +73,7 @@ source ={item.image}
               <View
                 style={{
                   ...homeStyle.deliveryButton,
-                  backgroundColor: delivery ? colors.grey5 : colors.buttons,
+                  backgroundColor: delivery ? "#F5F5F5" : "#74D24F",
                 }}
               >
                 <Text style={homeStyle.deliveryText}>Pick Up</Text>
@@ -202,27 +93,27 @@ source ={item.image}
               <Icon
                 type="material-community"
                 name="map-marker"
-                color="#BF181D"
+                color="#74D24F"
                 size={26}
               />
-              <Text style={{ marginLeft: 5 }}>22 Beessie Street</Text>
+              <Text style={{ marginLeft: 5, color: "#74D24F" }}>22 Beessie Street</Text>
             </View>
 
             <View style={homeStyle.clock}>
               <Icon
                 type="material-community"
                 name="clock-time-four"
-                color={colors.grey1}
+                color="#74D24F"
                 size={26}
               />
-              <Text style={{ marginLeft: 5 }}>Now</Text>
+              <Text style={{ marginLeft: 5, color:"#74D24F" }}>Now</Text>
             </View>
           </View>
           <View>
             <Icon
               type="material-community"
               name="tune"
-              color={colors.grey1}
+              color="#74D24F"
               size={26}
             />
           </View>
@@ -373,12 +264,13 @@ source ={item.image}
               name="place"
               type="material"
               size={32}
-              color={colors.buttons}
+              color="#74D24F"
             />
-            <Text style={{ color: colors.grey2 }}>Map</Text>
+            <Text style={{ color: "#74D24F" }}>Map</Text>
           </TouchableOpacity>
         </View>
       )}
+      </View>
     </SafeAreaView>
   );
 }

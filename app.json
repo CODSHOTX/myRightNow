@@ -17,7 +17,10 @@
     "ios": {
       "bundleIdentifier": "com.group4.rightnow",
       "buildNumber": "1.0.0",
-      "supportsTablet": true
+      "supportsTablet": true,
+      "config": {
+        "googleMapsApiKey": "AIzaSyDi9uElsTfa0hs8HRpAW7bVnAYcw1gJKoU"
+      }
     },
     "android": {
       "package": "com.group4.rightnow",
@@ -25,6 +28,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
+      },
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyA_qJAfp0L9PYZ_gibjRuyThGezuwi4jWk"
+        }
       }
     },
     "web": {

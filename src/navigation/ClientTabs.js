@@ -13,7 +13,7 @@ export default function RootClientTabs(){
     return(
         <ClientTabs.Navigator
                     screenOptions ={{
-                        "tabBarActiveTintColor": "#116530",
+                        "tabBarActiveTintColor": "#74D24F",
                         "tabBarStyle":[
                             {
                                 "display":"flex"

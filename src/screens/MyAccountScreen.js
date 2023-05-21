@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import {firebase} from '../../firebaseConfig'
-import { View, Text, StyleSheet, Dimensions, TextInput } from 'react-native';
-import { colors, parameters, title } from "../global/styles";
+import { View, Text, StyleSheet, Dimensions, TextInput, SafeAreaView } from 'react-native';
+import { parameters } from "../global/styles";
 import HomeHeader from "../components/HomeHeader"
 import { Avatar } from 'react-native-paper';
 import { Table, TableWrapper, Col } from 'react-native-table-component';
 import { Button } from "@rneui/base";
+import { myaccountStyle } from "./screenStyles/MyAccountStyle";
 
 
 
@@ -37,17 +38,19 @@ export default function MyAccountScreen({navigation}){
         })
     }, [])
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={myaccountStyle.container}>
+            <View style={myaccountStyle.view1}>
+
           <HomeHeader navigation={navigation} />
             <View >
 
                 <Table >
                     <TableWrapper style={{ flexDirection: 'row' }}>
-                        <TableWrapper style={styles.profile} >
+                        <TableWrapper style={myaccountStyle.profile} >
                             <Avatar.Image size={120} source={require('../images/avater.jpg')} />
                         </TableWrapper>
 
-                        <TableWrapper style={styles.detail}>
+                        <TableWrapper style={myaccountStyle.detail}>
                             <Col data={[name.fiName+" "+lName.laName, email.emails, pNum.phNum, country.country, city.city, address.street]}
                                 heightArr={[30, 30, 30, 30, 30, 30]} width={200} />
                         </TableWrapper>
@@ -63,33 +66,10 @@ export default function MyAccountScreen({navigation}){
                         navigation.navigate("EditProfileScreen")
                     }}></Button>
             </View>
+            </View>
 
 
 
-        </View >
+        </SafeAreaView>
     )
 }
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-
-    profile: {
-        width: 150,
-        height: 120,
-        paddingTop: 30,
-        marginLeft: 30,
-    },
-
-    detail: {
-        margin: 6,
-        paddingTop: 20,
-    },
-
-    edit: {
-        fontSize: 18,
-        backgroundColor: colors.green,
-        backgroundColor: 'red'
-
-    }
-});

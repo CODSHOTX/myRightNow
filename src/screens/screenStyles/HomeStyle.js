@@ -2,9 +2,17 @@ import { StyleSheet } from "react-native";
 import { colors } from "../../global/styles";
 
 export const homeStyle = StyleSheet.create({
+  safeview: {
+    flex: 1,
+    backgroundColor: "#F5F5F5"
+  },
+  view2: {
+    backgroundColor: "white", 
+    paddingBottom: 5 
+  },
   container: {
     flex: 1,
-    backgroundColor: "#C9C9C7"
+    backgroundColor: "white"
   },
   deliveryButton: {
     paddingHorizontal: 20,
@@ -13,7 +21,8 @@ export const homeStyle = StyleSheet.create({
   },
   deliveryText: {
     marginLeft: 5,
-    fontSize: 16
+    fontSize: 16,
+    color: "white"
   },
   filterView: {
     flexDirection: "row",
@@ -33,7 +42,7 @@ export const homeStyle = StyleSheet.create({
   },
   addressView: {
     flexDirection: "row",
-    backgroundColor: colors.grey5,
+    backgroundColor: "#F5F5F5",
     borderRadius: 15,
     paddingVertical: 3,
     justifyContent: "space-between",

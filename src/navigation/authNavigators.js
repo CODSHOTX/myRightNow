@@ -1,5 +1,4 @@
 import React from "react";
-
 import { createStackNavigator, TransitionPresets } from "@react-navigation/stack";
 import SignInWelcomeScreen from "../screens/authScreens/SigninWelcomeScrn";
 import SignInScreen from "../screens/authScreens/SigninScreens";
@@ -36,13 +35,7 @@ const Auth = createStackNavigator();
             }}          
              />
 
-
-
-
         </Auth.Navigator>
-
-        
-
 
     )
  }
