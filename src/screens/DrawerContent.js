@@ -54,7 +54,55 @@ export default function DrawerContent(props) {
         </View>
 
         <DrawerItemList {...props} />
+        <DrawerItem
+                    label="Payment"
+                    icon={({color, size})=>(
+                        <Icon
+                         type='material-comunity'
+                         name='credit-card'
+                         color={color}
+                         size={size}
+                         />
+                    )}
+                    />
+
+<DrawerItem
+                    label="Settings"
+                    icon={({color, size})=>(
+                        <Icon
+                         type='material-comunity'
+                         name='settings'
+                         color={color}
+                         size={size}
+                         />
+                    )}
+                    />
+
+<DrawerItem
+                    label="Help"
+                    icon={({color, size})=>(
+                        <Icon
+                         type='material-comunity'
+                         name='help'
+                         color={color}
+                         size={size}
+                         />
+                    )}
+                    />
       </DrawerContentScrollView>
+
+      <DrawerItem
+                    label="Sign out"
+                    onPress={()=> firebase.auth().signOut()}
+                    icon={({color, size})=>(
+                        <Icon
+                         type='material-comunity'
+                         name='logout'
+                         color={color}
+                         size={size}
+                         />
+                    )}
+                    />
     </SafeAreaView>
   );
 }
