@@ -12,3 +12,4 @@ npm install @react-navigation/native
 npx expo install react-native-gesture-handler
 npm install @react-navigation/stack
 npm i react-native-reanimated
+npx expo install react-native-maps
