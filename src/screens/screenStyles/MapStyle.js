@@ -13,8 +13,8 @@ export const mapStyle = StyleSheet.create({
         flex: 1 
     },
     markerImage:{
-        width: 25,
-        height: 25
+        width: 32,
+        height: 32
     },
     fab:{
         position: "absolute",
