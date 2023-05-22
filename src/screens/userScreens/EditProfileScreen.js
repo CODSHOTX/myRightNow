@@ -4,11 +4,11 @@ import { editprofileStyle } from "./EditProfileStyle";
 
 import React, { useState, useRef, useEffect } from "react";
 import { View, Text, StyleSheet, Dimensions, TextInput, SafeAreaView } from 'react-native'
-import *  as Animatable from 'react-native-animatable'
+
 import { colors, parameters, title } from "../../global/styles";
 import Header from "../../components/Header";
 import { Icon, Button, SocialIcon } from "@rneui/base";
-import { updateProfile } from "../../global/controller";
+
 import {firebase} from "../../../firebaseConfig";
 
 export default function EditProfileScreen({navigation}) {

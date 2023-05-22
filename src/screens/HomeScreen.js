@@ -16,7 +16,7 @@ export default function HomeScreen({ navigation }) {
   const [delivery, setDelivery] = useState(true);
   const [indexCheck, setIndexCheck] = useState("0");
 
-  const [fiName, setFname] = useState("");
+  const [street, setStreet] = useState("");
 
   useEffect(() => {
     firebase
@@ -26,7 +26,7 @@ export default function HomeScreen({ navigation }) {
       .get()
       .then((snapshot) => {
         if (snapshot.exists) {
-          setFname(snapshot.data());
+          setStreet(snapshot.data());
         } else {
           console.log("User does not exist");
         }
@@ -97,7 +97,7 @@ export default function HomeScreen({ navigation }) {
                   size={26}
                 />
                 <Text style={{ marginLeft: 5, color: "#74D24F" }}>
-                  22 Beessie Street
+                  {street.street}
                 </Text>
               </View>
 

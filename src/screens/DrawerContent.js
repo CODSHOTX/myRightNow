@@ -9,6 +9,7 @@ import { drawerStyle } from "./screenStyles/DrawerContentStyle";
 export default function DrawerContent(props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+ 
 
   useEffect(() => {
     firebase
@@ -54,13 +55,14 @@ export default function DrawerContent(props) {
         </View>
 
         <DrawerItemList {...props} />
+        
         <DrawerItem
                     label="Payment"
                     icon={({color, size})=>(
                         <Icon
                          type='material-comunity'
                          name='credit-card'
-                         color={color}
+                         color="#74D24F"
                          size={size}
                          />
                     )}
@@ -72,7 +74,7 @@ export default function DrawerContent(props) {
                         <Icon
                          type='material-comunity'
                          name='settings'
-                         color={color}
+                         color="#74D24F"
                          size={size}
                          />
                     )}
@@ -84,7 +86,7 @@ export default function DrawerContent(props) {
                         <Icon
                          type='material-comunity'
                          name='help'
-                         color={color}
+                         color="#74D24F"
                          size={size}
                          />
                     )}
@@ -98,7 +100,7 @@ export default function DrawerContent(props) {
                         <Icon
                          type='material-comunity'
                          name='logout'
-                         color={color}
+                         color="#74D24F"
                          size={size}
                          />
                     )}
