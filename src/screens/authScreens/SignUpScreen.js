@@ -24,8 +24,9 @@ const SignUpscreen = ({ navigation }) => {
   const [laName, setLname] = useState("");
   const [passwordz, setPassword] = useState("");
   const [phNum, setPhNum] = useState("");
+  const role = "user";
 
-  registerUser = async (phNum, emails, passwordz, fiName, laName) => {
+  registerUser = async (phNum, emails, passwordz, fiName, laName, role) => {
     await firebase
       .auth()
       .createUserWithEmailAndPassword(emails, passwordz)
@@ -52,6 +53,7 @@ const SignUpscreen = ({ navigation }) => {
                 fiName,
                 laName,
                 emails,
+                role,
               });
           })
           .catch((error) => {
@@ -180,7 +182,7 @@ const SignUpscreen = ({ navigation }) => {
                   titleStyle={signupscreenStyle.tittle1}
                   // onPress={props.handleSubmit}
                   onPress={() =>
-                    registerUser(phNum, emails, passwordz, fiName, laName)
+                    registerUser(phNum, emails, passwordz, fiName, laName, role)
                   }
                 />
               </View>
