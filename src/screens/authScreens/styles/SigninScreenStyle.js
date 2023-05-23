@@ -20,6 +20,7 @@ export const signinscreenStyle = StyleSheet.create({
       borderRadius: 12,
       marginBottom: 20,
       padding: 10,
+      height: 50
     },
     TextInput2: {
       borderWidth: 1,
@@ -31,11 +32,11 @@ export const signinscreenStyle = StyleSheet.create({
       alignContent: "center",
       alignItems: "center",
       padding: 10,
+      height: 50
     },
     SocialIcon: {
       width: "90%",
-  
-      height: 50,
+      height: 50
     },
     createButton: {
       backgroundColor: "white",

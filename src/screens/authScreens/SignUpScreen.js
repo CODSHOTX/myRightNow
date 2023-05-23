@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View, ScrollView, TextInput } from "react-native";
+import {  Text, View, ScrollView, TextInput } from "react-native";
 import { colors } from "../../global/styles";
 import { signupscreenStyle } from "./styles/SignupScreenStyle";
 import Header from "../../components/Header";
@@ -11,9 +11,10 @@ import { firebase } from "../../../firebaseConfig";
 import { SafeAreaView } from "react-native";
 
 const initialValue = {
-  pNumber: "",
+ 
   fName: "",
   lName: "",
+  pNumber: "",
   password: "",
   email: ""
 };
@@ -49,9 +50,9 @@ const SignUpscreen = ({ navigation }) => {
               .collection("users")
               .doc(firebase.auth().currentUser.uid)
               .set({
-                phNum,
                 fiName,
                 laName,
+                phNum,
                 emails,
                 role,
               });
@@ -68,14 +69,14 @@ const SignUpscreen = ({ navigation }) => {
   const [passwordBlured, setPasswordBlured] = useState(false);
   return (
     <SafeAreaView style={signupscreenStyle.container}>
-      <Header title="rightNOW" type="arrow-left" navigation={navigation} />
+      <Header title="RightNOW" type="arrow-left" navigation={navigation} />
       <ScrollView keyboardShouldPersistTaps="always">
         <View style={signupscreenStyle.backcolor}>
           <Text style={signupscreenStyle.text1}>Sign-Up</Text>
         </View>
         <Formik
           initialValues={initialValue}
-          onSubmit={(value) => {
+          onSubmit={(values) => {
             SignUpscreen(values);
           }}
         >
@@ -84,17 +85,7 @@ const SignUpscreen = ({ navigation }) => {
               <View>
                 <Text style={signupscreenStyle.text2}>New on RightNow</Text>
               </View>
-              <View style={signupscreenStyle.view6}>
-                <TextInput
-                  placeholder=" Number"
-                  style={signupscreenStyle.input1}
-                  keyboardType="number-pad"
-                  autoFocus={true}
-                  //onChangeText={props.handleChange('pNumber')}
-                  onChangeText={(phNum) => setPhNum(phNum)}
-                  //  value={props.values.pNumber}
-                />
-              </View>
+              
               <View style={signupscreenStyle.view6}>
                 <TextInput
                   placeholder="First Name"
@@ -117,7 +108,17 @@ const SignUpscreen = ({ navigation }) => {
                   onChangeText={(laName) => setLname(laName)}
                 />
               </View>
-
+              <View style={signupscreenStyle.view6}>
+                <TextInput
+                  placeholder=" Number"
+                  style={signupscreenStyle.input1}
+                  keyboardType="number-pad"
+                  autoFocus={false}
+                  //onChangeText={props.handleChange('pNumber')}
+                  onChangeText={(phNum) => setPhNum(phNum)}
+                  //  value={props.values.pNumber}
+                />
+              </View>
               <View style={signupscreenStyle.view10}>
                 <View>
                   <Icon
@@ -149,7 +150,7 @@ const SignUpscreen = ({ navigation }) => {
                 </Animatable.View>
                 <TextInput
                   placeholder="Password"
-                  style={{ flex: 1, height: 45, marginLeft: 9 }}
+                  style={signupscreenStyle.pinput}
                   keyboardType="email-address"
                   autoFocus={false}
                   /* onChangeText={props.handleChange('password')}

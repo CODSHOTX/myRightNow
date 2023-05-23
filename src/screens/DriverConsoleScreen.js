@@ -1,10 +1,11 @@
 import React from "react";
+import { SafeAreaView } from "react-native";
 import { View, Text } from "react-native-animatable";
 
 export default function DriverConsoleScreen(){
     return(
-        <View>
+        <SafeAreaView>
             <Text>Driver console screen</Text>
-        </View>
+        </SafeAreaView>
     )
 }
