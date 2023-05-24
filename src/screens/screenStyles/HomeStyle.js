@@ -104,4 +104,16 @@ export const homeStyle = StyleSheet.create({
     borderRadius: 30,
     alignItems: "center",
   },
+  borderDox:
+  {flex:1,
+     borderColor:colors.green,
+      borderWidth:2,
+      borderRadius:12
+  },
+  cont:{
+    flexDirection: 'row', // Arrange items in a row
+    alignItems: 'center', // Align items vertically in the center
+    padding: 16, // Adjust the padding as needed
+  }
+  
 });

@@ -1,11 +1,21 @@
 import React from "react";
-import { SafeAreaView } from "react-native";
-import { View, Text } from "react-native-animatable";
+import { SafeAreaView, View, Text } from "react-native";
 
-export default function DriverConsoleScreen(){
+import { homeStyle } from "./screenStyles/HomeStyle";
+
+import CourierHeader from "../components/CourierHeader";
+
+export default function DriverConsoleScreen({navigation}){
     return(
         <SafeAreaView>
+            <View style={homeStyle.container} >
+          <CourierHeader navigation={navigation}/>
+            <View>
             <Text>Driver console screen</Text>
+            </View>
+            </View>
+           
+          
         </SafeAreaView>
-    )
+    );
 }

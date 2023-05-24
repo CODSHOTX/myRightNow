@@ -6,6 +6,8 @@ import RootClientTabs from "./ClientTabs";
 import DriverConsoleScreen from "../screens/DriverConsoleScreen";
 import {firebase} from "../../firebaseConfig"
 import { Icon } from "@rneui/base";
+import Application from "../screens/ApplicationScreen";
+import ApplicationScreen from "../screens/ApplicationScreen";
 
 const Drawer = createDrawerNavigator();
 
@@ -79,11 +81,8 @@ return(
              name="bike"
              color={focused ? "black" : "#74D24F"}
              size={size}
-           />
-
-           
-           
-         ),
+           />        
+          ),
        }}
      />
 
@@ -111,8 +110,8 @@ return(
     />
   
     <Drawer.Screen
-      name="Application"
-      component={DriverConsoleScreen}
+      name="ApplicationScreen"
+   component={ApplicationScreen}
       options={{
         title: "Apply",
         headerShown: false,

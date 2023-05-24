@@ -120,10 +120,7 @@ export default function HomeScreen({ navigation }) {
               />
             </View>
           </View>
-          <View style={homeStyle.headerTextView}>
-            <Text style={homeStyle.headerText}>Categories:</Text>
-          </View>
-
+         
           <View>
             <FlatList
               horizontal={true}
@@ -164,107 +161,25 @@ export default function HomeScreen({ navigation }) {
               )}
             />
           </View>
-          <View style={homeStyle.headerTextView}>
-            <Text style={homeStyle.headerText}>Free Delivery now:</Text>
-          </View>
-
-          <View>
-            <View
-              style={{
-                flexDirection: "row",
-                alignItems: "center",
-                padding: 10,
-              }}
-            >
-              <Text
-                style={{
-                  marginLeft: 15,
-                  fontSize: 16,
-                  marginTop: -10,
-                  marginRight: 5,
-                }}
-              >
-                Options changing in
-              </Text>
-            </View>
-
-            <FlatList
-              style={{ marginTop: 10, marginBottom: 10 }}
-              horizontal={true}
-              data={vendorsData}
-              keyExtractor={(item, index) => index.toString()}
-              showsHorizontalScrollIndicator={false}
-              renderItem={({ item }) => (
-                <View style={{ marginRight: 5 }}>
-                  <VendorCard
-                    screenWidth={SCREEN_WIDTH * 0.8}
-                    images={item.images}
-                    vendorName={item.VedorName}
-                    farAway={item.farAway}
-                    businessAddress={item.businessAddress}
-                    averageReview={item.averageReview}
-                    numberOfReview={item.numberOfReview}
-                  />
-                </View>
-              )}
-            />
-          </View>
-
-          <View style={homeStyle.headerTextView}>
-            <Text style={homeStyle.headerText}>Promotions available:</Text>
-          </View>
-
-          <View>
-            <FlatList
-              style={{ marginTop: 10, marginBottom: 10 }}
-              horizontal={true}
-              data={vendorsData}
-              keyExtractor={(item, index) => index.toString()}
-              showsHorizontalScrollIndicator={false}
-              renderItem={({ item }) => (
-                <View style={{ marginRight: 5 }}>
-                  <VendorCard
-                    screenWidth={SCREEN_WIDTH * 0.8}
-                    images={item.images}
-                    vendorName={item.VedorName}
-                    farAway={item.farAway}
-                    businessAddress={item.businessAddress}
-                    averageReview={item.averageReview}
-                    numberOfReview={item.numberOfReview}
-                  />
-                </View>
-              )}
-            />
-          </View>
-
-          <View>
-            <View style={homeStyle.headerTextView}>
-              <Text style={homeStyle.headerText}>Shops Nearby</Text>
-            </View>
-
-            <View style={{ width: SCREEN_WIDTH, paddingTop: 10 }}>
-              {vendorsData.map((item) => (
-                <View key={item.id} style={{ paddingBottom: 20 }}>
-                  <VendorCard
-                    screenWidth={SCREEN_WIDTH * 0.95}
-                    images={item.images}
-                    vendorName={item.VedorName}
-                    farAway={item.farAway}
-                    businessAddress={item.businessAddress}
-                    averageReview={item.averageReview}
-                    numberOfReview={item.numberOfReview}
-                  />
-                </View>
-              ))}
+          <TouchableOpacity>
+          <View style={homeStyle.borderDox}>
+            <View style={homeStyle.cont}>
+              <Image
+              style={{height:60, width:60, borderRadius:30}}
+              source={{uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjHVxm9SOHjmQ1nyPYTFYZ0Yl2KVzoQFzL7Q&usqp=CAU'}}
+              />
             </View>
           </View>
+          </TouchableOpacity>
+        
+
         </ScrollView>
         {delivery && (
           <View style={homeStyle.floatButton}>
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate("VendorsMapScreen");
-              }}
+              }} 
             >
               <Icon name="place" type="material" size={32} color="#74D24F" />
               <Text style={{ color: "#74D24F" }}>Map</Text>
