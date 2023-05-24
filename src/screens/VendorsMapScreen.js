@@ -7,7 +7,7 @@ import { FAB } from "@rneui/base";
 import { Button, Card, IconButton, List, ActivityIndicator, Title } from "react-native-paper";
 
 const VendorsMapScreen = ({ navigation }) => {
-  const status = 1;
+  const status = 2;
   return (
     <SafeAreaView style={mapStyle.safeview}>
       <Header title="RightNOW" type="arrow-left" navigation={navigation} />
@@ -89,6 +89,9 @@ const VendorsMapScreen = ({ navigation }) => {
 
         {status == 1 ? (
           <FAB
+          onPress={() => {
+            navigation.navigate("AddressScreen");
+          }}
             style={mapStyle.fab}
             icon={{ name: "add", color: "white" }}
             color="#74D24F"

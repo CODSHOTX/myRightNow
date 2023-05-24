@@ -7,6 +7,7 @@ import RootClientTabs from "./ClientTabs";
 import VendorsMapScreen from "../screens/VendorsMapScreen";
 import DrawerNavigator from "./DrawerNavigator";
 import SignUpscreen from "../screens/authScreens/SignUpScreen";
+
 const Auth = createStackNavigator();
 export default function AuthStack() {
   return (

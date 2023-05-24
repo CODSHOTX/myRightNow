@@ -1,16 +1,5 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  Pressable,
-  ScrollView,
-  FlatList,
-  Image,
-  Dimensions,
-  SafeAreaView,
-  StatusBar,
-} from "react-native";
+import { View, Text, TouchableOpacity, Pressable, ScrollView, FlatList, Image, Dimensions, SafeAreaView, StatusBar } from "react-native";
 import { homeStyle } from "../screens/screenStyles/HomeStyle";
 import { Icon } from "@rneui/base";
 import HomeHeader from "../components/HomeHeader";
