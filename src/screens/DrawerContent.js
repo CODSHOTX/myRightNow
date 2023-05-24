@@ -1,15 +1,17 @@
 import React, { useState, useContext, useEffect } from "react";
 import { firebase } from "../../firebaseConfig";
 import { SafeAreaView, View, Text } from "react-native";
-import { DrawerContentScrollView, DrawerItemList, DrawerItem } from "@react-navigation/drawer";
+import {
+  DrawerContentScrollView,
+  DrawerItemList,
+  DrawerItem,
+} from "@react-navigation/drawer";
 import { Avatar, Button, Icon } from "@rneui/themed";
 import { drawerStyle } from "./screenStyles/DrawerContentStyle";
 
 export default function DrawerContent(props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-
-  
 
   useEffect(() => {
     firebase

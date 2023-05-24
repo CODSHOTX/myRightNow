@@ -1,5 +1,13 @@
 import React, { useState, useRef } from "react";
-import { View, Text, StyleSheet, Dimensions, Image } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  Image,
+  SafeAreaView,
+  StatusBar,
+} from "react-native";
 import * as Animatable from "react-native-animatable";
 import { colors, parameters, title } from "../../global/styles";
 import Swiper from "react-native-swiper";
@@ -8,7 +16,14 @@ import { welcomeStyle } from "./styles/WelcomeScreenStyle";
 
 export default function SignInWelcomeScreen({ navigation }) {
   return (
-    <View style={{ flex: 3, backgroundColor: colors.green }}>
+    <SafeAreaView style={{ flex: 3, backgroundColor: colors.green }}>
+      <StatusBar
+        barStyle="dark-content"
+        hidden={false}
+        backgroundColor="#F5F5F5"
+      >
+        {" "}
+      </StatusBar>
       <View
         style={{
           flex: 3,
@@ -18,11 +33,13 @@ export default function SignInWelcomeScreen({ navigation }) {
           paddingTop: 5,
         }}
       >
-        <Text style={{ fontSize: 46, color: colors.headerText, fontWeight: "bold" }}>
-        <Image source={require("../../images/logo.png")}/> RightNOW
+        <Text
+          style={{ fontSize: 46, color: colors.headerText, fontWeight: "bold" }}
+        >
+          <Image source={require("../../images/logo.png")} /> RightNOW
         </Text>
       </View>
- 
+
       <View style={{ flex: 4, justifyContent: "flex-end", marginBottom: 20 }}>
         <View style={{ marginHorizontal: 20, marginTop: 30 }}>
           <Button
@@ -45,6 +62,6 @@ export default function SignInWelcomeScreen({ navigation }) {
           />
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

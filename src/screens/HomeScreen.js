@@ -1,5 +1,16 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, Pressable, ScrollView, FlatList, Image, Dimensions, SafeAreaView } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Pressable,
+  ScrollView,
+  FlatList,
+  Image,
+  Dimensions,
+  SafeAreaView,
+  StatusBar,
+} from "react-native";
 import { homeStyle } from "../screens/screenStyles/HomeStyle";
 import { Icon } from "@rneui/base";
 import HomeHeader from "../components/HomeHeader";
@@ -35,6 +46,13 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <SafeAreaView style={homeStyle.safeview}>
+      <StatusBar
+        barStyle="dark-content"
+        hidden={false}
+        backgroundColor="#F5F5F5"
+      >
+        {" "}
+      </StatusBar>
       <View style={homeStyle.container}>
         <HomeHeader navigation={navigation} />
         <ScrollView

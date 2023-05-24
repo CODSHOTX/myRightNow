@@ -4,7 +4,7 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import DrawerContent from "../screens/DrawerContent";
 import RootClientTabs from "./ClientTabs";
 import DriverConsoleScreen from "../screens/DriverConsoleScreen";
-import {firebase} from "../../firebaseConfig"
+import { firebase } from "../../firebaseConfig";
 import { Icon } from "@rneui/base";
 import Application from "../screens/ApplicationScreen";
 import ApplicationScreen from "../screens/ApplicationScreen";
@@ -12,11 +12,8 @@ import ApplicationScreen from "../screens/ApplicationScreen";
 const Drawer = createDrawerNavigator();
 
 export default function DrawerNavigator() {
+  const [userRole, setUserRole] = useState("");
 
-  const [userRole, setUserRole] = useState('');
-
-  
-  
   useEffect(() => {
     const fetchUserRole = async () => {
       try {
@@ -24,7 +21,7 @@ export default function DrawerNavigator() {
         if (user) {
           const userDoc = await firebase
             .firestore()
-            .collection('users')
+            .collection("users")
             .doc(user.uid)
             .get();
 
@@ -35,7 +32,7 @@ export default function DrawerNavigator() {
           }
         }
       } catch (error) {
-        console.error('Error retrieving user role:', error);
+        console.error("Error retrieving user role:", error);
       }
     };
 
@@ -121,14 +118,27 @@ return(
             name="book"
             color={focused ? "black" : "#74D24F"}
             size={size}
+          />),
+        }}/>
+
+          <Drawer.Screen
+            name="Application"
+            component={DriverConsoleScreen}
+            options={{
+              title: "Apply",
+              headerShown: false,
+              drawerIcon: ({ focused, size }) => (
+                <Icon
+                  type="material-community"
+                  name="book"
+                  color={focused ? "black" : "#74D24F"}
+                  size={size}
+                />
+              ),
+            }}
           />
-        ),
-      }}
-    />
-  </Drawer.Navigator>  
-  )}
-</>
-
-)
-
+        </Drawer.Navigator>
+      )}
+    </>
+  );
 }
