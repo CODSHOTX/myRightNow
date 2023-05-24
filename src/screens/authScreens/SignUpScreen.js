@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {  Text, View, ScrollView, TextInput } from "react-native";
+import {  Text, View, ScrollView, TextInput, StatusBar } from "react-native";
 import { colors } from "../../global/styles";
 import { signupscreenStyle } from "./styles/SignupScreenStyle";
 import Header from "../../components/Header";
@@ -69,6 +69,7 @@ const SignUpscreen = ({ navigation }) => {
   const [passwordBlured, setPasswordBlured] = useState(false);
   return (
     <SafeAreaView style={signupscreenStyle.container}>
+      <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#F5F5F5"> </StatusBar>
       <Header title="RightNOW" type="arrow-left" navigation={navigation} />
       <ScrollView keyboardShouldPersistTaps="always">
         <View style={signupscreenStyle.backcolor}>

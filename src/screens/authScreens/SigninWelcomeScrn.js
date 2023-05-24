@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { View, Text, StyleSheet, Dimensions, Image } from "react-native";
+import { View, Text, StyleSheet, Dimensions, Image, SafeAreaView, StatusBar } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { colors, parameters, title } from "../../global/styles";
 import Swiper from "react-native-swiper";
@@ -8,7 +8,8 @@ import { welcomeStyle } from "./styles/WelcomeScreenStyle";
 
 export default function SignInWelcomeScreen({ navigation }) {
   return (
-    <View style={{ flex: 3, backgroundColor: colors.green }}>
+    <SafeAreaView style={{ flex: 3, backgroundColor: colors.green }}>
+      <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#F5F5F5"> </StatusBar>
       <View
         style={{
           flex: 3,
@@ -45,6 +46,6 @@ export default function SignInWelcomeScreen({ navigation }) {
           />
         </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }

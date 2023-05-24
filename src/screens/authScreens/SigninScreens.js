@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { View, Text, TextInput, SafeAreaView } from "react-native";
+import { View, Text, TextInput, SafeAreaView, StatusBar } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { colors, parameters, title } from "../../global/styles";
 import Header from "../../components/Header";
@@ -25,6 +25,7 @@ export default function SignInScreen({ navigation }) {
   };
   return (
     <SafeAreaView style={signinscreenStyle.container}>
+      <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#F5F5F5"> </StatusBar>
       <Header title="RightNOW" type="arrow-left" navigation={navigation} />
       <View style={signinscreenStyle.backcolor}>
 
