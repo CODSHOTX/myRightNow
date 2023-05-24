@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {  Text, View, ScrollView, TextInput, StatusBar } from "react-native";
+import { Text, View, ScrollView, TextInput, StatusBar } from "react-native";
 import { colors } from "../../global/styles";
 import { signupscreenStyle } from "./styles/SignupScreenStyle";
 import Header from "../../components/Header";
@@ -11,12 +11,11 @@ import { firebase } from "../../../firebaseConfig";
 import { SafeAreaView } from "react-native";
 
 const initialValue = {
- 
   fName: "",
   lName: "",
   pNumber: "",
   password: "",
-  email: ""
+  email: "",
 };
 
 const SignUpscreen = ({ navigation }) => {
@@ -69,7 +68,13 @@ const SignUpscreen = ({ navigation }) => {
   const [passwordBlured, setPasswordBlured] = useState(false);
   return (
     <SafeAreaView style={signupscreenStyle.container}>
-      <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#F5F5F5"> </StatusBar>
+      <StatusBar
+        barStyle="dark-content"
+        hidden={false}
+        backgroundColor="#F5F5F5"
+      >
+        {" "}
+      </StatusBar>
       <Header title="RightNOW" type="arrow-left" navigation={navigation} />
       <ScrollView keyboardShouldPersistTaps="always">
         <View style={signupscreenStyle.backcolor}>
@@ -86,7 +91,7 @@ const SignUpscreen = ({ navigation }) => {
               <View>
                 <Text style={signupscreenStyle.text2}>New on RightNow</Text>
               </View>
-              
+
               <View style={signupscreenStyle.view6}>
                 <TextInput
                   placeholder="First Name"

@@ -4,32 +4,32 @@ import { colors } from "../../global/styles";
 export const homeStyle = StyleSheet.create({
   safeview: {
     flex: 1,
-    backgroundColor: "#F5F5F5"
+    backgroundColor: "#F5F5F5",
   },
   view2: {
-    backgroundColor: "white", 
-    paddingBottom: 5 
+    backgroundColor: "white",
+    paddingBottom: 5,
   },
   container: {
     flex: 1,
-    backgroundColor: "white"
+    backgroundColor: "white",
   },
   deliveryButton: {
     paddingHorizontal: 20,
     borderRadius: 15,
-    paddingVertical: 5
+    paddingVertical: 5,
   },
   deliveryText: {
     marginLeft: 5,
     fontSize: 16,
-    color: "white"
+    color: "white",
   },
   filterView: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-evenly",
     marginHorizontal: 10,
-    marginVertical: 10
+    marginVertical: 10,
   },
   clock: {
     flexDirection: "row",
@@ -38,7 +38,7 @@ export const homeStyle = StyleSheet.create({
     backgroundColor: colors.cardbackground,
     borderRadius: 15,
     paddingHorizontal: 5,
-    marginRight: 20
+    marginRight: 20,
   },
   addressView: {
     flexDirection: "row",
@@ -46,7 +46,7 @@ export const homeStyle = StyleSheet.create({
     borderRadius: 15,
     paddingVertical: 3,
     justifyContent: "space-between",
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
   },
   headerText: {
     color: colors.grey1,

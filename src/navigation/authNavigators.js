@@ -8,36 +8,35 @@ import VendorsMapScreen from "../screens/VendorsMapScreen";
 import DrawerNavigator from "./DrawerNavigator";
 import SignUpscreen from "../screens/authScreens/SignUpScreen";
 const Auth = createStackNavigator();
- export default function AuthStack(){
-    return(
-        <Auth.Navigator>
-            <Auth.Screen 
-            name ="SigninWelcomeScrn"    component = {SignInWelcomeScreen}   
-            options ={{
-                headerShown: false,
-                ...TransitionPresets.RevealFromBottomAndroid
-            }}          
-             />
+export default function AuthStack() {
+  return (
+    <Auth.Navigator>
+      <Auth.Screen
+        name="SigninWelcomeScrn"
+        component={SignInWelcomeScreen}
+        options={{
+          headerShown: false,
+          ...TransitionPresets.RevealFromBottomAndroid,
+        }}
+      />
 
-<Auth.Screen 
-            name ="SigininScreen"    component = {SignInScreen}   
-            options ={{
-                headerShown: false,
-                ...TransitionPresets.RevealFromBottomAndroid
-            }}          
-             />
+      <Auth.Screen
+        name="SigininScreen"
+        component={SignInScreen}
+        options={{
+          headerShown: false,
+          ...TransitionPresets.RevealFromBottomAndroid,
+        }}
+      />
 
-<Auth.Screen 
-            name ="SignUpScreen"    component = {SignUpscreen}   
-            options ={{
-                headerShown: false,
-                ...TransitionPresets.RevealFromBottomAndroid
-            }}          
-             />
-
-        </Auth.Navigator>
-
-    )
- }
-
- 
+      <Auth.Screen
+        name="SignUpScreen"
+        component={SignUpscreen}
+        options={{
+          headerShown: false,
+          ...TransitionPresets.RevealFromBottomAndroid,
+        }}
+      />
+    </Auth.Navigator>
+  );
+}

@@ -1,75 +1,90 @@
 import React, { useState, useEffect } from "react";
-import {firebase} from '../../firebaseConfig'
-import { View, Text, StyleSheet, Dimensions, TextInput, SafeAreaView } from 'react-native';
+import { firebase } from "../../firebaseConfig";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Dimensions,
+  TextInput,
+  SafeAreaView,
+} from "react-native";
 import { parameters } from "../global/styles";
-import HomeHeader from "../components/HomeHeader"
-import { Avatar } from 'react-native-paper';
-import { Table, TableWrapper, Col } from 'react-native-table-component';
+import HomeHeader from "../components/HomeHeader";
+import { Avatar } from "react-native-paper";
+import { Table, TableWrapper, Col } from "react-native-table-component";
 import { Button } from "@rneui/base";
 import { myaccountStyle } from "./screenStyles/MyAccountStyle";
 
+export default function MyAccountScreen({ navigation }) {
+  const [name, setName] = useState("");
+  const [lName, setLName] = useState("");
+  const [pNum, setPnum] = useState("");
+  const [email, setEmail] = useState("");
+  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
+  const [address, setAddress] = useState("");
 
+  useEffect(() => {
+    firebase
+      .firestore()
+      .collection("users")
+      .doc(firebase.auth().currentUser.uid)
+      .get()
+      .then((snapshot) => {
+        if (snapshot.exists) {
+          setName(snapshot.data());
+          setLName(snapshot.data());
+          setEmail(snapshot.data());
+          setPnum(snapshot.data());
+          setCountry(snapshot.data());
+          setCity(snapshot.data());
+          setAddress(snapshot.data());
+        } else {
+          console.log("User does not exist");
+        }
+      });
+  }, []);
+  return (
+    <SafeAreaView style={myaccountStyle.container}>
+      <View style={myaccountStyle.view1}>
+        <HomeHeader navigation={navigation} />
+        <View>
+          <Table>
+            <TableWrapper style={{ flexDirection: "row" }}>
+              <TableWrapper style={myaccountStyle.profile}>
+                <Avatar.Image
+                  size={120}
+                  source={require("../images/avater.jpg")}
+                />
+              </TableWrapper>
 
-export default function MyAccountScreen({navigation}){
-    const [name, setName] = useState('')
-    const [lName, setLName] = useState('')
-    const [pNum, setPnum] = useState('')
-    const [email, setEmail] = useState('')
-    const [country, setCountry]=useState('')
-    const [city, setCity]=useState('')
-    const [address, setAddress]=useState('')
-
-    useEffect(()=> {
-        firebase.firestore().collection('users')
-        .doc(firebase.auth().currentUser.uid).get()
-        .then((snapshot)=>{
-            if(snapshot.exists){
-                setName(snapshot.data())
-                setLName(snapshot.data())
-                setEmail(snapshot.data())
-                setPnum(snapshot.data())
-                setCountry(snapshot.data())
-                setCity(snapshot.data())
-                setAddress(snapshot.data())
-            } 
-            else {
-                console.log('User does not exist')
-            }
-        })
-    }, [])
-    return (
-        <SafeAreaView style={myaccountStyle.container}>
-            <View style={myaccountStyle.view1}>
-
-          <HomeHeader navigation={navigation} />
-            <View >
-
-                <Table >
-                    <TableWrapper style={{ flexDirection: 'row' }}>
-                        <TableWrapper style={myaccountStyle.profile} >
-                            <Avatar.Image size={120} source={require('../images/avater.jpg')} />
-                        </TableWrapper>
-
-                        <TableWrapper style={myaccountStyle.detail}>
-                            <Col data={[name.fiName+" "+lName.laName, email.emails, pNum.phNum, country.country, city.city, address.street]}
-                                heightArr={[30, 30, 30, 30, 30, 30]} width={200} />
-                        </TableWrapper>
-                    </TableWrapper>
-
-                </Table> 
-            </View>
-            <View style={{ marginTop: 30, marginHorizontal: 80, }}>
-
-                <Button title="Edit Profile"
-                    buttonStyle={parameters.styledButton}
-                    onPress={() => {
-                        navigation.navigate("EditProfileScreen")
-                    }}></Button>
-            </View>
-            </View>
-
-
-
-        </SafeAreaView>
-    )
+              <TableWrapper style={myaccountStyle.detail}>
+                <Col
+                  data={[
+                    name.fiName + " " + lName.laName,
+                    email.emails,
+                    pNum.phNum,
+                    country.country,
+                    city.city,
+                    address.street,
+                  ]}
+                  heightArr={[30, 30, 30, 30, 30, 30]}
+                  width={200}
+                />
+              </TableWrapper>
+            </TableWrapper>
+          </Table>
+        </View>
+        <View style={{ marginTop: 30, marginHorizontal: 80 }}>
+          <Button
+            title="Edit Profile"
+            buttonStyle={parameters.styledButton}
+            onPress={() => {
+              navigation.navigate("EditProfileScreen");
+            }}
+          ></Button>
+        </View>
+      </View>
+    </SafeAreaView>
+  );
 }

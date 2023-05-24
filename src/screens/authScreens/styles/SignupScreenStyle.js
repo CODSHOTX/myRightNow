@@ -2,9 +2,9 @@ import { StyleSheet } from "react-native";
 import { colors } from "../../../global/styles";
 
 export const signupscreenStyle = StyleSheet.create({
-  container: { 
-    flex: 1, 
-    backgroundColor: "#F5F5F5" 
+  container: {
+    flex: 1,
+    backgroundColor: "#F5F5F5",
   },
 
   backcolor: {
@@ -33,13 +33,14 @@ export const signupscreenStyle = StyleSheet.create({
     paddingHorizontal: 15,
   },
 
-  view3: { 
-    marginTop: 5, 
-    marginBottom: 10 },
+  view3: {
+    marginTop: 5,
+    marginBottom: 10,
+  },
 
-  text2: { 
-    fontSize: 15, 
-    color: colors.grey2 
+  text2: {
+    fontSize: 15,
+    color: colors.grey2,
   },
   View4: {
     flexDirection: "row",
@@ -49,13 +50,13 @@ export const signupscreenStyle = StyleSheet.create({
     paddingLeft: 5,
   },
 
-  view5: { 
-    marginLeft: 30, 
-    marginTop: 20 
+  view5: {
+    marginLeft: 30,
+    marginTop: 20,
   },
 
-  input1: { 
-    fontSize: 16 
+  input1: {
+    fontSize: 16,
   },
   view6: {
     flexDirection: "row",
@@ -67,15 +68,15 @@ export const signupscreenStyle = StyleSheet.create({
     height: 50,
   },
 
-  view9: { 
-    marginLeft: 0, 
-    maxWidth: "65%" 
+  view9: {
+    marginLeft: 0,
+    maxWidth: "65%",
   },
 
-  input3: { 
-    fontSize: 16, 
-    marginLeft: 0, 
-    marginBottom: 0 
+  input3: {
+    fontSize: 16,
+    marginLeft: 0,
+    marginBottom: 0,
   },
 
   view10: {
@@ -96,29 +97,29 @@ export const signupscreenStyle = StyleSheet.create({
     marginLeft: 2,
   },
 
-  view11: { 
-    marginLeft: 30, 
-    marginLeft: 30, 
-    maxWidth: "65%" 
+  view11: {
+    marginLeft: 30,
+    marginLeft: 30,
+    maxWidth: "65%",
   },
 
-  input4: { 
-    fontSize: 16, 
+  input4: {
+    fontSize: 16,
     marginLeft: -20,
-    height: 50
-  },
-
-  pinput:{
-    flex: 1, 
-    height: 50, 
-    marginLeft: 9, 
     height: 50,
-    fontSize: 16
   },
 
-  view13: { 
-    flexDirection: "row", 
-    height: 40 
+  pinput: {
+    flex: 1,
+    height: 50,
+    marginLeft: 9,
+    height: 50,
+    fontSize: 16,
+  },
+
+  view13: {
+    flexDirection: "row",
+    height: 40,
   },
 
   view14: {
@@ -133,20 +134,20 @@ export const signupscreenStyle = StyleSheet.create({
     marginTop: 20,
   },
 
-  view15: { 
-    alignItems: "center", 
-    justifyContent: "center", 
-    marginTop: 10 
+  view15: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 10,
   },
 
   text3: { fontSize: 13 },
 
   view16: { flexDirection: "row" },
 
-  text4: { 
-    textDecorationLine: "underline", 
-    color: "green", 
-    fontSize: 13 
+  text4: {
+    textDecorationLine: "underline",
+    color: "green",
+    fontSize: 13,
   },
 
   button1: {
@@ -183,20 +184,21 @@ export const signupscreenStyle = StyleSheet.create({
     backgroundColor: "white",
   },
 
-  text5: { 
-    fontSize: 15, 
-    fontWeight: "bold" 
+  text5: {
+    fontSize: 15,
+    fontWeight: "bold",
   },
 
-  view19: { 
-    backgroundColor: "white", 
-    paddingHorizontal: 15 },
+  view19: {
+    backgroundColor: "white",
+    paddingHorizontal: 15,
+  },
 
   view20: { marginTop: 5 },
 
-  view21: { 
-    marginTop: 5, 
-    alignItems: "flex-end" 
+  view21: {
+    marginTop: 5,
+    alignItems: "flex-end",
   },
 
   button2: {
