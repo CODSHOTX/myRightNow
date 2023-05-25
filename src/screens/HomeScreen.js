@@ -128,7 +128,7 @@ export default function HomeScreen({ navigation }) {
             </View>
           </View>
          
-          <View>
+          {/* <View>
             <FlatList
               horizontal={true}
               showsHorizontalScrollIndicator={false}
@@ -167,12 +167,13 @@ export default function HomeScreen({ navigation }) {
                 </Pressable>
               )}
             />
-          </View>
+          </View> */}
+          
           <TouchableOpacity>
           <View style={homeStyle.borderDox}>
             <View style={homeStyle.cont}>
               <Image
-              style={{height:60, width:60, borderRadius:30}}
+              style={homeStyle.imag}
               source={{uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjHVxm9SOHjmQ1nyPYTFYZ0Yl2KVzoQFzL7Q&usqp=CAU'}}
               />
             </View>

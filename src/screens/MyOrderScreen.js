@@ -1,11 +1,16 @@
 import React from "react";
+import { View, Text } from "react-native";
+import HomeHeader from "../components/HomeHeader";
+import { SafeAreaView } from "react-native";
+import { myorderStyle } from "./screenStyles/MyOrderStyle";
 
-import { View, Text, StyleSheet } from "react-native";
-
-export default function MyOrderScreen() {
+export default function MyOrderScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>My Orders</Text>
-    </View>
+    <SafeAreaView style={myorderStyle.safeview}>
+      <HomeHeader navigation={navigation} />
+      <View style={myorderStyle.view}>
+        <Text>My Orders</Text>
+      </View>
+    </SafeAreaView>
   );
 }

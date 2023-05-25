@@ -97,23 +97,29 @@ export const homeStyle = StyleSheet.create({
     position: "absolute",
     bottom: 10,
     right: 15,
-    backgroundColor: "white",
+    backgroundColor: "#F5F5F5",
     elevation: 10,
     width: 60,
     height: 60,
     borderRadius: 30,
     alignItems: "center",
   },
-  borderDox:
-  {flex:1,
-     borderColor:colors.green,
-      borderWidth:2,
-      borderRadius:12
+  borderDox: {
+    flex: 1,
+    borderColor: colors.green,
+    borderWidth: 2,
+    borderRadius: 12,
+    margin: 10
   },
-  cont:{
-    flexDirection: 'row', // Arrange items in a row
-    alignItems: 'center', // Align items vertically in the center
+  cont: {
+    flexDirection: "row", // Arrange items in a row
+    alignItems: "center", // Align items vertically in the center
     padding: 16, // Adjust the padding as needed
+  },
+
+  imag:{
+    height:60, 
+    width:60, 
+    borderRadius:30
   }
-  
 });
