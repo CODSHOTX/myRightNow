@@ -59,7 +59,7 @@ return(
            <Icon
              type="material-community"
              name="home"
-             color={focused ? "#74D24F" : "black"}
+             color={focused ? "#74D24F" : "#74D24F"}
              size={size}
            />
          ),
@@ -76,7 +76,7 @@ return(
            <Icon
              type="material-community"
              name="bike"
-             color={focused ? "black" : "#74D24F"}
+             color={focused ? "#74D24F" : "#74D24F"}
              size={size}
            />        
           ),
@@ -99,7 +99,7 @@ return(
           <Icon
             type="material-community"
             name="home"
-            color={focused ? "#74D24F" : "black"}
+            color={focused ? "#74D24F" : "#74D24F"}
             size={size}
           />
         ),
@@ -116,7 +116,7 @@ return(
           <Icon
             type="material-community"
             name="book"
-            color={focused ? "black" : "#74D24F"}
+            color={focused ? "#74D24F" : "#74D24F"}
             size={size}
           />),
         }}/>

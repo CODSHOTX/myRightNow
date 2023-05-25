@@ -7,7 +7,7 @@ import { FAB } from "@rneui/base";
 import { Button, Card, IconButton, List, ActivityIndicator, Title } from "react-native-paper";
 
 const VendorsMapScreen = ({ navigation }) => {
-  const status = 2;
+  const status = 1;
   return (
     <SafeAreaView style={mapStyle.safeview}>
       <Header title="RightNOW" type="arrow-left" navigation={navigation} />

@@ -97,7 +97,7 @@ export const homeStyle = StyleSheet.create({
     position: "absolute",
     bottom: 10,
     right: 15,
-    backgroundColor: "white",
+    backgroundColor: "#F5F5F5",
     elevation: 10,
     width: 60,
     height: 60,
@@ -140,5 +140,4 @@ export const homeStyle = StyleSheet.create({
 
    
   }
-  
 });
