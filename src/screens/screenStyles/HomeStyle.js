@@ -106,14 +106,39 @@ export const homeStyle = StyleSheet.create({
   },
   borderDox:
   {flex:1,
-     borderColor:colors.green,
+     borderColor:"#74D24F",
       borderWidth:2,
-      borderRadius:12
+     
+      borderRadius:12,
+      width:350,
+      justifyContent:'center',
+      marginLeft:34,
+      marginTop:100,
+      flexDirection: 'row', // Arrange items in a row
+      alignItems: 'flex-start', // Align items vertically in the center
+     // padding: 5, // Adjust the padding as needed
+      
   },
-  cont:{
-    flexDirection: 'row', // Arrange items in a row
-    alignItems: 'center', // Align items vertically in the center
-    padding: 16, // Adjust the padding as needed
+  borderDox2:
+  {flex:1,
+     borderColor:"#74D24F",
+      borderWidth:2,
+     
+      borderRadius:12,
+      width:350,
+      height:100,
+      justifyContent:'center',
+      marginLeft:34,
+      marginTop:50,
+      flexDirection: 'row', // Arrange items in a row
+      alignItems: 'flex-start', // Align items vertically in the center
+     // padding: 5, // Adjust the padding as needed
+      
+  },
+
+  imageBox:{marginRight:50, 
+
+   
   }
   
 });

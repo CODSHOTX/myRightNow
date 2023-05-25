@@ -121,22 +121,6 @@ return(
           />),
         }}/>
 
-          <Drawer.Screen
-            name="Application"
-            component={DriverConsoleScreen}
-            options={{
-              title: "Apply",
-              headerShown: false,
-              drawerIcon: ({ focused, size }) => (
-                <Icon
-                  type="material-community"
-                  name="book"
-                  color={focused ? "black" : "#74D24F"}
-                  size={size}
-                />
-              ),
-            }}
-          />
         </Drawer.Navigator>
       )}
     </>

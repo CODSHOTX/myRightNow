@@ -127,58 +127,50 @@ export default function HomeScreen({ navigation }) {
               />
             </View>
           </View>
-         
-          <View>
-            <FlatList
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-              data={filterData}
-              keyExtractor={(item) => item.id}
-              extraData={indexCheck}
-              renderItem={({ item, index }) => (
-                <Pressable
-                  onPress={() => {
-                    setIndexCheck(item.id);
-                  }}
-                >
-                  <View
-                    style={
-                      indexCheck === item.id
-                        ? { ...homeStyle.smallCardSelected }
-                        : { ...homeStyle.smallCard }
-                    }
-                  >
-                    <Image
-                      style={{ height: 60, width: 60, borderRadius: 30 }}
-                      source={item.image}
-                    />
-                    <View>
-                      <Text
-                        style={
-                          indexCheck === item.id
-                            ? { ...homeStyle.smallCardTextSelected }
-                            : { ...homeStyle.smallCardText }
-                        }
-                      >
-                        {item.name}
-                      </Text>
-                    </View>
-                  </View>
-                </Pressable>
-              )}
-            />
-          </View>
-          <TouchableOpacity>
-          <View style={homeStyle.borderDox}>
-            <View style={homeStyle.cont}>
-              <Image
-              style={{height:60, width:60, borderRadius:30}}
-              source={{uri:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjHVxm9SOHjmQ1nyPYTFYZ0Yl2KVzoQFzL7Q&usqp=CAU'}}
-              />
+
+          <TouchableOpacity onPress={() => {
+                  setDelivery(false);
+                  navigation.navigate("PackagesInfoScreen");
+                }}>
+            <View style={homeStyle.borderDox}>
+              <View style={homeStyle.imageBox}>
+              
+                <Image
+                  style={{ height: 80, width: 80, borderRadius: 30 }}
+                  source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkzNEE1fTEMCuGuBy_HW6MS0y0Hem5t1y75Q&usqp=CAU' }}
+                />
+              
+                
+              </View>
+              <View style={{ marginBottom:15,  marginRight:15}}>
+                <Text style={{color:"#74D24F", fontSize:18, paddingTop:10 }}>Send Packages</Text>
+                <Text style={{paddingTop:5, color:colors.grey3, fontSize:16, }}>Send packages to {'\n'}anywhere and anytime</Text>
+                </View>
+               
+             
             </View>
-          </View>
           </TouchableOpacity>
-        
+
+             <TouchableOpacity>
+            <View style={homeStyle.borderDox2}>
+              <View style={homeStyle.imageBox}>
+              
+                <Image
+                  style={{ height: 80, width: 80, borderRadius: 30 }}
+                  source={{ uri: 'https://cdn-icons-png.flaticon.com/512/172/172164.png' }}
+                />
+              
+                
+              </View>
+              <View style={{ marginBottom:15,  marginRight:15}}>
+                <Text style={{color:"#74D24F", fontSize:18, paddingTop:10 }}>Delivery History</Text>
+                <Text style={{paddingTop:5, color:colors.grey3, fontSize:16, }}>View past deliveries</Text>
+                </View>
+               
+             
+            </View>
+          </TouchableOpacity>
+
 
         </ScrollView>
         {delivery && (
@@ -186,7 +178,7 @@ export default function HomeScreen({ navigation }) {
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate("VendorsMapScreen");
-              }} 
+              }}
             >
               <Icon name="place" type="material" size={32} color="#74D24F" />
               <Text style={{ color: "#74D24F" }}>Map</Text>
