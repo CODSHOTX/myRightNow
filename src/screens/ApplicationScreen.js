@@ -1,9 +1,14 @@
 import React from "react";
-import {SafeAreaView, Text} from 'react-native'
-  export default function ApplicationScreen(){
+import {SafeAreaView, Text, View} from 'react-native'
+import HomeHeader from "../components/HomeHeader";
+
+  export default function ApplicationScreen( {navigation} ){
     return(
-        <SafeAreaView>
+        <SafeAreaView style={{flex: 1, backgroundColor:"#F5F5F5"}}>
+          <HomeHeader navigation={navigation} />
+          <View style={{flex: 1, backgroundColor:"white"}}>
             <Text>Micheal</Text>
+          </View>
         </SafeAreaView>
     )
   }

@@ -50,11 +50,7 @@ export default function HomeScreen({ navigation }) {
         >
           <View style={homeStyle.view2}>
             <View
-              style={{
-                marginTop: 10,
-                flexDirection: "row",
-                justifyContent: "space-evenly",
-              }}
+              style={homeStyle.view2_1}
             >
               <TouchableOpacity
                 onPress={() => {
@@ -91,11 +87,7 @@ export default function HomeScreen({ navigation }) {
           <View style={homeStyle.filterView}>
             <View style={homeStyle.addressView}>
               <View
-                style={{
-                  flexDirection: "row",
-                  alignItems: "center",
-                  paddingLeft: 10,
-                }}
+                style={homeStyle.addressView_1}
               >
                 <Icon
                   type="material-community"
@@ -103,7 +95,7 @@ export default function HomeScreen({ navigation }) {
                   color="#74D24F"
                   size={26}
                 />
-                <Text style={{ marginLeft: 5, color: "#74D24F" }}>
+                <Text style={homeStyle.addressViewText}>
                   {street.street}
                 </Text>
               </View>
@@ -115,7 +107,7 @@ export default function HomeScreen({ navigation }) {
                   color="#74D24F"
                   size={26}
                 />
-                <Text style={{ marginLeft: 5, color: "#74D24F" }}>Now</Text>
+                <Text style={homeStyle.addressViewText}>Now</Text>
               </View>
             </View>
             <View>
@@ -134,17 +126,14 @@ export default function HomeScreen({ navigation }) {
                 }}>
             <View style={homeStyle.borderDox}>
               <View style={homeStyle.imageBox}>
-              
                 <Image
-                  style={{ height: 80, width: 80, borderRadius: 30 }}
+                  style={homeStyle.imag}
                   source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkzNEE1fTEMCuGuBy_HW6MS0y0Hem5t1y75Q&usqp=CAU' }}
-                />
-              
-                
+                /> 
               </View>
-              <View style={{ marginBottom:15,  marginRight:15}}>
-                <Text style={{color:"#74D24F", fontSize:18, paddingTop:10 }}>Send Packages</Text>
-                <Text style={{paddingTop:5, color:colors.grey3, fontSize:16, }}>Send packages to {'\n'}anywhere and anytime</Text>
+              <View style={homeStyle.viewBox}>
+                <Text style={homeStyle.textBox}>Send Packages</Text>
+                <Text style={homeStyle.textBox1}>Send packages to {'\n'}anywhere and anytime</Text>
                 </View>
                
              
@@ -156,15 +145,15 @@ export default function HomeScreen({ navigation }) {
               <View style={homeStyle.imageBox}>
               
                 <Image
-                  style={{ height: 80, width: 80, borderRadius: 30 }}
+                  style={homeStyle.imag2}
                   source={{ uri: 'https://cdn-icons-png.flaticon.com/512/172/172164.png' }}
                 />
               
                 
               </View>
-              <View style={{ marginBottom:15,  marginRight:15}}>
-                <Text style={{color:"#74D24F", fontSize:18, paddingTop:10 }}>Delivery History</Text>
-                <Text style={{paddingTop:5, color:colors.grey3, fontSize:16, }}>View past deliveries</Text>
+              <View style={homeStyle.viewBox}>
+                <Text style={homeStyle.textBox}>Delivery History</Text>
+                <Text style={homeStyle.textBox1}>View past deliveries</Text>
                 </View>
                
              

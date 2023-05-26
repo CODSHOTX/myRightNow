@@ -149,33 +149,6 @@ export default function SignInScreen({ navigation }) {
           />
         </View>
       </View>
-      <View style={{ marginHorizontal: 20, marginVertical: 40 }}>
-        <Button
-          title="Log in"
-          buttonStyle={parameters.styledButton}
-          titleStyle={parameters.buttonTitle}
-          onPress={() => loginUser(email, password)}
-        />
-      </View>
-      <View style={{ alignItems: "center", marginTop: 5 }}>
-        <Text style={{ ...signinscreenStyle.text1, textDecorationLine: "underline" }}>
-          Forgot Password ?
-        </Text>
-      </View>
-    
-      <View style={{ marginTop: 50, marginLeft: 5 }}>
-        <Text style={{ ...signinscreenStyle.text1 }}>New on rightNOW ?</Text>
-      </View>
-      <View style={{ alignItems: "flex-end", marginHorizontal: 20 , marginTop:100, marginBottom:30}}>
-        <Button
-          title="Create an account"
-          buttonStyle={signinscreenStyle.createButton}
-          titleStyle={signinscreenStyle.createButtonTitle}
-          onPress={() => {
-            navigation.navigate("SignUpScreen");
-          }}
-        />
-      </View>
    
     </SafeAreaView>
   );

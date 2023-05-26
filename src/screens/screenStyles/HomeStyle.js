@@ -10,6 +10,11 @@ export const homeStyle = StyleSheet.create({
     backgroundColor: "white",
     paddingBottom: 5,
   },
+  view2_1: {
+    marginTop: 10,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+  },
   container: {
     flex: 1,
     backgroundColor: "white",
@@ -39,6 +44,15 @@ export const homeStyle = StyleSheet.create({
     borderRadius: 15,
     paddingHorizontal: 5,
     marginRight: 20,
+  },
+  addressView_1: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingLeft: 10,
+  },
+  addressViewText: {
+    marginLeft: 5,
+    color: "#74D24F",
   },
   addressView: {
     flexDirection: "row",
@@ -104,40 +118,58 @@ export const homeStyle = StyleSheet.create({
     borderRadius: 30,
     alignItems: "center",
   },
-  borderDox:
-  {flex:1,
-     borderColor:"#74D24F",
-      borderWidth:2,
-     
-      borderRadius:12,
-      width:350,
-      justifyContent:'center',
-      marginLeft:34,
-      marginTop:100,
-      flexDirection: 'row', // Arrange items in a row
-      alignItems: 'flex-start', // Align items vertically in the center
-     // padding: 5, // Adjust the padding as needed
-      
+  borderDox: {
+    flex: 1,
+    borderColor: "#74D24F",
+    borderWidth: 2,
+    borderRadius: 12,
+    width: 350,
+    justifyContent: "center",
+    marginLeft: 34,
+    marginTop: 100,
+    flexDirection: "row", // Arrange items in a row
+    alignItems: "flex-start", // Align items vertically in the center
+    marginLeft: 20,
+    // padding: 5, // Adjust the padding as needed
   },
-  borderDox2:
-  {flex:1,
-     borderColor:"#74D24F",
-      borderWidth:2,
-     
-      borderRadius:12,
-      width:350,
-      height:100,
-      justifyContent:'center',
-      marginLeft:34,
-      marginTop:50,
-      flexDirection: 'row', // Arrange items in a row
-      alignItems: 'flex-start', // Align items vertically in the center
-     // padding: 5, // Adjust the padding as needed
-      
+  borderDox2: {
+    flex: 1,
+    borderColor: "#74D24F",
+    borderWidth: 2,
+    borderRadius: 12,
+    width: 350,
+    height: 100,
+    justifyContent: "center",
+    marginLeft: 34,
+    marginTop: 50,
+    marginLeft: 20,
+    flexDirection: "row", // Arrange items in a row
+    alignItems: "flex-start", // Align items vertically in the center
+    // padding: 5, // Adjust the padding as needed
   },
 
-  imageBox:{marginRight:50, 
+  imageBox: { marginRight: 50 },
 
-   
+  imag: {
+    height: 80, 
+    width: 80, 
+    borderRadius: 30 
+  },
+
+  imag2:{ height: 80, width: 80, borderRadius: 30, margin: 10  },
+
+  viewBox:{
+    marginBottom:15,  marginRight:15, margin: 10, alignItems: "center"
+  },
+  textBox:{
+    color:"#74D24F", 
+    fontSize:18, 
+    paddingTop:10 
+  },
+  textBox1:{
+    paddingTop:5, 
+    color:"#C9C9C7", 
+    fontSize:16, 
+    textAlign:"center"
   }
 });
