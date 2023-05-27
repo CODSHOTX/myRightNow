@@ -21,7 +21,7 @@ export const addressStyle  = StyleSheet.create({
         fontSize: 30,
         color: "#74D24F"
     },
-    readybutton: {
+    nextbutton: {
         margin:10,
         marginTop: 80,
         height: 50,
@@ -29,7 +29,7 @@ export const addressStyle  = StyleSheet.create({
         color: "#74D24F"
     },
 
-    readybuttonlabel:{
+    nextbuttonlabel:{
        fontSize: 18
     },
     buttoniconremove:{

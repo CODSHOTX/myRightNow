@@ -29,11 +29,12 @@ export const mapStyle = StyleSheet.create({
   },
 
   confirmButton: {
-    marginBottom: 10,
+    marginBottom: 7,
     backgroundColor: "#74D24F",
   },
   cancelButton: {
     color: "#74D24F",
+    borderColor: "#74D24F"
   },
   cancelButton2: {
     position: "absolute",
@@ -61,5 +62,15 @@ export const mapStyle = StyleSheet.create({
     flex: 1,
     flexDirection: "column",
     backgroundColor: "#FFFFFF",
+  },
+  titleText: {
+    color: "#74D24F",
+  },
+  image: {
+    alignSelf: "auto",
+  },
+  cardContent: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });

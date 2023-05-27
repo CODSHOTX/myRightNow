@@ -122,7 +122,7 @@ export default function HomeScreen({ navigation }) {
 
           <TouchableOpacity onPress={() => {
                   setDelivery(false);
-                  navigation.navigate("PackagesInfoScreen");
+                  navigation.navigate("AddressScreen");
                 }}>
             <View style={homeStyle.borderDox}>
               <View style={homeStyle.imageBox}>

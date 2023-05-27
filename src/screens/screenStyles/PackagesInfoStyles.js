@@ -4,17 +4,22 @@ export const PackagesInfoStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F5F5F5",
-    justifyContent: "center"
+    justifyContent: "center",
   },
+  view:{ 
+    flex: 1, 
+    backgroundColor: "white", 
+},
   textView: {
     marginBottom: 1,
     marginLeft: 20,
   },
   Texts: {
     color: "#74D24F",
-    fontSize: 19,
-    margin: 17,
+    fontSize: 17,
     fontWeight: "bold",
+    margin:10,
+    marginBottom: -15
   },
   nextButton: {
     backgroundColor: "#74D24F",
@@ -27,25 +32,19 @@ export const PackagesInfoStyles = StyleSheet.create({
     height: 40,
     marginLeft: 20,
   },
-  nextTitle: {
-    color: "white",
-    fontSize: 16,
-    fontWeight: "bold",
-  },
-  rowContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 10,
-    paddingHorizontal: 20,
-  },
-  TextInput: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: "#86939e",
-    borderRadius: 6,
-    marginBottom: 12,
-    padding: 10,
-    backgroundColor: "#fff",
-    color: "#000",
-  },
+  readybutton: {
+    margin:12,
+    marginTop: 20,
+    height: 50,
+    paddingVertical: 3,
+    color: "#74D24F"
+},
+
+readybuttonlabel:{
+   fontSize: 18
+},
+textinput:{
+  backgroundColor: "transparent",
+  margin: 10
+}
 });
