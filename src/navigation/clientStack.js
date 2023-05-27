@@ -9,6 +9,7 @@ import VendorsMapScreen from "../screens/VendorsMapScreen";
 import DrawerNavigator from "./DrawerNavigator";
 import { AddressScreen } from "../screens/AddressScreen";
 import PackagesInfoScreen from "../screens/PackagesInfoScreen";
+import Example1 from "../screens/Example1";
 
 const Auth = createStackNavigator();
 
@@ -54,6 +55,16 @@ export default function ClientStack() {
       <Auth.Screen
         name="PackagesInfoScreen"
         component={PackagesInfoScreen}
+        options={{
+          headerShown: false,
+          ...TransitionPresets.RevealFromBottomAndroid,
+
+        }}
+      />
+
+<Auth.Screen
+        name="Example1"
+        component={Example1}
         options={{
           headerShown: false,
           ...TransitionPresets.RevealFromBottomAndroid,

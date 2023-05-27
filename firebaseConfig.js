@@ -1,6 +1,7 @@
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import 'firebase/compat/storage';
 import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
@@ -16,13 +17,7 @@ const firebaseConfig = {
   if(!firebase.apps.length){
       firebase.initializeApp(firebaseConfig)
   }
-   // const app = initializeApp(firebaseConfig);
-// Initialize Firebase Authentication and get a reference to the service
-//const auth = getAuth(app);
-// For more information on how to access Firebase in your project,
-// see the Firebase documentation: https://firebase.google.com/docs/web/setup#access-firebase
-
-
+   
 
 
 export {firebase}; 

@@ -114,27 +114,7 @@ export default function SignInScreen({ navigation }) {
             Forgot Password ?
           </Text>
         </View>
-        <View style={{ alignItems: "center", marginTop: 10, marginBottom: 10 }}>
-          <Text style={{ fontSize: 20, fontWeight: "bold" }}>OR</Text>
-        </View>
-        <View style={{ marginHorizontal: 10, marginTop: 5 }}>
-          <SocialIcon
-            title="Sign In With Facebook"
-            button
-            type="facebook"
-            style={signinscreenStyle.SocialIcon}
-            onPress={() => {}}
-          />
-        </View>
-        <View style={{ marginHorizontal: 10, marginTop: 10 }}>
-          <SocialIcon
-            title="Sign In With Google"
-            button
-            type="google"
-            style={signinscreenStyle.SocialIcon}
-            onPress={() => {}}
-          />
-        </View>
+      
         <View style={{ marginTop: 20, marginLeft: 5 }}>
           <Text style={{ ...signinscreenStyle.text1 }}>New on rightNOW ?</Text>
         </View>
@@ -149,6 +129,7 @@ export default function SignInScreen({ navigation }) {
           />
         </View>
       </View>
+     
    
     </SafeAreaView>
   );

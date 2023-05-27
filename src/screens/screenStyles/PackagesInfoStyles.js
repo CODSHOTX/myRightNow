@@ -46,5 +46,38 @@ readybuttonlabel:{
 textinput:{
   backgroundColor: "transparent",
   margin: 10
-}
+},
+nextTitle:{
+    color: "white",
+    fontSize: 16,
+    fontWeight: "bold",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: -3,
+},
+ImagePickerBox:{
+    flexDirection:'column',
+    borderStyle:'dashed',
+    justifyContent:'center',
+    borderColor:'#74D24F',
+    height:350,
+    width:300,
+    alignItems:'center',
+   borderWidth:2,
+   marginLeft:50
+    
+},
+
+imgButton:{
+    width:100,
+    alignItems:'center',
+    backgroundColor:"#74D24F",
+    borderRadius:5,
+    
+    marginTop:10}
 });
+
+
+   
+    
+   

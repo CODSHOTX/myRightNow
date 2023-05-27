@@ -172,4 +172,5 @@ export const homeStyle = StyleSheet.create({
     fontSize:16, 
     textAlign:"center"
   }
+  
 });
