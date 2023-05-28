@@ -16,7 +16,6 @@ export const addressStyle  = StyleSheet.create({
         right: -20,
         top: 2
     },
-
     buttoniconlabel:{
         fontSize: 30,
         color: "#74D24F"
