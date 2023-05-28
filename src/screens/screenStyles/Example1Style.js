@@ -69,6 +69,7 @@ export const example1Style = StyleSheet.create({
   },
   imgButton: {
     width: 100,
+    height:40,
     alignItems: "center",
     backgroundColor: "#74D24F",
     borderRadius: 5,
@@ -103,7 +104,8 @@ imag2: {
     height: 300 
 },
 textcolor:{
-    color: "white" 
+    color: "white" ,
+    paddingTop:10,
 },
 marginhorizontal: {
     marginHorizontal:10,

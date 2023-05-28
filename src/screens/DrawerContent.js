@@ -12,6 +12,8 @@ import { drawerStyle } from "./screenStyles/DrawerContentStyle";
 export default function DrawerContent(props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [profileImage, setProfileImage] = useState("");
+  
 
   useEffect(() => {
     firebase
@@ -23,6 +25,7 @@ export default function DrawerContent(props) {
         if (snapshot.exists) {
           setName(snapshot.data());
           setEmail(snapshot.data());
+          setProfileImage(snapshot.data());
         } else {
           console.log("User does not exist");
         }
@@ -36,9 +39,8 @@ export default function DrawerContent(props) {
             rounded
             avatarStyle={drawerStyle.avatar}
             size={75}
-            source={{
-              uri: "https://www.citypng.com/photo/21035/hd-man-user-illustration-icon-transparent-png",
-            }}
+            source={profileImage ? { uri: profileImage.profileImage } : require("../images/avater.jpg")}
+            
           />
           <View style={drawerStyle.view1}>
             <Text style={drawerStyle.text1}>Hello, {name.fiName}</Text>
