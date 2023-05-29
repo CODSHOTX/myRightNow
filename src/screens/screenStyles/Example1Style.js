@@ -69,58 +69,58 @@ export const example1Style = StyleSheet.create({
   },
   imgButton: {
     width: 100,
-    height:40,
+    height: 40,
     alignItems: "center",
     backgroundColor: "#74D24F",
     borderRadius: 5,
     marginTop: 10,
   },
   view1: {
-    flex: 1, 
-    backgroundColor: "white"
+    flex: 1,
+    backgroundColor: "white",
   },
-  view2: { 
-    flex: 1, 
-    marginTop: -17 
-},
-  view3: { 
-    justifyContent: "center", 
-    alignItems: "center" 
-},
-view4: { 
-    marginTop: 15 
-},
-view5: { 
-    margin: 7 
-},
+  view2: {
+    flex: 1,
+    marginTop: -17,
+  },
+  view3: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  view4: {
+    marginTop: 15,
+  },
+  view5: {
+    margin: 7,
+  },
 
-imag1:{
-     height: 80, 
-     width: 80, 
-     borderRadius: 30 
-    },
-imag2: { 
-    width: 300, 
-    height: 300 
-},
-textcolor:{
-    color: "white" ,
-    paddingTop:10,
-},
-marginhorizontal: {
-    marginHorizontal:10,
-},
-buttoniconremove:{
+  imag1: {
+    height: 80,
+    width: 80,
+    borderRadius: 30,
+  },
+  imag2: {
+    width: 300,
+    height: 300,
+  },
+  textcolor: {
+    color: "white",
+    paddingTop: 10,
+  },
+  marginhorizontal: {
+    marginHorizontal: 10,
+  },
+  buttoniconremove: {
     color: "#74D24F",
     opacity: 0.7,
-},
-buttoniconadd:{
-    position:"absolute",
+  },
+  buttoniconadd: {
+    position: "absolute",
     right: -7,
-    top: 2
-},
-buttoniconlabel:{
+    top: 2,
+  },
+  buttoniconlabel: {
     fontSize: 30,
-    color: "#74D24F"
-},
+    color: "#74D24F",
+  },
 });

@@ -11,7 +11,7 @@ export const myorderStyle = StyleSheet.create({
   },
   card: {
     margin: 10,
-    marginBottom: 5
+    marginBottom: 5,
   },
   cardstatus: {
     borderTopWidth: 3,
@@ -19,7 +19,7 @@ export const myorderStyle = StyleSheet.create({
   },
   cardtitle: {
     color: "#74D24F",
-    marginBottom: -5
+    marginBottom: -5,
   },
   price: {
     color: "#74D24F",
@@ -28,6 +28,6 @@ export const myorderStyle = StyleSheet.create({
     marginEnd: 15,
   },
   cardcontent: {
-    marginBottom: -12
-  }
+    marginBottom: -12,
+  },
 });

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, Pressable, ScrollView, FlatList, Image, Dimensions, SafeAreaView, StatusBar } from "react-native";
+import { View, Text, TouchableOpacity, ScrollView } from "react-native";
+import { Image, Dimensions, SafeAreaView, StatusBar } from "react-native";
 import { homeStyle } from "../screens/screenStyles/HomeStyle";
 import { Icon } from "@rneui/base";
 import HomeHeader from "../components/HomeHeader";
@@ -49,9 +50,7 @@ export default function HomeScreen({ navigation }) {
           showsVerticalScrollIndicator={true}
         >
           <View style={homeStyle.view2}>
-            <View
-              style={homeStyle.view2_1}
-            >
+            <View style={homeStyle.view2_1}>
               <TouchableOpacity
                 onPress={() => {
                   setDelivery(true);
@@ -86,18 +85,14 @@ export default function HomeScreen({ navigation }) {
           </View>
           <View style={homeStyle.filterView}>
             <View style={homeStyle.addressView}>
-              <View
-                style={homeStyle.addressView_1}
-              >
+              <View style={homeStyle.addressView_1}>
                 <Icon
                   type="material-community"
                   name="map-marker"
                   color="#74D24F"
                   size={26}
                 />
-                <Text style={homeStyle.addressViewText}>
-                  {street.street}
-                </Text>
+                <Text style={homeStyle.addressViewText}>{street.street}</Text>
               </View>
 
               <View style={homeStyle.clock}>
@@ -120,47 +115,46 @@ export default function HomeScreen({ navigation }) {
             </View>
           </View>
 
-          <TouchableOpacity onPress={() => {
-                  setDelivery(true);
-                  navigation.navigate("Example1");
-                }}>
+          <TouchableOpacity
+            onPress={() => {
+              setDelivery(true);
+              navigation.navigate("Example1");
+            }}
+          >
             <View style={homeStyle.borderDox}>
               <View style={homeStyle.imageBox}>
                 <Image
                   style={homeStyle.imag}
-                  source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkzNEE1fTEMCuGuBy_HW6MS0y0Hem5t1y75Q&usqp=CAU' }}
-                /> 
+                  source={{
+                    uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkzNEE1fTEMCuGuBy_HW6MS0y0Hem5t1y75Q&usqp=CAU",
+                  }}
+                />
               </View>
               <View style={homeStyle.viewBox}>
                 <Text style={homeStyle.textBox}>Send Packages</Text>
-                <Text style={homeStyle.textBox1}>Send packages to {'\n'}anywhere and anytime</Text>
-                </View>
-               
-             
+                <Text style={homeStyle.textBox1}>
+                  Send packages to {"\n"}anywhere and anytime
+                </Text>
+              </View>
             </View>
           </TouchableOpacity>
 
-             <TouchableOpacity>
+          <TouchableOpacity>
             <View style={homeStyle.borderDox2}>
               <View style={homeStyle.imageBox}>
-              
                 <Image
                   style={homeStyle.imag2}
-                  source={{ uri: 'https://cdn-icons-png.flaticon.com/512/172/172164.png' }}
+                  source={{
+                    uri: "https://cdn-icons-png.flaticon.com/512/172/172164.png",
+                  }}
                 />
-              
-                
               </View>
               <View style={homeStyle.viewBox}>
                 <Text style={homeStyle.textBox}>Delivery History</Text>
                 <Text style={homeStyle.textBox1}>View past deliveries</Text>
-                </View>
-               
-             
+              </View>
             </View>
           </TouchableOpacity>
-
-
         </ScrollView>
         {delivery && (
           <View style={homeStyle.floatButton}>

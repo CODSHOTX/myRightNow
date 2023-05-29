@@ -1,14 +1,7 @@
-import React, { useState, useEffect,  } from "react";
-import {TouchableOpacity} from "react-native"
+import React, { useState, useEffect } from "react";
+import { TouchableOpacity } from "react-native";
 import { firebase } from "../../firebaseConfig";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Dimensions,
-  TextInput,
-  SafeAreaView,
-} from "react-native";
+import { View, SafeAreaView } from "react-native";
 import { parameters } from "../global/styles";
 import HomeHeader from "../components/HomeHeader";
 import { Avatar } from "react-native-paper";
@@ -25,7 +18,7 @@ export default function MyAccountScreen({ navigation }) {
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
   const [street, setStreet] = useState("");
- 
+
   const [profileImage, setProfileImage] = useState(null);
 
   useEffect(() => {
@@ -41,12 +34,12 @@ export default function MyAccountScreen({ navigation }) {
           const userData = doc.data();
           setStreet(userData.street);
           setCity(userData.city);
-          setEmail(userData.emails)
+          setEmail(userData.emails);
           setFName(userData.fiName);
           setLName(userData.laName);
           setPNum(userData.phNum);
           setCountry(userData.country);
-          setProfileImage(userData.profileImage)
+          setProfileImage(userData.profileImage);
         }
       } catch (error) {
         console.log("Error fetching user data:", error);
@@ -56,13 +49,12 @@ export default function MyAccountScreen({ navigation }) {
     fetchUserData();
   }, []);
 
- 
-
   const pickImage = async () => {
     try {
-      const { status } = await ImagePicker.requestMediaLibraryPermissionsAsync();
-      if (status !== 'granted') {
-        console.log('Permission denied');
+      const { status } =
+        await ImagePicker.requestMediaLibraryPermissionsAsync();
+      if (status !== "granted") {
+        console.log("Permission denied");
         return;
       }
 
@@ -99,7 +91,10 @@ export default function MyAccountScreen({ navigation }) {
       const downloadURL = await storageRef.getDownloadURL();
 
       const currentUser = firebase.auth().currentUser;
-      const userRef = firebase.firestore().collection("users").doc(currentUser.uid);
+      const userRef = firebase
+        .firestore()
+        .collection("users")
+        .doc(currentUser.uid);
       await userRef.update({ profileImage: downloadURL });
 
       return downloadURL;
@@ -139,22 +134,25 @@ export default function MyAccountScreen({ navigation }) {
         <View>
           <Table>
             <TableWrapper style={{ flexDirection: "row" }}>
-            <TouchableOpacity onPress={pickImage}> 
-              <TableWrapper style={myaccountStyle.profile}>
-                 <Avatar.Image
-                  size={120}
-                  source={profileImage ? { uri: profileImage } : require("../images/avater.jpg")}
-                />
-              </TableWrapper>
+              <TouchableOpacity onPress={pickImage}>
+                <TableWrapper style={myaccountStyle.profile}>
+                  <Avatar.Image
+                    size={120}
+                    source={
+                      profileImage
+                        ? { uri: profileImage }
+                        : require("../images/avater.jpg")
+                    }
+                  />
+                </TableWrapper>
               </TouchableOpacity>
-              
 
               <TableWrapper style={myaccountStyle.detail}>
                 <Col
                   data={[
                     fiName + " " + laName,
-                   emails,
-                   phNum,
+                    emails,
+                    phNum,
                     country,
                     city,
                     street,

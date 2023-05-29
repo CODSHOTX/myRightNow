@@ -1,19 +1,14 @@
 import React, { useState, useContext, useEffect } from "react";
 import { firebase } from "../../firebaseConfig";
 import { SafeAreaView, View, Text } from "react-native";
-import {
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from "@react-navigation/drawer";
-import { Avatar, Button, Icon } from "@rneui/themed";
+import { DrawerContentScrollView, DrawerItemList, DrawerItem } from "@react-navigation/drawer";
+import { Avatar, Icon } from "@rneui/themed";
 import { drawerStyle } from "./screenStyles/DrawerContentStyle";
 
 export default function DrawerContent(props) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [profileImage, setProfileImage] = useState("");
-  
 
   useEffect(() => {
     firebase
@@ -39,8 +34,11 @@ export default function DrawerContent(props) {
             rounded
             avatarStyle={drawerStyle.avatar}
             size={75}
-            source={profileImage ? { uri: profileImage.profileImage } : require("../images/avater.jpg")}
-            
+            source={
+              profileImage
+                ? { uri: profileImage.profileImage }
+                : require("../images/avater.jpg")
+            }
           />
           <View style={drawerStyle.view1}>
             <Text style={drawerStyle.text1}>Hello, {name.fiName}</Text>

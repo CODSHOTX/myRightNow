@@ -151,26 +151,28 @@ export const homeStyle = StyleSheet.create({
   imageBox: { marginRight: 50 },
 
   imag: {
-    height: 80, 
-    width: 80, 
-    borderRadius: 30 
+    height: 80,
+    width: 80,
+    borderRadius: 30,
   },
 
-  imag2:{ height: 80, width: 80, borderRadius: 30, margin: 10  },
+  imag2: { height: 80, width: 80, borderRadius: 30, margin: 10 },
 
-  viewBox:{
-    marginBottom:15,  marginRight:15, margin: 10, alignItems: "center"
+  viewBox: {
+    marginBottom: 15,
+    marginRight: 15,
+    margin: 10,
+    alignItems: "center",
   },
-  textBox:{
-    color:"#74D24F", 
-    fontSize:18, 
-    paddingTop:10 
+  textBox: {
+    color: "#74D24F",
+    fontSize: 18,
+    paddingTop: 10,
   },
-  textBox1:{
-    paddingTop:5, 
-    color:"#C9C9C7", 
-    fontSize:16, 
-    textAlign:"center"
-  }
-  
+  textBox1: {
+    paddingTop: 5,
+    color: "#C9C9C7",
+    fontSize: 16,
+    textAlign: "center",
+  },
 });

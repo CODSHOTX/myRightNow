@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { SafeAreaView, View, Alert } from "react-native";
 import { Button, TextInput } from "react-native-paper";
@@ -29,7 +28,12 @@ const AddressScreen = ({ navigation }) => {
   };
 
   const handleNextButtonPress = () => {
-    if (!origin || !receiverName || !receiverNumber || destinations.some(destination => !destination)) {
+    if (
+      !origin ||
+      !receiverName ||
+      !receiverNumber ||
+      destinations.some((destination) => !destination)
+    ) {
       Alert.alert("Error", "Please fill in all required fields.");
     } else {
       navigation.navigate("PackagesInfoScreen");
@@ -56,7 +60,7 @@ const AddressScreen = ({ navigation }) => {
             value={receiverName}
             onChangeText={setReceiverName}
           />
-           <TextInput
+          <TextInput
             label="Receiver Number"
             style={addressStyle.textinput}
             activeUnderlineColor="#74D24F"
@@ -64,29 +68,28 @@ const AddressScreen = ({ navigation }) => {
             onChangeText={setReceiverNumber}
             keyboardType="phone-pad"
           />
-        
-        {destinations.map((destination, index) => (
-          <TextInput
-            label="Destination"
-            style={addressStyle.textinput}
-            key={`destination${index}`}
-            activeUnderlineColor="#74D24F"
-            value={destination}
-            onChangeText={(text) => handleDestinationChange(text, index)}
-            right={
-              destinations.length > 1 ? (
-                <TextInput.Icon
-                  type="material-comunity"
-                  icon="close"
-                  style={addressStyle.buttoniconremove}
-                  iconColor={addressStyle.buttoniconremove.color}
-                  onPress={() => removeDestination(index)
-                  }
-                />
-              ) : null
-            }
-          />
-        ))}
+
+          {destinations.map((destination, index) => (
+            <TextInput
+              label="Destination"
+              style={addressStyle.textinput}
+              key={`destination${index}`}
+              activeUnderlineColor="#74D24F"
+              value={destination}
+              onChangeText={(text) => handleDestinationChange(text, index)}
+              right={
+                destinations.length > 1 ? (
+                  <TextInput.Icon
+                    type="material-comunity"
+                    icon="close"
+                    style={addressStyle.buttoniconremove}
+                    iconColor={addressStyle.buttoniconremove.color}
+                    onPress={() => removeDestination(index)}
+                  />
+                ) : null
+              }
+            />
+          ))}
         </View>
         <View>
           <Button

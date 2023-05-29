@@ -34,7 +34,7 @@ export const mapStyle = StyleSheet.create({
   },
   cancelButton: {
     color: "#74D24F",
-    borderColor: "#74D24F"
+    borderColor: "#74D24F",
   },
   cancelButton2: {
     position: "absolute",
@@ -70,7 +70,7 @@ export const mapStyle = StyleSheet.create({
     alignSelf: "auto",
   },
   cardContent: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
