@@ -1,25 +1,26 @@
 import { StyleSheet } from "react-native";
 
-export const myorderStyle = StyleSheet.create({
-  safeview: {
+export const deliveryinfoStyle = StyleSheet.create({
+  flex: {
     flex: 1,
     backgroundColor: "#F5F5F5",
   },
-  view: {
+
+  viewflex: {
     flex: 1,
     backgroundColor: "white",
   },
+  mapflex: {
+    flex: 1,
+  },
+
   card: {
     margin: 10,
-    marginBottom: 5
   },
-  cardstatus: {
-    borderTopWidth: 3,
-    borderTopColor: "#74D24F",
-  },
+
   cardtitle: {
+    marginBottom: -7,
     color: "#74D24F",
-    marginBottom: -5
   },
   price: {
     color: "#74D24F",
@@ -27,7 +28,4 @@ export const myorderStyle = StyleSheet.create({
     fontWeight: "bold",
     marginEnd: 15,
   },
-  cardcontent: {
-    marginBottom: -12
-  }
 });

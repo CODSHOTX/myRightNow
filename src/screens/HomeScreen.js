@@ -121,7 +121,7 @@ export default function HomeScreen({ navigation }) {
           </View>
 
           <TouchableOpacity onPress={() => {
-                  setDelivery(false);
+                  setDelivery(true);
                   navigation.navigate("Example1");
                 }}>
             <View style={homeStyle.borderDox}>
