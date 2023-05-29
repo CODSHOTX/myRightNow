@@ -6,6 +6,10 @@ export const signinscreenStyle = StyleSheet.create({
     flex: 1,
     backgroundColor: "#F5F5F5",
   },
+  view: {
+    flex: 1,
+    backgroundColor: "white",
+  },
   backcolor: {
     backgroundColor: "white",
   },

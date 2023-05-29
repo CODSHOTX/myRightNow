@@ -10,7 +10,10 @@ export const signupscreenStyle = StyleSheet.create({
   backcolor: {
     backgroundColor: "white",
   },
-
+  view: {
+    flex: 1,
+    backgroundColor: "white",
+  },
   view1: {
     justifyContent: "center",
     alignItems: "flex-start",

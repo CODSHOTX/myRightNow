@@ -1,23 +1,34 @@
 import { StyleSheet } from "react-native";
 
 export const welcomeStyle = StyleSheet.create({
-  slide1: {
+  safeview: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#9DD6EB",
+    backgroundColor: "#F5F5F5",
   },
-  slide2: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#97CAE5",
+  imag: {
+    height: 400,
+    width: 400,
   },
-  slide3: {
+  view1: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "flex-start",
     alignItems: "center",
-    backgroundColor: "#92BBD9",
+    marginVertical: 140,
+    marginLeft: 25,
+    paddingTop: 5,
+  },
+  view2: {
+    flex: 1,
+    justifyContent: "flex-end",
+    marginBottom: 20,
+  },
+  view2_1: {
+    marginHorizontal: 20,
+    marginTop: 30,
+  },
+  view3: {
+    marginHorizontal: 20,
+    marginTop: 10,
   },
   createButton: {
     backgroundColor: "white",
