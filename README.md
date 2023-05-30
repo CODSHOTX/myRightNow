@@ -14,3 +14,4 @@ npm install @react-navigation/stack
 npm i react-native-reanimated
 npx expo install react-native-maps
 npx expo install expo-image-picker
+npx expo install expo-location

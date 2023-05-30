@@ -6,26 +6,33 @@ import { Avatar, Icon } from "@rneui/themed";
 import { drawerStyle } from "./screenStyles/DrawerContentStyle";
 
 export default function DrawerContent(props) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [fiName, setFName] = useState("");
+  const [emails, setEmail] = useState("");
   const [profileImage, setProfileImage] = useState("");
-
+  
   useEffect(() => {
-    firebase
-      .firestore()
-      .collection("users")
-      .doc(firebase.auth().currentUser.uid)
-      .get()
-      .then((snapshot) => {
-        if (snapshot.exists) {
-          setName(snapshot.data());
-          setEmail(snapshot.data());
-          setProfileImage(snapshot.data());
-        } else {
-          console.log("User does not exist");
-        }
-      });
-  }, []);
+  const fetchUserData = async () => {
+    try {
+      const userDocRef = firebase
+        .firestore()
+        .collection("users")
+        .doc(firebase.auth().currentUser.uid);
+      const doc = await userDocRef.get();
+      if (doc.exists) {
+        const userData = doc.data();
+       
+        setEmail(userData.emails)
+        setFName(userData.fiName);
+       
+        setProfileImage(userData.profileImage)
+      }
+    } catch (error) {
+      console.log("Error fetching user data:", error);
+    }
+  };
+
+  fetchUserData();
+}, []);
   return (
     <SafeAreaView style={drawerStyle.container}>
       <DrawerContentScrollView {...props}>
@@ -34,15 +41,12 @@ export default function DrawerContent(props) {
             rounded
             avatarStyle={drawerStyle.avatar}
             size={75}
-            source={
-              profileImage
-                ? { uri: profileImage.profileImage }
-                : require("../images/avater.jpg")
-            }
+            source={profileImage ? { uri: profileImage } : require("../images/avater.jpg")}
+            
           />
           <View style={drawerStyle.view1}>
-            <Text style={drawerStyle.text1}>Hello, {name.fiName}</Text>
-            <Text style={drawerStyle.text2}>{email.emails}</Text>
+            <Text style={drawerStyle.text1}>Hello, {fiName}</Text>
+            <Text style={drawerStyle.text2}>{emails}</Text>
           </View>
 
           <View style={drawerStyle.nview}>
