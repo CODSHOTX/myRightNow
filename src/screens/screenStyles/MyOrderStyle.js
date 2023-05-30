@@ -9,6 +9,15 @@ export const myorderStyle = StyleSheet.create({
     flex: 1,
     backgroundColor: "white",
   },
+  view1: {
+    backgroundColor: "white",
+    paddingBottom: 5,
+  },
+  view2: {
+    marginTop: 10,
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+  },
   card: {
     margin: 10,
     marginBottom: 5,
@@ -29,5 +38,15 @@ export const myorderStyle = StyleSheet.create({
   },
   cardcontent: {
     marginBottom: -12,
+  },
+  deliveryButton: {
+    paddingHorizontal: 20,
+    borderRadius: 15,
+    paddingVertical: 5,
+  },
+  deliveryText: {
+    marginLeft: 5,
+    fontSize: 16,
+    color: "white",
   },
 });

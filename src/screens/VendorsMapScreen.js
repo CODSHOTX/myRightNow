@@ -108,29 +108,7 @@ const VendorsMapScreen = ({ navigation }) => {
               </Marker>
             </>
           ) : null}
-
-          {state == 2 ? (
-            <>
-              <Marker
-                description="Origin"
-                coordinate={{ latitude: 35.146801, longitude: 33.908648 }}
-              >
-                <Image
-                  style={mapStyle.markerImage}
-                  source={require("../images/origin.png")}
-                />
-              </Marker>
-              <Marker
-                description="Destination"
-                coordinate={{ latitude: 35.14075, longitude: 33.913338 }}
-              >
-                <Image
-                  style={mapStyle.markerImage}
-                  source={require("../images/destination.png")}
-                />
-              </Marker>
-            </>
-          ) : null}
+          
         </MapView>
 
         {state === 1 ? (
@@ -141,36 +119,9 @@ const VendorsMapScreen = ({ navigation }) => {
           />
         ) : null}
 
-        {state === 2 ? (
-          <>
-            <Card style={mapStyle.card}>
-              <Card.Content>
-                <List.Item
-                  title="₺50.00"
-                  description="Total Price"
-                  left={() => (
-                    <IconButton
-                      icon="bike-fast"
-                      size={32}
-                      style={mapStyle.icon}
-                      iconColor={mapStyle.icon.color}
-                    />
-                  )}
-                  right={() => (
-                    <View>
-                      <Button mode="contained" style={mapStyle.confirmButton}>
-                        Confirm
-                      </Button>
-                      <Button labelStyle={mapStyle.cancelButton}>Cancel</Button>
-                    </View>
-                  )}
-                />
-              </Card.Content>
-            </Card>
-          </>
-        ) : null}
+    
 
-        {state === 3 ? (
+        {state === 2 ? (
           <View style={mapStyle.flexCenter} testID="searchDeliveryCard">
             <ActivityIndicator color={mapStyle.icon.color} animating={true} />
             <Title style={mapStyle.title}>

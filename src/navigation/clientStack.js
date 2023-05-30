@@ -1,8 +1,5 @@
 import React from "react";
-import {
-  createStackNavigator,
-  TransitionPresets,
-} from "@react-navigation/stack";
+import { createStackNavigator, TransitionPresets, } from "@react-navigation/stack";
 import RootClientTabs from "./ClientTabs";
 import EditProfileScreen from "../screens/userScreens/EditProfileScreen";
 import VendorsMapScreen from "../screens/VendorsMapScreen";
@@ -11,6 +8,7 @@ import { AddressScreen } from "../screens/AddressScreen";
 import PackagesInfoScreen from "../screens/PackagesInfoScreen";
 import DeliveryDetailScreen from "../screens/DeliveryDetailScreen";
 import Example1 from "../screens/Example1";
+import HistoryScreen from "../screens/HistoryScreen";
 
 const Auth = createStackNavigator();
 
@@ -73,6 +71,14 @@ export default function ClientStack() {
       <Auth.Screen
         name="DeliveryDetailScreen"
         component={DeliveryDetailScreen}
+        options={{
+          headerShown: false,
+          ...TransitionPresets.RevealFromBottomAndroid,
+        }}
+      />
+      <Auth.Screen
+        name="HistoryScreen"
+        component={HistoryScreen}
         options={{
           headerShown: false,
           ...TransitionPresets.RevealFromBottomAndroid,

@@ -139,7 +139,11 @@ export default function HomeScreen({ navigation }) {
             </View>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity
+          onPress={() => {
+            setDelivery(true);
+            navigation.navigate("HistoryScreen");
+          }}>
             <View style={homeStyle.borderDox2}>
               <View style={homeStyle.imageBox}>
                 <Image
