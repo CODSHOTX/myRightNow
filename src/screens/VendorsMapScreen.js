@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { SafeAreaView, View, Image } from "react-native";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import { mapStyle } from "./screenStyles/MapStyle";
+import {firebase} from "../../firebaseConfig";
 import Header from "../components/Header";
 import { FAB } from "@rneui/base";
 import { Button, Card, List, ActivityIndicator, Title } from "react-native-paper";
@@ -9,6 +10,29 @@ import { Button, Card, List, ActivityIndicator, Title } from "react-native-paper
 const VendorsMapScreen = ({ navigation }) => {
   const [state, setState] = useState(1);
   const [selectedMarker, setSelectedMarker] = useState(null);
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("")
+  useEffect(() => {
+    // Fetch the user's existing data from Firestore
+    const fetchUserData = async () => {
+      try {
+        const userDocRef = firebase
+          .firestore()
+          .collection("users")
+          .doc(firebase.auth().currentUser.uid);
+        const doc = await userDocRef.get();
+        if (doc.exists) {
+          const userData = doc.data();
+          setLatitude(userData.latitude)
+          setLongitude(userData.longitude);
+        }
+      } catch (error) {
+        console.log("Error fetching user data:", error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
 
   const handleMarkerPress = (markerData) => {
     setSelectedMarker(markerData);
@@ -34,11 +58,12 @@ const VendorsMapScreen = ({ navigation }) => {
         >
           {state === 1 ? (
             <>
+            
               <Marker
                 description="Delivery Person 1"
                 coordinate={{ latitude: 35.146801, longitude: 33.908648 }}
                 onPress={() =>
-                  handleMarkerPress({
+                  handleMarkerPress({ 
                     name: "John Doe",
                     plate: "XYZ1234",
                     phone: "123-456-7890",

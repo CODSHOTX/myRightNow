@@ -8,6 +8,7 @@ import { firebase } from "../../firebaseConfig";
 import { Icon } from "@rneui/base";
 import Application from "../screens/ApplicationScreen";
 import ApplicationScreen from "../screens/ApplicationScreen";
+import CourierTabs from "./CourierTabs";
 
 const Drawer = createDrawerNavigator();
 
@@ -67,8 +68,8 @@ export default function DrawerNavigator() {
           />
 
           <Drawer.Screen
-            name="DriverConsoleScreen"
-            component={DriverConsoleScreen}
+            name="CourierTabs"
+            component={CourierTabs}
             options={{
               title: "Driver Console",
               headerShown: false,
