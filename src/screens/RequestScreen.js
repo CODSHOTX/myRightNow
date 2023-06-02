@@ -1,10 +1,13 @@
 import React from "react";
-import {View, Text} from "react-native"
+import { SafeAreaView, Text } from "react-native";
+import { driverconsoleStyle } from "./screenStyles/DriverConsoleStyle";
+import CourierHeader from "../components/CourierHeader";
 
-export default function RequestScreen(){
-    return(
-        <View>
-            <Text>Request Screen</Text>
-        </View>
-    )
+export default function RequestScreen({ navigation }) {
+  return (
+    <SafeAreaView style={driverconsoleStyle.container}>
+      <CourierHeader navigation={navigation} />
+      <Text>Request Screen</Text>
+    </SafeAreaView>
+  );
 }

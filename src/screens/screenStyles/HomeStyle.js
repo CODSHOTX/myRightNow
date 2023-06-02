@@ -68,14 +68,12 @@ export const homeStyle = StyleSheet.create({
     fontSize: 22,
     paddingLeft: 10,
   },
-
   headerTextView: {
     backgroundColor: colors.grey5,
     paddingLeft: 5,
     marginTop: 10,
     paddingVertical: 3,
   },
-
   smallCard: {
     borderRadius: 30,
     backgroundColor: colors.grey5,
@@ -86,7 +84,6 @@ export const homeStyle = StyleSheet.create({
     margin: 10,
     height: 100,
   },
-
   smallCardSelected: {
     borderRadius: 30,
     backgroundColor: colors.buttons,
@@ -97,12 +94,10 @@ export const homeStyle = StyleSheet.create({
     margin: 10,
     height: 100,
   },
-
   smallCardTextSelected: {
     fontWeight: "bold",
     color: colors.cardbackground,
   },
-
   smallCardText: {
     fontWeight: "bold",
     color: colors.grey2,
@@ -147,17 +142,20 @@ export const homeStyle = StyleSheet.create({
     alignItems: "flex-start", // Align items vertically in the center
     // padding: 5, // Adjust the padding as needed
   },
-
-  imageBox: { marginRight: 50 },
-
+  imageBox: {
+    marginRight: 50,
+  },
   imag: {
     height: 80,
     width: 80,
     borderRadius: 30,
   },
-
-  imag2: { height: 80, width: 80, borderRadius: 30, margin: 10 },
-
+  imag2: {
+    height: 80,
+    width: 80,
+    borderRadius: 30,
+    margin: 10,
+  },
   viewBox: {
     marginBottom: 15,
     marginRight: 15,

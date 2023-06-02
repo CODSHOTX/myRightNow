@@ -4,10 +4,6 @@ import { Image, Dimensions, SafeAreaView, StatusBar } from "react-native";
 import { homeStyle } from "../screens/screenStyles/HomeStyle";
 import { Icon } from "@rneui/base";
 import HomeHeader from "../components/HomeHeader";
-import { colors } from "../global/styles";
-import { filterData, vendorsData } from "../global/data";
-import VendorCard from "../components/VendorCard";
-import CountDown from "react-native-countdown-component";
 import { useEffect } from "react";
 import { firebase } from "../../firebaseConfig";
 
@@ -16,7 +12,6 @@ const SCREEN_WIDTH = Dimensions.get("window").width;
 export default function HomeScreen({ navigation }) {
   const [delivery, setDelivery] = useState(true);
   const [indexCheck, setIndexCheck] = useState("0");
-
   const [street, setStreet] = useState("");
 
   useEffect(() => {
@@ -140,10 +135,11 @@ export default function HomeScreen({ navigation }) {
           </TouchableOpacity>
 
           <TouchableOpacity
-          onPress={() => {
-            setDelivery(true);
-            navigation.navigate("HistoryScreen");
-          }}>
+            onPress={() => {
+              setDelivery(true);
+              navigation.navigate("HistoryScreen");
+            }}
+          >
             <View style={homeStyle.borderDox2}>
               <View style={homeStyle.imageBox}>
                 <Image

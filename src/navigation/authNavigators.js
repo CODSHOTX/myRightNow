@@ -1,5 +1,5 @@
 import React from "react";
-import { createStackNavigator, TransitionPresets } from "@react-navigation/stack";
+import { createStackNavigator, TransitionPresets,} from "@react-navigation/stack";
 import SignInWelcomeScreen from "../screens/authScreens/SigninWelcomeScrn";
 import SignInScreen from "../screens/authScreens/SigninScreens";
 import HomeScreen from "../screens/HomeScreen";

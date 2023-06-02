@@ -1,36 +1,36 @@
-import React, {useState, useEffect} from "react";
-import { View, Text, TouchableOpacity, Pressable, ScrollView, FlatList, Image, Dimensions, SafeAreaView, StatusBar } from "react-native";
+import React, { useState, useEffect } from "react";
+import { View, Text, TouchableOpacity } from "react-native";
+import { Image, SafeAreaView } from "react-native";
 import { driverconsoleStyle } from "./screenStyles/DriverConsoleStyle";
 import CourierHeader from "../components/CourierHeader";
-import MapView, {Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
 import { homeStyle } from "./screenStyles/HomeStyle";
 
 export default function DriverConsoleScreen({ navigation }) {
   return (
     <SafeAreaView style={driverconsoleStyle.container}>
       <CourierHeader navigation={navigation} />
-      <View style={{flexDirection:'column',  flex: 1}}>
-        <MapView style={{flex:1, height:'50%'}}
-         provider={PROVIDER_GOOGLE}
-       
-         initialRegion={{
-           latitude: 35.146732,
-           longitude: 33.908628,
-           latitudeDelta: 0.0222,
-           longitudeDelta: 0.0121,
-         }}>
-
+      <View style={driverconsoleStyle.view}>
+        <MapView
+          style={driverconsoleStyle.map}
+          provider={PROVIDER_GOOGLE}
+          initialRegion={{
+            latitude: 35.146732,
+            longitude: 33.908628,
+            latitudeDelta: 0.0222,
+            longitudeDelta: 0.0121,
+          }}
+        >
+          {" "}
+          <Marker
+            coordinate={{ latitude: 35.146801, longitude: 33.908648 }}
+          />{" "}
         </MapView>
-         <Marker  coordinate={{ latitude: 35.146801, longitude: 33.908648 }}
-         />
-         <View style={{borderColor:'#74D24F', borderWidth:1,}}>
-         <TouchableOpacity
-            onPress={() => {
-            
-            }}
-          >
-            <View style={{flexDirection:'row'}}>
-              <View style={homeStyle.imageBox} >
+
+        <View style={driverconsoleStyle.view1}>
+          <TouchableOpacity onPress={() => {}}>
+            <View style={{ flexDirection: "row" }}>
+              <View style={homeStyle.imageBox}>
                 <Image
                   style={homeStyle.imag}
                   source={{
@@ -38,18 +38,16 @@ export default function DriverConsoleScreen({ navigation }) {
                   }}
                 />
               </View>
-              <View style={homeStyle.viewBox}>
-                <Text style={homeStyle.textBox}>View History</Text>
-                <Text style={homeStyle.textBox1}>
-                 History of all {"\n"}packages you delivered
+              <View style={driverconsoleStyle.viewBox}>
+                <Text style={driverconsoleStyle.textBox}>View History</Text>
+                <Text style={driverconsoleStyle.textBox1}>
+                  History of all {"\n"}packages you delivered
                 </Text>
               </View>
             </View>
           </TouchableOpacity>
-
-          </View>
+        </View>
       </View>
-     
     </SafeAreaView>
   );
 }
