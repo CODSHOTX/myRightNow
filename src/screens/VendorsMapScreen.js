@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { SafeAreaView, View, Image } from "react-native";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import { mapStyle } from "./screenStyles/MapStyle";
-import { firebase } from "../../firebaseConfig";
-import Header from "../components/Header";
+import {firebase} from "../../firebaseConfig";
+import ItemHeader from "../components/ItemHeader";
 import { FAB } from "@rneui/base";
 import { Button, Card, List } from "react-native-paper";
 import { ActivityIndicator, Title } from "react-native-paper";
 
-const VendorsMapScreen = ({ navigation }) => {
+const VendorsMapScreen = ( {navigation}) => {
   const [state, setState] = useState(1);
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [latitude, setLatitude] = useState("");
@@ -45,7 +45,7 @@ const VendorsMapScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={mapStyle.safeview}>
-      <Header title="RightNOW" type="arrow-left" navigation={navigation} />
+      <ItemHeader title="RightNOW" type="arrow-left" navigation={navigation} />
       <View style={mapStyle.view}>
         <MapView
           provider={PROVIDER_GOOGLE}
@@ -94,7 +94,26 @@ const VendorsMapScreen = ({ navigation }) => {
                   style={mapStyle.markerImage}
                   source={require("../images/deliverybike_icon.png")}
                 />
+                
               </Marker>
+              <Marker
+                description="Me"
+                coordinate={{ latitude: latitude, longitude: longitude }}
+                onPress={() =>
+                  handleMarkerPress({
+                    name: "Mikky Dark",
+                    plate: "XYZ2229",
+                    phone: "523-251-4091",
+                    rate: "Bad",
+                    photo: require("../images/deliveryperson1.png"),
+                  })
+                }
+              >
+                <Image
+                  style={mapStyle.markerImage}
+                  source={require("../images/deliverybike_icon.png")}
+                />
+                </Marker>
               <Marker
                 description="Delivery Person 3"
                 coordinate={{ latitude: 35.14075, longitude: 33.913338 }}
