@@ -71,4 +71,7 @@ export const drawerStyle = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
   },
+  signout:{ 
+    color: "#C9C9C7" 
+  }
 });

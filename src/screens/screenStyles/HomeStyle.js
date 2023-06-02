@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { colors } from "../../global/styles";
 
 export const homeStyle = StyleSheet.create({
   safeview: {
@@ -40,7 +39,7 @@ export const homeStyle = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginLeft: 20,
-    backgroundColor: colors.cardbackground,
+    backgroundColor: "white",
     borderRadius: 15,
     paddingHorizontal: 5,
     marginRight: 20,
@@ -63,20 +62,20 @@ export const homeStyle = StyleSheet.create({
     paddingHorizontal: 20,
   },
   headerText: {
-    color: colors.grey1,
+    color: "#3B3B3B",
     fontWeight: "bold",
     fontSize: 22,
     paddingLeft: 10,
   },
   headerTextView: {
-    backgroundColor: colors.grey5,
+    backgroundColor: "#C5C5C5",
     paddingLeft: 5,
     marginTop: 10,
     paddingVertical: 3,
   },
   smallCard: {
     borderRadius: 30,
-    backgroundColor: colors.grey5,
+    backgroundColor: "#C5C5C5",
     justifyContent: "center",
     alignItems: "center",
     padding: 5,
@@ -86,7 +85,7 @@ export const homeStyle = StyleSheet.create({
   },
   smallCardSelected: {
     borderRadius: 30,
-    backgroundColor: colors.buttons,
+    backgroundColor: "#116530",
     justifyContent: "center",
     alignItems: "center",
     padding: 5,
@@ -96,11 +95,11 @@ export const homeStyle = StyleSheet.create({
   },
   smallCardTextSelected: {
     fontWeight: "bold",
-    color: colors.cardbackground,
+    color: "white",
   },
   smallCardText: {
     fontWeight: "bold",
-    color: colors.grey2,
+    color: "#525252",
   },
   floatButton: {
     position: "absolute",

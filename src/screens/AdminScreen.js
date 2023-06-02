@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, StatusBar, View, Text } from "react-native";
+import { SafeAreaView, View, Text } from "react-native";
 import { TouchableOpacity, TextInput, ScrollView } from "react-native";
+import { Button, TextInput } from "react-native-paper";
 import { firebase } from "../../firebaseConfig";
+import HomeHeader from "../components/HomeHeader";
+import { adminStyle } from "./screenStyles/AdminStyle";
 
-export default function AdminScreen() {
+export default function AdminScreen({ navigation }) {
   const [users, setUsers] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
   const [name, setName] = useState("");
@@ -50,36 +53,35 @@ export default function AdminScreen() {
   };
 
   return (
-    <SafeAreaView>
-      <StatusBar
-        barStyle="dark-content"
-        hidden={false}
-        backgroundColor="#F5F5F5"
-      />
-      <View>
-        <Text>Admin Screen</Text>
+    <SafeAreaView style={adminStyle.safeview}>
+      <HomeHeader navigation={navigation} />
+      <View style={adminStyle.container}>
         <TextInput
-          placeholder="Name"
+          label="Name"
+          style={adminStyle.textinput}
+          activeUnderlineColor="#74D24F"
           onChangeText={(text) => setName(text)}
           value={name}
         />
         <TextInput
-          placeholder="Email"
+          label="Email"
+          style={adminStyle.textinput}
+          activeUnderlineColor="#74D24F"
           onChangeText={(text) => setEmail(text)}
           value={email}
         />
-        <TouchableOpacity onPress={handleCreateUser}>
+        <TouchableOpacity style={adminStyle.imgbutton} onPress={handleCreateUser}>
           <Text>Create User</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={handleUpdateUser}>
+        <TouchableOpacity style={adminStyle.imgbutton} onPress={handleUpdateUser}>
           <Text>Update User</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={handleDeleteUser}>
+        <TouchableOpacity style={adminStyle.imgbutton} onPress={handleDeleteUser}>
           <Text>Delete User</Text>
         </TouchableOpacity>
         <ScrollView>
           {users.map((user) => (
-            <TouchableOpacity key={user.id} onPress={() => selectUser(user)}>
+            <TouchableOpacity style={adminStyle.imgbutton} key={user.id} onPress={() => selectUser(user)}>
               <Text>{user.name}</Text>
             </TouchableOpacity>
           ))}

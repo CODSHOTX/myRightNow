@@ -67,7 +67,7 @@ export const example1Style = StyleSheet.create({
     borderWidth: 2,
     marginLeft: 50,
   },
-  imgButton: {
+  imgbutton: {
     width: 100,
     height: 40,
     alignItems: "center",

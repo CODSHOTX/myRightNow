@@ -17,32 +17,30 @@ const Example1 = ({ navigation }) => {
   const [receiverName, setReceiverName] = useState("");
   const [receiverNumber, setReceiverNumber] = useState("");
 
-  const [senderEmail, setSenderEmail ]=useState("");
-  const [height, setHeight]=useState("");
-  const [description, setDescription]=useState("");
-  const [weight, setWeight]=useState("");
-  const [depth, setDepth] =useState("");
-  const [width, setWidth]=useState("");
-  const [email, setEmail]=useState("");
-  const [orderId, setOrderId]=useState("");
-  
-  
+  const [senderEmail, setSenderEmail] = useState("");
+  const [height, setHeight] = useState("");
+  const [description, setDescription] = useState("");
+  const [weight, setWeight] = useState("");
+  const [depth, setDepth] = useState("");
+  const [width, setWidth] = useState("");
+  const [email, setEmail] = useState("");
+  const [orderId, setOrderId] = useState("");
+
   function generateRandomNumbers() {
     const numbers = [];
-    
+
     for (let i = 0; i < 6; i++) {
       const randomInt = Math.floor(Math.random() * 100); // Generate a random integer between 0 and 99
       const formattedNumber = "RN" + randomInt.toString().padStart(2, "0"); // Prefix with "RN" and ensure two-digit format
       numbers.push(formattedNumber);
     }
-    
+
     return numbers;
   }
-  
+
   // Example usage
   const randomNumbers = generateRandomNumbers();
   console.log(randomNumbers);
-  
 
   const addDestination = () => {
     const newDestinations = [...destinations, destinations.length + 1];
@@ -147,9 +145,7 @@ const Example1 = ({ navigation }) => {
     console.log("called previous step");
   };
 
-  const onSubmitStep=()=>{
-
-  }
+  const onSubmitStep = () => {};
   return (
     <SafeAreaView style={example1Style.container}>
       <View style={example1Style.view1}>
@@ -263,7 +259,7 @@ const Example1 = ({ navigation }) => {
                   </View> */}
                     <View style={example1Style.view5}>
                       <TouchableOpacity
-                        style={example1Style.imgButton}
+                        style={example1Style.imgbutton}
                         onPress={pickImage}
                       >
                         <Text style={example1Style.textcolor}>Pick Image</Text>
@@ -277,7 +273,7 @@ const Example1 = ({ navigation }) => {
                         />
                       )}
                       <TouchableOpacity
-                        style={example1Style.imgButton}
+                        style={example1Style.imgbutton}
                         onPress={uploadImage}
                       >
                         <Text style={example1Style.textcolor}>
@@ -316,14 +312,14 @@ const Example1 = ({ navigation }) => {
                     onChangeText={setReceiverName}
                   />
 
-                    <TextInput
-                                        label="Receiver Email"
-                                        style={example1Style.textinput}
-                                        activeUnderlineColor="#74D24F"
-                                        value={receiverName.toString()}
-                                        onChangeText={setEmail}
-                                        keyboardType="email-address"
-                                      />
+                  <TextInput
+                    label="Receiver Email"
+                    style={example1Style.textinput}
+                    activeUnderlineColor="#74D24F"
+                    value={receiverName.toString()}
+                    onChangeText={setEmail}
+                    keyboardType="email-address"
+                  />
                   <TextInput
                     label="Receiver Number"
                     style={example1Style.textinput}

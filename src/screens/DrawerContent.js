@@ -16,7 +16,6 @@ import { Avatar, Icon } from "@rneui/themed";
 import { drawerStyle } from "./screenStyles/DrawerContentStyle";
 import * as Location from "expo-location";
 
-
 export default function DrawerContent(props) {
   const [fiName, setFName] = useState("");
   const [emails, setEmail] = useState("");
@@ -110,7 +109,7 @@ export default function DrawerContent(props) {
             <View style={drawerStyle.lview}></View>
           </View>
         </View>
-        
+
         <DrawerItemList {...props} />
 
         <DrawerItem
@@ -157,7 +156,9 @@ export default function DrawerContent(props) {
         <TouchableOpacity
           style={[
             drawerStyle.toggleButton,
-            locationEnabled ? drawerStyle.activeButton : drawerStyle.inactiveButton,
+            locationEnabled
+              ? drawerStyle.activeButton
+              : drawerStyle.inactiveButton,
           ]}
           onPress={handleToggleLocation}
         >
@@ -176,7 +177,7 @@ export default function DrawerContent(props) {
 
       <DrawerItem
         label="Sign out"
-        labelStyle={{ color: "#C9C9C7" }}
+        labelStyle={drawerStyle.signout}
         onPress={() => firebase.auth().signOut()}
         icon={({ size }) => (
           <Icon
