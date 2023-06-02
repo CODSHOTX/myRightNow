@@ -6,9 +6,9 @@ export const drawerStyle = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#F5F5F5",
     paddingLeft: 20,
-    paddingVertical: 10,
+    paddingVertical: 30,
     paddingBottom: -20,
-    top: -40,
+    top: -20,
   },
   view1: {
     marginLeft: 10,
@@ -39,5 +39,36 @@ export const drawerStyle = StyleSheet.create({
   nview: {
     flexDirection: "row",
     marginTop: 10,
+  },
+  locview:{
+    width: '70%',
+    height: '20%',
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 100,
+    marginHorizontal: 32
+  },
+  toggleButton: {
+    backgroundColor: "#007AFF",
+    borderRadius: 5,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    marginBottom: 20,
+    margin: 10
+  },
+  activeButton: {
+    backgroundColor: "#74D24F",
+  },
+  inactiveButton: {
+    backgroundColor: "#C9C9C7",
+  },
+  buttonText: {
+    color: "#FFFFFF",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  locationText: {
+    fontSize: 16,
+    fontWeight: "bold",
   },
 });

@@ -6,6 +6,14 @@ export const driverconsoleStyle = StyleSheet.create({
     backgroundColor: "white",
     flexDirection: "column",
   },
+  imageBox: {
+    marginRight: 50,
+  },
+  img: {
+    height: 80,
+    width: 80,
+    borderRadius: 30,
+  },
   view1: {
     borderColor: "#74D24F",
     borderWidth: 1,
@@ -13,6 +21,10 @@ export const driverconsoleStyle = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F5F5F5",
+  },
+  markerImg: {
+    width: 32,
+    height: 32,
   },
   map: {
     flex: 1,

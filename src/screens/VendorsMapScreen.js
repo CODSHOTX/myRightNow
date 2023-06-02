@@ -2,16 +2,17 @@ import React, { useState, useEffect } from "react";
 import { SafeAreaView, View, Image } from "react-native";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import { mapStyle } from "./screenStyles/MapStyle";
-import {firebase} from "../../firebaseConfig";
+import { firebase } from "../../firebaseConfig";
 import Header from "../components/Header";
 import { FAB } from "@rneui/base";
-import { Button, Card, List, ActivityIndicator, Title } from "react-native-paper";
+import { Button, Card, List } from "react-native-paper";
+import { ActivityIndicator, Title } from "react-native-paper";
 
 const VendorsMapScreen = ({ navigation }) => {
   const [state, setState] = useState(1);
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [latitude, setLatitude] = useState("");
-  const [longitude, setLongitude] = useState("")
+  const [longitude, setLongitude] = useState("");
   useEffect(() => {
     // Fetch the user's existing data from Firestore
     const fetchUserData = async () => {
@@ -23,7 +24,7 @@ const VendorsMapScreen = ({ navigation }) => {
         const doc = await userDocRef.get();
         if (doc.exists) {
           const userData = doc.data();
-          setLatitude(userData.latitude)
+          setLatitude(userData.latitude);
           setLongitude(userData.longitude);
         }
       } catch (error) {
@@ -58,12 +59,11 @@ const VendorsMapScreen = ({ navigation }) => {
         >
           {state === 1 ? (
             <>
-            
               <Marker
                 description="Delivery Person 1"
                 coordinate={{ latitude: 35.146801, longitude: 33.908648 }}
                 onPress={() =>
-                  handleMarkerPress({ 
+                  handleMarkerPress({
                     name: "John Doe",
                     plate: "XYZ1234",
                     phone: "123-456-7890",
@@ -115,10 +115,10 @@ const VendorsMapScreen = ({ navigation }) => {
               </Marker>
               <Marker
                 description="Delivery Person 4"
-                coordinate={{ latitude: 35.14165, longitude: 33.90581 }}
+                coordinate={{ latitude: latitude, longitude: longitude }}
                 onPress={() =>
                   handleMarkerPress({
-                    name: "Ichiko K",
+                    name: "Ichiko Kurasaki",
                     plate: "EAZ1412",
                     phone: "550-311-1912",
                     rate: "Good",
@@ -128,12 +128,11 @@ const VendorsMapScreen = ({ navigation }) => {
               >
                 <Image
                   style={mapStyle.markerImage}
-                  source={require("../images/deliverybike_icon.png")}
+                  source={require("../images/origin.png")}
                 />
               </Marker>
             </>
           ) : null}
-          
         </MapView>
 
         {state === 1 ? (
@@ -144,10 +143,8 @@ const VendorsMapScreen = ({ navigation }) => {
           />
         ) : null}
 
-    
-
         {state === 2 ? (
-          <View style={mapStyle.flexCenter} testID="searchDeliveryCard">
+          <View style={mapStyle.flexCenter}>
             <ActivityIndicator color={mapStyle.icon.color} animating={true} />
             <Title style={mapStyle.title}>
               Searching For a Courier Close by.

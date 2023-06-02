@@ -1,5 +1,14 @@
+Client:
 kingnixion@gmail.com
-Password 
+Password
+
+Admin:
+rightnow.g04@yahoo.com
+
+Yahoo:
+rightnow.g04@yahoo.com
+AlphaArshadKennedyMichaelRita
+
 npm install react-native-vector-icons
 npm install @rneui/themed @rneui/base
 npm install @react-navigation/bottom-tabs
