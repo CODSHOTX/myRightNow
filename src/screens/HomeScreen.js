@@ -64,7 +64,7 @@ export default function HomeScreen({ navigation }) {
               <TouchableOpacity
                 onPress={() => {
                   setDelivery(false);
-                  navigation.navigate("VendorsMapScreen");
+                  navigation.navigate("MapsScreen");
                 }}
               >
                 <View
@@ -152,7 +152,7 @@ export default function HomeScreen({ navigation }) {
           <View style={homeStyle.floatButton}>
             <TouchableOpacity
               onPress={() => {
-                navigation.navigate("VendorsMapScreen");
+                navigation.navigate("MapsScreen");
               }}
             >
               <Icon name="place" type="material" size={32} color="#74D24F" />

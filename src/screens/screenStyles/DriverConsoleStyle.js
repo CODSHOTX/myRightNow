@@ -6,6 +6,10 @@ export const driverconsoleStyle = StyleSheet.create({
     backgroundColor: "white",
     flexDirection: "column",
   },
+  view2:{
+    flex: 1,
+    backgroundColor: "white",
+  },
   imageBox: {
     marginRight: 50,
   },

@@ -1,14 +1,14 @@
 import React from "react";
 import { View, Text, SafeAreaView } from "react-native";
 import { Icon, withBadge } from "@rneui/base";
-import { homeheaderStyle } from "./componentsStyles/homeheaderStyle";
+import { courierheaderStyle } from "./componentsStyles/courierheaderstyle";
 
 export default function CourierHeader({ navigation }) {
  
 
   return (
-    <SafeAreaView style={homeheaderStyle.header}>
-      <View style={homeheaderStyle.veiw1}>
+    <SafeAreaView style={courierheaderStyle.header}>
+      <View style={courierheaderStyle.veiw1}>
         <Icon
           type="material-community"
           name="menu"
@@ -19,11 +19,11 @@ export default function CourierHeader({ navigation }) {
           }}
         />
       </View>
-      <View style={homeheaderStyle.veiw2}>
-        <Text style={homeheaderStyle.text1}>CourierNow</Text>
+      <View style={courierheaderStyle.veiw2}>
+        <Text style={courierheaderStyle.text1}>CourierNow</Text>
       </View>
 
-      <View style={homeheaderStyle.veiw3}>
+      <View style={courierheaderStyle.veiw3}>
         <Icon
           type="material-community"
           name="account-tie-hat"

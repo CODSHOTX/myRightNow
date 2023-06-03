@@ -173,7 +173,7 @@ const ItemDescriptionScreen = ({ navigation }) => {
       await userRef.set(data);
       uploadImage();
       console.log("Data saved, choose Courier");
-      navigation.navigate("VendorsMapScreen");
+      navigation.navigate("MapsScreen");
     } catch (error) {
       console.log("Error saving data");
     }
