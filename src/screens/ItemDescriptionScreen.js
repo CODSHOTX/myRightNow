@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import { Image, ScrollView, Alert } from "react-native";
 import ItemHeader from "../components/ItemHeader";
@@ -281,11 +281,7 @@ const ItemDescriptionScreen = ({ navigation }) => {
                         Upload Image Here
                       </Text>
                     </View>
-                    {/* <View>
-                    <Text style={colors.grey5}>
-                      upload the photo of the item
-                    </Text>
-                  </View> */}
+
                     <View style={itemdescriptionStyle.view5}>
                       <TouchableOpacity
                         style={itemdescriptionStyle.imgbutton}
@@ -325,82 +321,88 @@ const ItemDescriptionScreen = ({ navigation }) => {
               scrollViewProps={defaultScrollViewProps}
               nextBtnTextStyle={buttonTextStyle}
               previousBtnTextStyle={buttonTextStyle}
-            ><ScrollView>
-              <View style={itemdescriptionStyle.view1}>
-                <View style={itemdescriptionStyle.marginhorizontal}>
-                  <TextInput
-                    label="Origin"
-                    style={itemdescriptionStyle.textinput}
-                    activeUnderlineColor="#74D24F"
-                    value={origin.toString()}
-                    onChangeText={setOrigin}
-                  />
-                  <TextInput
-                    label="Receiver Name"
-                    style={itemdescriptionStyle.textinput}
-                    activeUnderlineColor="#74D24F"
-                    value={receiverName}
-                    onChangeText={setReceiverName}
-                  />
-
-                  <TextInput
-                    label="Receiver Email"
-                    style={itemdescriptionStyle.textinput}
-                    activeUnderlineColor="#74D24F"
-                    value={rEmail}
-                    onChangeText={setREmail}
-                    keyboardType="email-address"
-                  />
-                  <TextInput
-                    label="Receiver Number"
-                    style={itemdescriptionStyle.textinput}
-                    activeUnderlineColor="#74D24F"
-                    value={receiverNumber.toString()}
-                    onChangeText={setReceiverNumber}
-                    keyboardType="phone-pad"
-                  />
-                  {destinations.map((destination, index) => (
+              finishBtnText=""
+              previousBtnText="Previous"
+            >
+              <ScrollView>
+                <View style={itemdescriptionStyle.view1}>
+                  <View style={itemdescriptionStyle.marginhorizontal}>
                     <TextInput
-                      label="Destination Coordinates"
+                      label="Origin"
                       style={itemdescriptionStyle.textinput}
-                      key={`destination${index}`}
                       activeUnderlineColor="#74D24F"
-                      value={destination.toString()}
-                      onChangeText={(text) =>
-                        handleDestinationChange(text, index)
-                      }
-                      right={
-                        destinations.length > 1 ? (
-                          <TextInput.Icon
-                            type="material-comunity"
-                            icon="close"
-                            style={itemdescriptionStyle.buttoniconremove}
-                            iconColor={
-                              itemdescriptionStyle.buttoniconremove.color
-                            }
-                            onPress={() => removeDestination(index)}
-                          />
-                        ) : null
-                      }
+                      value={origin.toString()}
+                      onChangeText={setOrigin}
                     />
-                  ))}
-                </View>
-                <View>
+                    <TextInput
+                      label="Receiver Name"
+                      style={itemdescriptionStyle.textinput}
+                      activeUnderlineColor="#74D24F"
+                      value={receiverName}
+                      onChangeText={setReceiverName}
+                    />
+
+                    <TextInput
+                      label="Receiver Email"
+                      style={itemdescriptionStyle.textinput}
+                      activeUnderlineColor="#74D24F"
+                      value={rEmail}
+                      onChangeText={setREmail}
+                      keyboardType="email-address"
+                    />
+                    <TextInput
+                      label="Receiver Number"
+                      style={itemdescriptionStyle.textinput}
+                      activeUnderlineColor="#74D24F"
+                      value={receiverNumber.toString()}
+                      onChangeText={setReceiverNumber}
+                      keyboardType="phone-pad"
+                    />
+                    {destinations.map((destination, index) => (
+                      <TextInput
+                        label="Destination Coordinates"
+                        style={itemdescriptionStyle.textinput}
+                        key={`destination${index}`}
+                        activeUnderlineColor="#74D24F"
+                        value={destination.toString()}
+                        onChangeText={(text) =>
+                          handleDestinationChange(text, index)
+                        }
+                        right={
+                          destinations.length > 1 ? (
+                            <TextInput.Icon
+                              type="material-comunity"
+                              icon="close"
+                              style={itemdescriptionStyle.buttoniconremove}
+                              iconColor={
+                                itemdescriptionStyle.buttoniconremove.color
+                              }
+                              onPress={() => removeDestination(index)}
+                            />
+                          ) : null
+                        }
+                      />
+                    ))}
+                  </View>
+                  <View>
+                    <Button
+                      icon="plus"
+                      style={itemdescriptionStyle.buttoniconadd}
+                      labelStyle={itemdescriptionStyle.buttoniconlabel}
+                      onPress={addDestination}
+                    />
+                  </View>
                   <Button
-                    icon="plus"
-                    style={itemdescriptionStyle.buttoniconadd}
-                    labelStyle={itemdescriptionStyle.buttoniconlabel}
-                    onPress={addDestination}
-                  />
+                    mode="contained"
+                    style={itemdescriptionStyle.readybutton}
+                    labelStyle={itemdescriptionStyle.readybuttonlabel}
+                    onPress={handleSubmit}
+                    buttonColor={itemdescriptionStyle.readybutton.color}
+                  >
+                    Ready
+                  </Button>
                 </View>
-                <Button mode="contained" style={itemdescriptionStyle.readybutton}
-                labelStyle={itemdescriptionStyle.readybuttonlabel}
-                onPress={handleSubmit}
-                buttonColor={itemdescriptionStyle.readybutton.color}>Ready</Button>
-              </View>
-      </ScrollView>
-
-
+              </ScrollView>
             </ProgressStep>
           </ProgressSteps>
         </View>
