@@ -1,13 +1,14 @@
 import React from "react";
-import { createStackNavigator, TransitionPresets, } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  TransitionPresets,
+} from "@react-navigation/stack";
 import RootClientTabs from "./ClientTabs";
 import EditProfileScreen from "../screens/userScreens/EditProfileScreen";
 import VendorsMapScreen from "../screens/VendorsMapScreen";
 import DrawerNavigator from "./DrawerNavigator";
-import { AddressScreen } from "../screens/AddressScreen";
-import PackagesInfoScreen from "../screens/PackagesInfoScreen";
 import DeliveryDetailScreen from "../screens/DeliveryDetailScreen";
-import Example1 from "../screens/Example1";
+import ItemDescriptionScreen from "../screens/ItemDescriptionScreen";
 import HistoryScreen from "../screens/HistoryScreen";
 
 const Auth = createStackNavigator();
@@ -34,15 +35,6 @@ export default function ClientStack() {
       />
 
       <Auth.Screen
-        name="AddressScreen"
-        component={AddressScreen}
-        options={{
-          headerShown: false,
-          ...TransitionPresets.RevealFromBottomAndroid,
-        }}
-      />
-
-      <Auth.Screen
         name="EditProfileScreen"
         component={EditProfileScreen}
         options={{
@@ -52,22 +44,14 @@ export default function ClientStack() {
       />
 
       <Auth.Screen
-        name="PackagesInfoScreen"
-        component={PackagesInfoScreen}
+        name="ItemDescriptionScreen"
+        component={ItemDescriptionScreen}
         options={{
           headerShown: false,
           ...TransitionPresets.RevealFromBottomAndroid,
         }}
       />
 
-      <Auth.Screen
-        name="Example1"
-        component={Example1}
-        options={{
-          headerShown: false,
-          ...TransitionPresets.RevealFromBottomAndroid,
-        }}
-      />
       <Auth.Screen
         name="DeliveryDetailScreen"
         component={DeliveryDetailScreen}
@@ -76,6 +60,7 @@ export default function ClientStack() {
           ...TransitionPresets.RevealFromBottomAndroid,
         }}
       />
+
       <Auth.Screen
         name="HistoryScreen"
         component={HistoryScreen}

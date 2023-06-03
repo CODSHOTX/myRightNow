@@ -7,9 +7,9 @@ import * as ImagePicker from "expo-image-picker";
 import { firebase } from "../../firebaseConfig";
 import { ProgressStep, ProgressSteps } from "react-native-progress-steps";
 import { Button, TextInput } from "react-native-paper";
-import { example1Style } from "./screenStyles/Example1Style";
+import { itemdescriptionStyle } from "./screenStyles/ItemDescriptionStyle";
 
-const Example1 = ({ navigation }) => {
+const ItemDescriptionScreen = ({ navigation }) => {
   const [image, setImage] = useState(null);
   const [uploading, setUploading] = useState(false);
   const [destinations, setDestinations] = useState([""]);
@@ -38,7 +38,6 @@ const Example1 = ({ navigation }) => {
     return numbers;
   }
 
-  // Example usage
   const randomNumbers = generateRandomNumbers();
   console.log(randomNumbers);
 
@@ -147,15 +146,15 @@ const Example1 = ({ navigation }) => {
 
   const onSubmitStep = () => {};
   return (
-    <SafeAreaView style={example1Style.container}>
-      <View style={example1Style.view1}>
+    <SafeAreaView style={itemdescriptionStyle.container}>
+      <View style={itemdescriptionStyle.view1}>
         <ItemHeader
           title="Item Description"
           type="arrow-left"
           navigation={navigation}
         />
 
-        <View style={example1Style.view2}>
+        <View style={itemdescriptionStyle.view2}>
           <ProgressSteps {...progressStepsStyle}>
             <ProgressStep
               label="Description"
@@ -166,21 +165,21 @@ const Example1 = ({ navigation }) => {
               previousBtnTextStyle={buttonTextStyle}
             >
               <ScrollView>
-                <View style={example1Style.view}>
+                <View style={itemdescriptionStyle.view}>
                   <View>
-                    <Text style={example1Style.Texts}>Description:</Text>
+                    <Text style={itemdescriptionStyle.Texts}>Description:</Text>
                     <TextInput
                       placeholder="Please enter description"
-                      style={example1Style.textinput}
+                      style={itemdescriptionStyle.textinput}
                       activeUnderlineColor="#74D24F"
                       // value={pDescription}
                       // onChangeText={setPDescription}
                     />
                   </View>
                   <View>
-                    <Text style={example1Style.Texts}>Height:</Text>
+                    <Text style={itemdescriptionStyle.Texts}>Height:</Text>
                     <TextInput
-                      style={example1Style.textinput}
+                      style={itemdescriptionStyle.textinput}
                       activeUnderlineColor="#74D24F"
                       placeholder="Please enter package height in cm"
                       keyboardType="numeric"
@@ -190,9 +189,9 @@ const Example1 = ({ navigation }) => {
                   </View>
 
                   <View>
-                    <Text style={example1Style.Texts}>Width:</Text>
+                    <Text style={itemdescriptionStyle.Texts}>Width:</Text>
                     <TextInput
-                      style={example1Style.textinput}
+                      style={itemdescriptionStyle.textinput}
                       activeUnderlineColor="#74D24F"
                       placeholder="Please enter package width in kg"
                       keyboardType="numeric"
@@ -203,9 +202,9 @@ const Example1 = ({ navigation }) => {
 
                   {/* depth */}
                   <View>
-                    <Text style={example1Style.Texts}>Depth:</Text>
+                    <Text style={itemdescriptionStyle.Texts}>Depth:</Text>
                     <TextInput
-                      style={example1Style.textinput}
+                      style={itemdescriptionStyle.textinput}
                       activeUnderlineColor="#74D24F"
                       placeholder="Please enter package depth in cm"
                       keyboardType="numeric"
@@ -216,9 +215,9 @@ const Example1 = ({ navigation }) => {
 
                   {/* Weight */}
                   <View>
-                    <Text style={example1Style.Texts}>Weight:</Text>
+                    <Text style={itemdescriptionStyle.Texts}>Weight:</Text>
                     <TextInput
-                      style={example1Style.textinput}
+                      style={itemdescriptionStyle.textinput}
                       activeUnderlineColor="#74D24F"
                       placeholder="Please enter package weight in cm"
                       keyboardType="numeric"
@@ -238,45 +237,49 @@ const Example1 = ({ navigation }) => {
               nextBtnTextStyle={buttonTextStyle}
               previousBtnTextStyle={buttonTextStyle}
             >
-              <View style={example1Style.ImagePickerBox}>
+              <View style={itemdescriptionStyle.ImagePickerBox}>
                 <ScrollView>
-                  <View style={example1Style.view3}>
-                    <View style={example1Style.view4}>
+                  <View style={itemdescriptionStyle.view3}>
+                    <View style={itemdescriptionStyle.view4}>
                       <Image
-                        style={example1Style.imag1}
+                        style={itemdescriptionStyle.imag1}
                         source={{
                           uri: "data:image/png;base64,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",
                         }}
                       />
                     </View>
-                    <View style={example1Style.view4}>
-                      <Text style={example1Style.Texts}>Upload Image Here</Text>
+                    <View style={itemdescriptionStyle.view4}>
+                      <Text style={itemdescriptionStyle.Texts}>
+                        Upload Image Here
+                      </Text>
                     </View>
                     {/* <View>
                     <Text style={colors.grey5}>
                       upload the photo of the item
                     </Text>
                   </View> */}
-                    <View style={example1Style.view5}>
+                    <View style={itemdescriptionStyle.view5}>
                       <TouchableOpacity
-                        style={example1Style.imgbutton}
+                        style={itemdescriptionStyle.imgbutton}
                         onPress={pickImage}
                       >
-                        <Text style={example1Style.textcolor}>Pick Image</Text>
+                        <Text style={itemdescriptionStyle.textcolor}>
+                          Pick Image
+                        </Text>
                       </TouchableOpacity>
                     </View>
                     <View>
                       {image && (
                         <Image
                           source={{ uri: image.uri }}
-                          style={example1Style.imag2}
+                          style={itemdescriptionStyle.imag2}
                         />
                       )}
                       <TouchableOpacity
-                        style={example1Style.imgbutton}
+                        style={itemdescriptionStyle.imgbutton}
                         onPress={uploadImage}
                       >
-                        <Text style={example1Style.textcolor}>
+                        <Text style={itemdescriptionStyle.textcolor}>
                           Upload Image
                         </Text>
                       </TouchableOpacity>
@@ -295,18 +298,18 @@ const Example1 = ({ navigation }) => {
               nextBtnTextStyle={buttonTextStyle}
               previousBtnTextStyle={buttonTextStyle}
             >
-              <View style={example1Style.view1}>
-                <View style={example1Style.marginhorizontal}>
+              <View style={itemdescriptionStyle.view1}>
+                <View style={itemdescriptionStyle.marginhorizontal}>
                   <TextInput
                     label="Origin"
-                    style={example1Style.textinput}
+                    style={itemdescriptionStyle.textinput}
                     activeUnderlineColor="#74D24F"
                     value={origin.toString()}
                     onChangeText={setOrigin}
                   />
                   <TextInput
                     label="Receiver Name"
-                    style={example1Style.textinput}
+                    style={itemdescriptionStyle.textinput}
                     activeUnderlineColor="#74D24F"
                     value={receiverName.toString()}
                     onChangeText={setReceiverName}
@@ -314,7 +317,7 @@ const Example1 = ({ navigation }) => {
 
                   <TextInput
                     label="Receiver Email"
-                    style={example1Style.textinput}
+                    style={itemdescriptionStyle.textinput}
                     activeUnderlineColor="#74D24F"
                     value={receiverName.toString()}
                     onChangeText={setEmail}
@@ -322,7 +325,7 @@ const Example1 = ({ navigation }) => {
                   />
                   <TextInput
                     label="Receiver Number"
-                    style={example1Style.textinput}
+                    style={itemdescriptionStyle.textinput}
                     activeUnderlineColor="#74D24F"
                     value={receiverNumber.toString()}
                     onChangeText={setReceiverNumber}
@@ -331,7 +334,7 @@ const Example1 = ({ navigation }) => {
                   {destinations.map((destination, index) => (
                     <TextInput
                       label="Destination Coordinates"
-                      style={example1Style.textinput}
+                      style={itemdescriptionStyle.textinput}
                       key={`destination${index}`}
                       activeUnderlineColor="#74D24F"
                       value={destination.toString()}
@@ -343,8 +346,10 @@ const Example1 = ({ navigation }) => {
                           <TextInput.Icon
                             type="material-comunity"
                             icon="close"
-                            style={example1Style.buttoniconremove}
-                            iconColor={example1Style.buttoniconremove.color}
+                            style={itemdescriptionStyle.buttoniconremove}
+                            iconColor={
+                              itemdescriptionStyle.buttoniconremove.color
+                            }
                             onPress={() => removeDestination(index)}
                           />
                         ) : null
@@ -355,8 +360,8 @@ const Example1 = ({ navigation }) => {
                 <View>
                   <Button
                     icon="plus"
-                    style={example1Style.buttoniconadd}
-                    labelStyle={example1Style.buttoniconlabel}
+                    style={itemdescriptionStyle.buttoniconadd}
+                    labelStyle={itemdescriptionStyle.buttoniconlabel}
                     onPress={addDestination}
                   />
                 </View>
@@ -369,4 +374,4 @@ const Example1 = ({ navigation }) => {
   );
 };
 
-export default Example1;
+export default ItemDescriptionScreen;

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { TouchableOpacity } from "react-native";
 import { firebase } from "../../firebaseConfig";
 import { View, SafeAreaView } from "react-native";
-import { parameters } from "../global/styles";
 import HomeHeader from "../components/HomeHeader";
 import { Avatar } from "react-native-paper";
 import * as ImagePicker from "expo-image-picker";
@@ -133,7 +132,7 @@ export default function MyAccountScreen({ navigation }) {
         <HomeHeader navigation={navigation} />
         <View>
           <Table>
-            <TableWrapper style={{ flexDirection: "row" }}>
+            <TableWrapper style={myaccountStyle.tablew}>
               <TouchableOpacity onPress={pickImage}>
                 <TableWrapper style={myaccountStyle.profile}>
                   <Avatar.Image
@@ -164,10 +163,10 @@ export default function MyAccountScreen({ navigation }) {
             </TableWrapper>
           </Table>
         </View>
-        <View style={{ marginTop: 30, marginHorizontal: 80 }}>
+        <View style={myaccountStyle.view}>
           <Button
             title="Edit Profile"
-            buttonStyle={parameters.styledButton}
+            buttonStyle={myaccountStyle.styledButton}
             onPress={() => {
               navigation.navigate("EditProfileScreen");
             }}

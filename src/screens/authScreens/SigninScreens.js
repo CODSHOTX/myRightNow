@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
 import { View, Text, TextInput, SafeAreaView, StatusBar } from "react-native";
 import * as Animatable from "react-native-animatable";
-import { colors, parameters, title } from "../../global/styles";
 import Header from "../../components/Header";
 import { Icon, Button, SocialIcon } from "@rneui/base";
 import { firebase } from "../../../firebaseConfig";
@@ -35,10 +34,10 @@ export default function SignInScreen({ navigation }) {
         </StatusBar>
         <Header title="RightNOW" type="arrow-left" navigation={navigation} />
         <View style={signinscreenStyle.backcolor}>
-          <View style={{ marginLeft: 20, marginTop: 10 }}>
-            <Text style={title}>Sign-In</Text>
+          <View style={signinscreenStyle.view1}>
+            <Text style={signinscreenStyle.title}>Sign-In</Text>
           </View>
-          <View style={{ alignItems: "center", marginTop: 10 }}>
+          <View style={signinscreenStyle.view2}>
             <Text style={signinscreenStyle.text1}>
               Please enter Your Email and Password
             </Text>
@@ -47,11 +46,12 @@ export default function SignInScreen({ navigation }) {
             </Text>
           </View>
 
-          <View style={{ marginTop: 20 }}>
+          <View style={signinscreenStyle.view3}>
             <View>
               <TextInput
                 style={signinscreenStyle.TextInput}
                 placeholder="Email"
+                keyboardType="email-address"
                 ref={textInput1}
                 onChangeText={(email) => setEmail(email)}
                 autoCapitalize="none"
@@ -65,12 +65,12 @@ export default function SignInScreen({ navigation }) {
               >
                 <Icon
                   name="lock"
-                  iconStyle={{ color: colors.grey3 }}
+                  iconStyle={signinscreenStyle.iconstl}
                   type="material"
                 />
               </Animatable.View>
               <TextInput
-                style={{ width: "80%" }}
+                style={signinscreenStyle.inputwidth}
                 placeholder="Password"
                 ref={textInput2}
                 onFocus={() => {
@@ -90,22 +90,22 @@ export default function SignInScreen({ navigation }) {
               >
                 <Icon
                   name="visibility-off"
-                  iconStyle={{ color: colors.grey3 }}
+                  iconStyle={signinscreenStyle.iconstl}
                   type="material"
-                  style={{ marginRight: 10 }}
+                  style={signinscreenStyle.iconstl}
                 />
               </Animatable.View>
             </View>
           </View>
-          <View style={{ marginHorizontal: 20, marginVertical: 15 }}>
+          <View style={signinscreenStyle.view4}>
             <Button
               title="Log in"
-              buttonStyle={parameters.styledButton}
-              titleStyle={parameters.buttonTitle}
+              buttonStyle={signinscreenStyle.styledButton}
+              titleStyle={signinscreenStyle.buttonTitle}
               onPress={() => loginUser(email, password)}
             />
           </View>
-          <View style={{ alignItems: "center", marginTop: 5 }}>
+          <View style={signinscreenStyle.view5}>
             <Text
               style={{
                 ...signinscreenStyle.text1,
@@ -116,12 +116,12 @@ export default function SignInScreen({ navigation }) {
             </Text>
           </View>
 
-          <View style={{ marginTop: 20, marginLeft: 5 }}>
+          <View style={signinscreenStyle.view6}>
             <Text style={{ ...signinscreenStyle.text1 }}>
               New on rightNOW ?
             </Text>
           </View>
-          <View style={{ alignItems: "flex-end", marginHorizontal: 20 }}>
+          <View style={signinscreenStyle.view7}>
             <Button
               title="Create an account"
               buttonStyle={signinscreenStyle.createButton}

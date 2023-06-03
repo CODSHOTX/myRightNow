@@ -2,9 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Icon } from "@rneui/base";
 import HomeScreen from "../screens/HomeScreen";
-import SearchScreen from "../screens/SearchScreen";
 import MyOrderScreen from "../screens/MyOrderScreen";
-import { colors } from "../global/styles";
 import MyAccountScreen from "../screens/MyAccountScreen";
 
 const ClientTabs = createBottomTabNavigator();

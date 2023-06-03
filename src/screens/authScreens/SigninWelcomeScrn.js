@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
-import { View, Text, Image, SafeAreaView, StatusBar } from "react-native";
-import { colors, parameters, title } from "../../global/styles";
+import { View, Image, SafeAreaView, StatusBar } from "react-native";
 import { Button } from "@rneui/base";
 import { welcomeStyle } from "./styles/WelcomeScreenStyle";
 
@@ -25,8 +24,8 @@ export default function SignInWelcomeScreen({ navigation }) {
         <View style={welcomeStyle.view2_1}>
           <Button
             title="SIGN IN"
-            buttonStyle={parameters.welSignupBut}
-            titleStyle={parameters.buttonTitle}
+            buttonStyle={welcomeStyle.welSignupBut}
+            titleStyle={welcomeStyle.buttonTitle}
             onPress={() => {
               navigation.navigate("SigininScreen");
             }}

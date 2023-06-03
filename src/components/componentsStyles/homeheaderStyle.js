@@ -1,11 +1,10 @@
 import { StyleSheet } from "react-native";
-import { parameters } from "../../global/styles";
 
 export const homeheaderStyle = StyleSheet.create({
   header: {
     flexDirection: "row",
     backgroundColor: "#F5F5F5",
-    height: parameters.headerHeight,
+    height: 40,
     justifyContent: "space-between",
   },
   text1: {

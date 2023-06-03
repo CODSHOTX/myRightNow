@@ -1,51 +1,38 @@
-import 'react-native-gesture-handler';
+import "react-native-gesture-handler";
 import React from "react";
-import { useState, useEffect } from 'react';
-import {firebase} from './firebaseConfig'
-import {View, Text, StyleSheet, StatusBar} from 'react-native'
-import {colors} from "./src/global/styles";
+import { useState, useEffect } from "react";
+import { firebase } from "./firebaseConfig";
+import { View, StyleSheet, StatusBar } from "react-native";
 import RootNavigator from "./src/navigation/rootNavigator";
-import UserStack from './src/navigation/userStack';
+import UserStack from "./src/navigation/userStack";
+import { appStyle } from "./AppStyle";
 
-
-export default function App(){
+export default function App() {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
-  
+
   // Handle user state changes
   function onAuthStateChanged(user) {
     setUser(user);
     if (initializing) setInitializing(false);
   }
   useEffect(() => {
-    const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged)
+    const subscriber = firebase.auth().onAuthStateChanged(onAuthStateChanged);
     return subscriber;
   }, []);
   if (initializing) return null;
-    if (!user){
-      return(
-        <View style={styles.container}>
-          <StatusBar
-            barStyle="light-content"
-            backgroundColor={colors.statusbar}
-          />
-       <RootNavigator/> 
-        </View>
-      )
-    }
-    return(
-      <View style={styles.container}>
-          <StatusBar
-            barStyle="light-content"
-            backgroundColor={colors.statusbar}
-          />
-       <UserStack/>
-        </View>
+  if (!user) {
+    return (
+      <View style={appStyle.container}>
+        <StatusBar barStyle="light-content" backgroundColor="#74D24F" />
+        <RootNavigator />
+      </View>
     );
-  
+  }
+  return (
+    <View style={appStyle.container}>
+      <StatusBar barStyle="light-content" backgroundColor="#74D24F" />
+      <UserStack />
+    </View>
+  );
 }
-
-const styles = StyleSheet.create({
-  container: { flex: 1, 
-  backgroundColor: "#116530"}
-})

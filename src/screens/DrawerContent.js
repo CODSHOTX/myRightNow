@@ -1,17 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
 import { firebase } from "../../firebaseConfig";
-import {
-  SafeAreaView,
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
-import {
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-} from "@react-navigation/drawer";
+import { SafeAreaView, View } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
+import { DrawerContentScrollView } from "@react-navigation/drawer";
+import { DrawerItemList, DrawerItem } from "@react-navigation/drawer";
 import { Avatar, Icon } from "@rneui/themed";
 import { drawerStyle } from "./screenStyles/DrawerContentStyle";
 import * as Location from "expo-location";
@@ -126,19 +118,6 @@ export default function DrawerContent(props) {
         />
 
         <DrawerItem
-          label="Settings"
-          labelStyle={{ color: "#74D24F" }}
-          icon={({ size }) => (
-            <Icon
-              type="material-comunity"
-              name="settings"
-              color="#74D24F"
-              size={size}
-            />
-          )}
-        />
-
-        <DrawerItem
           label="Help"
           labelStyle={{ color: "#74D24F" }}
           icon={({ color, size }) => (
@@ -166,13 +145,6 @@ export default function DrawerContent(props) {
             {locationEnabled ? "Turn Off" : "Turn On"}
           </Text>
         </TouchableOpacity>
-
-        {/* {currentLocation && (
-          <Text style={drawerStyle.locationText}>
-            Latitude: {currentLocation.latitude}, Longitude:{" "}
-            {currentLocation.longitude}
-          </Text>
-        )} */}
       </View>
 
       <DrawerItem

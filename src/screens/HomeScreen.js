@@ -100,20 +100,12 @@ export default function HomeScreen({ navigation }) {
                 <Text style={homeStyle.addressViewText}>Now</Text>
               </View>
             </View>
-            <View>
-              <Icon
-                type="material-community"
-                name="tune"
-                color="#74D24F"
-                size={26}
-              />
-            </View>
           </View>
 
           <TouchableOpacity
             onPress={() => {
               setDelivery(true);
-              navigation.navigate("Example1");
+              navigation.navigate("ItemDescriptionScreen");
             }}
           >
             <View style={homeStyle.borderDox}>

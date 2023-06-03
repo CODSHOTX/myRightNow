@@ -1,7 +1,6 @@
 import { editprofileStyle } from "./EditProfileStyle";
 import React, { useState, useRef, useEffect } from "react";
 import { View, TextInput, SafeAreaView } from "react-native";
-import { parameters } from "../../global/styles";
 import Header from "../../components/Header";
 import { Button } from "@rneui/base";
 import { firebase } from "../../../firebaseConfig";
@@ -67,66 +66,67 @@ export default function EditProfileScreen({ navigation }) {
   return (
     <SafeAreaView style={editprofileStyle.container}>
       <Header title="Edit Profile" type="arrow-left" navigation={navigation} />
+      <View style={editprofileStyle.view}>
+        <View style={editprofileStyle.view1}>
+          <View>
+            <TextInput
+              defaultValue={fiName}
+              style={editprofileStyle.TextInput}
+              placeholder="First Name"
+              onChangeText={setFName}
+            />
+          </View>
+          <View>
+            <TextInput
+              value={laName}
+              style={editprofileStyle.TextInput}
+              placeholder="Last Name"
+              onChangeText={setLName}
+            />
+          </View>
 
-      <View style={{ marginTop: 20 }}>
-        <View>
-          <TextInput
-            defaultValue={fiName}
-            style={editprofileStyle.TextInput}
-            placeholder="First Name"
-            onChangeText={setFName}
-          />
-        </View>
-        <View>
-          <TextInput
-            value={laName}
-            style={editprofileStyle.TextInput}
-            placeholder="Last Name"
-            onChangeText={setLName}
-          />
-        </View>
+          <View>
+            <TextInput
+              defaultValue={phNum}
+              style={editprofileStyle.TextInput}
+              placeholder="Phone Number"
+              onChangeText={setPNum}
+            />
+          </View>
 
-        <View>
-          <TextInput
-            defaultValue={phNum}
-            style={editprofileStyle.TextInput}
-            placeholder="Phone Number"
-            onChangeText={setPNum}
+          <View>
+            <TextInput
+              defaultValue={country}
+              style={editprofileStyle.TextInput}
+              placeholder="Country"
+              onChangeText={setCountry}
+            />
+          </View>
+          <View>
+            <TextInput
+              defaultValue={city}
+              style={editprofileStyle.TextInput}
+              placeholder="City"
+              onChangeText={setCity}
+            />
+          </View>
+          <View>
+            <TextInput
+              defaultValue={street}
+              style={editprofileStyle.TextInput}
+              placeholder="street"
+              onChangeText={setStreet}
+            />
+          </View>
+        </View>
+        <View style={editprofileStyle.lview}>
+          <Button
+            title="Update"
+            buttonStyle={editprofileStyle.styledButton}
+            titleStyle={editprofileStyle.buttonTitle}
+            onPress={handleUpdateProfile}
           />
         </View>
-
-        <View>
-          <TextInput
-            defaultValue={country}
-            style={editprofileStyle.TextInput}
-            placeholder="Country"
-            onChangeText={setCountry}
-          />
-        </View>
-        <View>
-          <TextInput
-            defaultValue={city}
-            style={editprofileStyle.TextInput}
-            placeholder="City"
-            onChangeText={setCity}
-          />
-        </View>
-        <View>
-          <TextInput
-            defaultValue={street}
-            style={editprofileStyle.TextInput}
-            placeholder="street"
-            onChangeText={setStreet}
-          />
-        </View>
-      </View>
-      <View style={{ marginHorizontal: 20, marginVertical: 15 }}>
-        <Button
-          title="Update"
-          buttonStyle={parameters.styledButton}
-          titleStyle={parameters.buttonTitle}
-          onPress={handleUpdateProfile}
-        />
       </View>
     </SafeAreaView>
   );

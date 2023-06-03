@@ -4,7 +4,7 @@ import { Icon } from "@rneui/base";
 import { headerStyle } from "./componentsStyles/headerStyle";
 import { SafeAreaView } from "react-native";
 
-export default function Header({ title, type, navigation }) {
+export default function HistoryHeader({ title, type, navigation }) {
   return (
     <SafeAreaView style={headerStyle.header}>
       <View style={{ marginLeft: 20 }}>

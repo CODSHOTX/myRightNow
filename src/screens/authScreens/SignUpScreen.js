@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Text, View, ScrollView, TextInput, StatusBar } from "react-native";
-import { colors } from "../../global/styles";
 import { signupscreenStyle } from "./styles/SignupScreenStyle";
 import Header from "../../components/Header";
 import { Formik } from "formik";
@@ -119,7 +118,7 @@ const SignUpscreen = ({ navigation }) => {
                   <TextInput
                     placeholder=" Number"
                     style={signupscreenStyle.input1}
-                    keyboardType="number-pad"
+                    keyboardType="phone-pad"
                     autoFocus={false}
                     //onChangeText={props.handleChange('pNumber')}
                     onChangeText={(phNum) => setPhNum(phNum)}
@@ -131,7 +130,7 @@ const SignUpscreen = ({ navigation }) => {
                     <Icon
                       name="email"
                       style={signupscreenStyle.email}
-                      color={colors.grey3}
+                      color={"#86939e"}
                       type="material"
                     />
                   </View>
@@ -153,7 +152,7 @@ const SignUpscreen = ({ navigation }) => {
                     animation={passwordFocussed ? "fadeInRight" : "fadeInLeft"}
                     duration={400}
                   >
-                    <Icon name="lock" color={colors.grey3} type="material" />
+                    <Icon name="lock" color={"#86939e"} type="material" />
                   </Animatable.View>
                   <TextInput
                     placeholder="Password"
@@ -176,7 +175,7 @@ const SignUpscreen = ({ navigation }) => {
                   >
                     <Icon
                       name="visibility-off"
-                      color={colors.grey3}
+                      color={"#86939e"}
                       type="material"
                       style={{ marginRight: 10 }}
                     />

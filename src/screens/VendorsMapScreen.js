@@ -96,24 +96,6 @@ const VendorsMapScreen = ({ navigation }) => {
                 />
               </Marker>
               <Marker
-                description="Me"
-                coordinate={{ latitude: latitude, longitude: longitude }}
-                onPress={() =>
-                  handleMarkerPress({
-                    name: "Mikky Dark",
-                    plate: "XYZ2229",
-                    phone: "523-251-4091",
-                    rate: "Bad",
-                    photo: require("../images/deliveryperson1.png"),
-                  })
-                }
-              >
-                <Image
-                  style={mapStyle.markerImage}
-                  source={require("../images/deliverybike_icon.png")}
-                />
-              </Marker>
-              <Marker
                 description="Delivery Person 3"
                 coordinate={{ latitude: 35.14075, longitude: 33.913338 }}
                 onPress={() =>

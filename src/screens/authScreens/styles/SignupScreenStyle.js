@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { colors } from "../../../global/styles";
 
 export const signupscreenStyle = StyleSheet.create({
   container: {
@@ -25,7 +24,7 @@ export const signupscreenStyle = StyleSheet.create({
   text1: {
     fontSize: 22,
     paddingLeft: 15,
-    color: colors.statusbar,
+    color: "#74D24F",
     fontWeight: "bold",
     paddingBottom: 9,
   },
@@ -43,12 +42,12 @@ export const signupscreenStyle = StyleSheet.create({
 
   text2: {
     fontSize: 15,
-    color: colors.grey2,
+    color: "#525252",
   },
   View4: {
     flexDirection: "row",
     borderWidth: 1,
-    borderColor: colors.grey4,
+    borderColor: "#bdc6cf",
     borderRadius: 12,
     paddingLeft: 5,
   },
@@ -64,7 +63,7 @@ export const signupscreenStyle = StyleSheet.create({
   view6: {
     flexDirection: "row",
     borderWidth: 1,
-    borderColor: colors.grey4,
+    borderColor: "#bdc6cf",
     borderRadius: 12,
     paddingLeft: 5,
     marginTop: 20,
@@ -85,7 +84,7 @@ export const signupscreenStyle = StyleSheet.create({
   view10: {
     flexDirection: "row",
     borderWidth: 1,
-    borderColor: colors.grey4,
+    borderColor: "#bdc6cf",
     borderRadius: 12,
     paddingLeft: 5,
     marginTop: 20,
@@ -128,7 +127,7 @@ export const signupscreenStyle = StyleSheet.create({
   view14: {
     borderWidth: 1,
     borderRadius: 12,
-    borderColor: colors.grey4,
+    borderColor: "#bdc6cf",
     flexDirection: "row",
     justifyContent: "space-between",
     alignContent: "center",
@@ -154,12 +153,12 @@ export const signupscreenStyle = StyleSheet.create({
   },
 
   button1: {
-    backgroundColor: colors.statusbar,
+    backgroundColor: "#74D24F",
     alignContent: "center",
     justifyContent: "center",
     borderRadius: 12,
     borderWidth: 1,
-    borderColor: colors.statusbar,
+    borderColor: "#74D24F",
     height: 50,
     paddingHorizontal: 20,
     width: "100%",
@@ -214,8 +213,9 @@ export const signupscreenStyle = StyleSheet.create({
     height: 40,
     paddingHorizontal: 20,
   },
-  text6: { color: colors.grey4 },
-
+  text6: { 
+    color: "#bdc6cf" 
+  },
   title2: {
     color: "#74D24F",
     fontSize: 16,

@@ -11,7 +11,7 @@ export default function HistoryScreen({ navigation }) {
   return (
     <SafeAreaView style={historyStyle.safeview}>
       <ItemHeader
-          title="Item Description"
+          title="Delivery History"
           type="arrow-left"
           navigation={navigation}
         />
