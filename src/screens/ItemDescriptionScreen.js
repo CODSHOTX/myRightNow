@@ -171,7 +171,7 @@ const ItemDescriptionScreen = ({ navigation }) => {
         .collection("orders")
         .doc(currentUser.uid);
       await userRef.set(data);
-      uploadImage;
+      uploadImage();
       console.log("Data saved, choose Courier");
       navigation.navigate("VendorsMapScreen");
     } catch (error) {
@@ -325,7 +325,7 @@ const ItemDescriptionScreen = ({ navigation }) => {
               scrollViewProps={defaultScrollViewProps}
               nextBtnTextStyle={buttonTextStyle}
               previousBtnTextStyle={buttonTextStyle}
-            >
+            ><ScrollView>
               <View style={itemdescriptionStyle.view1}>
                 <View style={itemdescriptionStyle.marginhorizontal}>
                   <TextInput
@@ -395,8 +395,12 @@ const ItemDescriptionScreen = ({ navigation }) => {
                 </View>
                 <Button mode="contained" style={itemdescriptionStyle.readybutton}
                 labelStyle={itemdescriptionStyle.readybuttonlabel}
+                onPress={handleSubmit}
                 buttonColor={itemdescriptionStyle.readybutton.color}>Ready</Button>
               </View>
+      </ScrollView>
+
+
             </ProgressStep>
           </ProgressSteps>
         </View>
