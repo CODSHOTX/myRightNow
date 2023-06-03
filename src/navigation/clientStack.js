@@ -1,8 +1,6 @@
 import React from "react";
-import {
-  createStackNavigator,
-  TransitionPresets,
-} from "@react-navigation/stack";
+import { createStackNavigator } from "@react-navigation/stack";
+import { TransitionPresets } from "@react-navigation/stack";
 import RootClientTabs from "./ClientTabs";
 import EditProfileScreen from "../screens/userScreens/EditProfileScreen";
 import VendorsMapScreen from "../screens/VendorsMapScreen";
@@ -69,6 +67,7 @@ export default function ClientStack() {
           ...TransitionPresets.RevealFromBottomAndroid,
         }}
       />
+
     </Auth.Navigator>
   );
 }

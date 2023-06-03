@@ -17,32 +17,27 @@ const ItemDescriptionScreen = ({ navigation }) => {
   const [receiverName, setReceiverName] = useState("");
   const [receiverNumber, setReceiverNumber] = useState("");
 
-  const [senderEmail, setSenderEmail ]=useState("");
-  const [height, setHeight]=useState("");
-  const [description, setDescription]=useState("");
-  const [weight, setWeight]=useState("");
-  const [depth, setDepth] =useState("");
-  const [width, setWidth]=useState("");
-  const [rEmail, setREmail]=useState("");
-  const [orderId, setOrderId]=useState("");
-  
-  
-   function generateRandomNumbers() {
-     const numbers = [];
-    
-     
-       const randomInt = Math.floor(Math.random() * 900000);  //Generate a random integer between 0 and 99
-       const formattedNumber = "RN" + randomInt.toString().padStart(4, "1"); // Prefix with "RN" and ensure two-digit format
-       numbers.push(formattedNumber);
-     
-    
-     return numbers;
-   }
-  
+  const [senderEmail, setSenderEmail] = useState("");
+  const [height, setHeight] = useState("");
+  const [description, setDescription] = useState("");
+  const [weight, setWeight] = useState("");
+  const [depth, setDepth] = useState("");
+  const [width, setWidth] = useState("");
+  const [rEmail, setREmail] = useState("");
+  const [orderId, setOrderId] = useState("");
+
+  function generateRandomNumbers() {
+    const numbers = [];
+
+    const randomInt = Math.floor(Math.random() * 900000); //Generate a random integer between 0 and 99
+    const formattedNumber = "RN" + randomInt.toString().padStart(4, "1"); // Prefix with "RN" and ensure two-digit format
+    numbers.push(formattedNumber);
+
+    return numbers;
+  }
+
   // Example usage
-   const randomNumbers = generateRandomNumbers();
-   
-  
+  const randomNumbers = generateRandomNumbers();
 
   const addDestination = () => {
     const newDestinations = [...destinations, destinations.length + 1];
@@ -153,42 +148,36 @@ const ItemDescriptionScreen = ({ navigation }) => {
   };
 
   const handleSubmit = async () => {
-try{
-  const data = {
-    description,
-    height,
-    width,
-    depth,
-    weight,
-    origin,
-    rEmail,
-    
-    destinations,
-    receiverName,
-    receiverNumber,
-    senderEmail,
-    orderId:randomNumbers,
+    try {
+      const data = {
+        description,
+        height,
+        width,
+        depth,
+        weight,
+        origin,
+        rEmail,
 
+        destinations,
+        receiverName,
+        receiverNumber,
+        senderEmail,
+        orderId: randomNumbers,
+      };
 
-  }
- 
-
- 
-  const currentUser = firebase.auth().currentUser;
-  const userRef = firebase
-    .firestore()
-    .collection("orders")
-    .doc(currentUser.uid);
-  await userRef.set(data);
-  uploadImage;
-  console.log("Data saved, choose Courier")
-  navigation.navigate("VendorsMapScreen");
-}  catch(error){
-  console.log("Error saving data")
-}
-
-
-  }
+      const currentUser = firebase.auth().currentUser;
+      const userRef = firebase
+        .firestore()
+        .collection("orders")
+        .doc(currentUser.uid);
+      await userRef.set(data);
+      uploadImage;
+      console.log("Data saved, choose Courier");
+      navigation.navigate("VendorsMapScreen");
+    } catch (error) {
+      console.log("Error saving data");
+    }
+  };
   return (
     <SafeAreaView style={itemdescriptionStyle.container}>
       <View style={itemdescriptionStyle.view1}>
@@ -217,7 +206,7 @@ try{
                       style={itemdescriptionStyle.textinput}
                       activeUnderlineColor="#74D24F"
                       value={description}
-                       onChangeText={setDescription}
+                      onChangeText={setDescription}
                     />
                   </View>
                   <View>
@@ -228,10 +217,9 @@ try{
                       placeholder="Please enter package height in cm"
                       keyboardType="numeric"
                       value={height}
-                     onChangeText={setHeight}
+                      onChangeText={setHeight}
                     />
                   </View>
-
                   <View>
                     <Text style={itemdescriptionStyle.Texts}>Width:</Text>
                     <TextInput
@@ -239,12 +227,10 @@ try{
                       activeUnderlineColor="#74D24F"
                       placeholder="Please enter package width in kg"
                       keyboardType="numeric"
-                       value={width}
-                       onChangeText={setWidth}
+                      value={width}
+                      onChangeText={setWidth}
                     />
                   </View>
-
-                  {/* depth */}
                   <View>
                     <Text style={itemdescriptionStyle.Texts}>Depth:</Text>
                     <TextInput
@@ -256,8 +242,6 @@ try{
                       onChangeText={setDepth}
                     />
                   </View>
-
-                  {/* Weight */}
                   <View>
                     <Text style={itemdescriptionStyle.Texts}>Weight:</Text>
                     <TextInput
@@ -359,14 +343,14 @@ try{
                     onChangeText={setReceiverName}
                   />
 
-                    <TextInput
-                                        label="Receiver Email"
-                                        style={example1Style.textinput}
-                                        activeUnderlineColor="#74D24F"
-                                        value={rEmail}
-                                        onChangeText={setREmail}
-                                        keyboardType="email-address"
-                                      />
+                  <TextInput
+                    label="Receiver Email"
+                    style={itemdescriptionStyle.textinput}
+                    activeUnderlineColor="#74D24F"
+                    value={rEmail}
+                    onChangeText={setREmail}
+                    keyboardType="email-address"
+                  />
                   <TextInput
                     label="Receiver Number"
                     style={itemdescriptionStyle.textinput}
@@ -409,6 +393,9 @@ try{
                     onPress={addDestination}
                   />
                 </View>
+                <Button mode="contained" style={itemdescriptionStyle.readybutton}
+                labelStyle={itemdescriptionStyle.readybuttonlabel}
+                buttonColor={itemdescriptionStyle.readybutton.color}>Ready</Button>
               </View>
             </ProgressStep>
           </ProgressSteps>

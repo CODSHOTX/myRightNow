@@ -35,7 +35,7 @@ export const itemdescriptionStyle = StyleSheet.create({
   },
   readybutton: {
     margin: 12,
-    marginTop: 20,
+    marginTop: 35,
     height: 50,
     paddingVertical: 3,
     color: "#74D24F",

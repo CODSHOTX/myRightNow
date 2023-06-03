@@ -23,14 +23,6 @@ export default function HomeHeader({ navigation }) {
         <Text style={homeheaderStyle.text1}>RightNOW</Text>
       </View>
 
-      <View style={homeheaderStyle.veiw3}>
-        <BadgeIcon
-          type="material-community"
-          name="cart"
-          size={35}
-          color="#74D24F"
-        />
-      </View>
     </SafeAreaView>
   );
 }

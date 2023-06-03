@@ -1,14 +1,14 @@
 import React from "react";
 import { SafeAreaView, Text, View } from "react-native";
 import HomeHeader from "../components/HomeHeader";
-import { applyStyle } from "./screenStyles/ApplyStyle";
+import { helpStyle } from "./screenStyles/HelpStyle";
 
-export default function ApplicationScreen({ navigation }) {
+export default function HelpScreen({ navigation }) {
   return (
-    <SafeAreaView style={applyStyle.container}>
+    <SafeAreaView style={helpStyle.container}>
       <HomeHeader navigation={navigation} />
-      <View style={applyStyle.view}>
-        <Text>Apply</Text>
+      <View style={helpStyle.view}>
+        <Text>Help</Text>
       </View>
     </SafeAreaView>
   );

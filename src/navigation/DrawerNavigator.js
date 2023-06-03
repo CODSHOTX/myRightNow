@@ -9,6 +9,8 @@ import { Icon } from "@rneui/base";
 import Application from "../screens/ApplicationScreen";
 import ApplicationScreen from "../screens/ApplicationScreen";
 import CourierTabs from "./CourierTabs";
+import PaymentScreen from "../screens/PaymentScreen";
+import HelpScreen from "../screens/HelpScreen";
 
 const Drawer = createDrawerNavigator();
 
@@ -119,6 +121,40 @@ export default function DrawerNavigator() {
                 <Icon
                   type="material-community"
                   name="book"
+                  color={focused ? "#74D24F" : "#74D24F"}
+                  size={size}
+                />
+              ),
+            }}
+          />
+
+          <Drawer.Screen
+            name="PaymentScreen"
+            component={PaymentScreen}
+            options={{
+              title: "Payment",
+              headerShown: false,
+              drawerIcon: ({ focused, size }) => (
+                <Icon
+                  type="material-community"
+                  name="credit-card"
+                  color={focused ? "#74D24F" : "#74D24F"}
+                  size={size}
+                />
+              ),
+            }}
+          />
+
+          <Drawer.Screen
+            name="HelpScreen"
+            component={HelpScreen}
+            options={{
+              title: "Help",
+              headerShown: false,
+              drawerIcon: ({ focused, size }) => (
+                <Icon
+                  type="material-community"
+                  name="help-circle"
                   color={focused ? "#74D24F" : "#74D24F"}
                   size={size}
                 />

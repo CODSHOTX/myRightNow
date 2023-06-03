@@ -21,10 +21,7 @@ export const homeheaderStyle = StyleSheet.create({
   veiw2: {
     alignItems: "center",
     justifyContent: "center",
+    marginRight: 133
   },
-  veiw3: {
-    alignItems: "center",
-    justifyContent: "center",
-    marginRight: 15,
-  },
+
 });
