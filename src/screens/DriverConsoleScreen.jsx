@@ -4,8 +4,32 @@ import { Image, SafeAreaView } from "react-native";
 import { driverconsoleStyle } from "./screenStyles/DriverConsoleStyle";
 import CourierHeader from "../components/CourierHeader";
 import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
+import { firebase } from "../../firebaseConfig";
 
 export default function DriverConsoleScreen({ navigation }) {
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const userDocRef = firebase
+          .firestore()
+          .collection("users")
+          .doc(firebase.auth().currentUser.uid);
+        const doc = await userDocRef.get();
+        if (doc.exists) {
+          const userData = doc.data();
+          setLatitude(userData.latitude);
+          setLongitude(userData.longitude);
+        }
+      } catch (error) {
+        console.log("Error fetching user data:", error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
+
   return (
     <SafeAreaView style={driverconsoleStyle.container}>
       <CourierHeader navigation={navigation} />
@@ -22,7 +46,7 @@ export default function DriverConsoleScreen({ navigation }) {
         >
           <Marker
             description="Courier"
-            coordinate={{ latitude: 35.146801, longitude: 33.908648 }}
+            coordinate={{ latitude: latitude, longitude: longitude }}
           >
             <Image
               style={driverconsoleStyle.markerImg}

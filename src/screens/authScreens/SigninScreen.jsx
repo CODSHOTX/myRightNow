@@ -1,5 +1,12 @@
 import React, { useState, useRef } from "react";
-import { View, Text, TextInput, SafeAreaView, StatusBar } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  SafeAreaView,
+  StatusBar,
+  TouchableOpacity,
+} from "react-native";
 import * as Animatable from "react-native-animatable";
 import Header from "../../components/Header";
 import { Icon, Button, SocialIcon } from "@rneui/base";
@@ -8,6 +15,7 @@ import { signinscreenStyle } from "./styles/SigninScreenStyle";
 
 export default function SignInScreen({ navigation }) {
   const [textInput2Fossued, setTextInput2Fossued] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const textInput1 = useRef(1);
   const textInput2 = useRef(2);
@@ -22,6 +30,7 @@ export default function SignInScreen({ navigation }) {
       alert(error.message);
     }
   };
+
   return (
     <SafeAreaView style={signinscreenStyle.container}>
       <View style={signinscreenStyle.view}>
@@ -82,19 +91,20 @@ export default function SignInScreen({ navigation }) {
                 onChangeText={(password) => setPassword(password)}
                 autoCapitalize="none"
                 autoCorrect={false}
-                secureTextEntry={true}
+                secureTextEntry={!showPassword}
               />
-              <Animatable.View
-                animation={textInput2Fossued ? "" : "fadeInLeft"}
-                duration={400}
-              >
-                <Icon
-                  name="visibility-off"
-                  iconStyle={signinscreenStyle.iconstl}
-                  type="material"
-                  style={signinscreenStyle.iconstl}
-                />
-              </Animatable.View>
+              <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
+                <Animatable.View
+                  animation={textInput2Fossued ? "" : "fadeInLeft"}
+                  duration={400}
+                >
+                  <Icon
+                    name={showPassword ? "visibility" : "visibility-off"}
+                    iconStyle={signinscreenStyle.iconstl}
+                    type="material"
+                  />
+                </Animatable.View>
+              </TouchableOpacity>
             </View>
           </View>
           <View style={signinscreenStyle.view4}>

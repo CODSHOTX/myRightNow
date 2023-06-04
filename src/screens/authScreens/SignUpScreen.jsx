@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { Text, View, ScrollView, TextInput, StatusBar } from "react-native";
+import {
+  Text,
+  View,
+  ScrollView,
+  TextInput,
+  StatusBar,
+  TouchableOpacity,
+} from "react-native";
 import { signupscreenStyle } from "./styles/SignupScreenStyle";
 import Header from "../../components/Header";
 import { Formik } from "formik";
@@ -25,7 +32,14 @@ const SignUpscreen = ({ navigation }) => {
   const [phNum, setPhNum] = useState("");
   const role = "user";
 
-  registerUser = async (phNum, emails, passwordz, fiName, laName, role) => {
+  const registerUser = async (
+    phNum,
+    emails,
+    passwordz,
+    fiName,
+    laName,
+    role
+  ) => {
     await firebase
       .auth()
       .createUserWithEmailAndPassword(emails, passwordz)
@@ -65,6 +79,8 @@ const SignUpscreen = ({ navigation }) => {
   };
   const [passwordFocussed, setPasswordFocussed] = useState(false);
   const [passwordBlured, setPasswordBlured] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
     <SafeAreaView style={signupscreenStyle.container}>
       <View style={signupscreenStyle.view}>
@@ -98,9 +114,7 @@ const SignUpscreen = ({ navigation }) => {
                     style={signupscreenStyle.input1}
                     keyboardType="name-phone-pad"
                     autoFocus={false}
-                    //onChangeText={props.handleChange('fName')}
                     onChangeText={(fiName) => setFname(fiName)}
-                    // value={props.values.fName}
                   />
                 </View>
                 <View style={signupscreenStyle.view6}>
@@ -109,8 +123,6 @@ const SignUpscreen = ({ navigation }) => {
                     style={signupscreenStyle.input1}
                     keyboardType="name-phone-pad"
                     autoFocus={false}
-                    //onChangeText={props.handleChange('lName')}
-                    //value={props.values.lName}
                     onChangeText={(laName) => setLname(laName)}
                   />
                 </View>
@@ -120,9 +132,7 @@ const SignUpscreen = ({ navigation }) => {
                     style={signupscreenStyle.input1}
                     keyboardType="phone-pad"
                     autoFocus={false}
-                    //onChangeText={props.handleChange('pNumber')}
                     onChangeText={(phNum) => setPhNum(phNum)}
-                    //  value={props.values.pNumber}
                   />
                 </View>
                 <View style={signupscreenStyle.view10}>
@@ -140,8 +150,6 @@ const SignUpscreen = ({ navigation }) => {
                       style={signupscreenStyle.input4}
                       keyboardType="email-address"
                       autoFocus={false}
-                      //onChangeText={props.handleChange('email')}
-                      //value={props.values.email}
                       onChangeText={(emails) => setEmail(emails)}
                     />
                   </View>
@@ -157,10 +165,8 @@ const SignUpscreen = ({ navigation }) => {
                   <TextInput
                     placeholder="Password"
                     style={signupscreenStyle.pinput}
-                    keyboardType="email-address"
+                    secureTextEntry={!showPassword}
                     autoFocus={false}
-                    /* onChangeText={props.handleChange('password')}
-                                    value={props.values.password}*/
                     onChangeText={(passwordz) => setPassword(passwordz)}
                     onFocus={() => {
                       setPasswordFocussed(true);
@@ -169,17 +175,21 @@ const SignUpscreen = ({ navigation }) => {
                       setPasswordBlured(true);
                     }}
                   />
-                  <Animatable.View
-                    animation={passwordBlured ? "fadeInLeft" : "fadeInRight"}
-                    duration={400}
+                  <TouchableOpacity
+                    onPress={() => setShowPassword(!showPassword)}
                   >
-                    <Icon
-                      name="visibility-off"
-                      color={"#86939e"}
-                      type="material"
-                      style={{ marginRight: 10 }}
-                    />
-                  </Animatable.View>
+                    <Animatable.View
+                      animation={passwordBlured ? "fadeInLeft" : "fadeInRight"}
+                      duration={400}
+                    >
+                      <Icon
+                        name={showPassword ? "visibility" : "visibility-off"}
+                        color={"#86939e"}
+                        type="material"
+                        style={{ marginRight: 10 }}
+                      />
+                    </Animatable.View>
+                  </TouchableOpacity>
                 </View>
 
                 <View style={signupscreenStyle.view17}>
@@ -187,7 +197,6 @@ const SignUpscreen = ({ navigation }) => {
                     title="Create my account"
                     buttonStyle={signupscreenStyle.button1}
                     titleStyle={signupscreenStyle.tittle1}
-                    // onPress={props.handleSubmit}
                     onPress={() =>
                       registerUser(
                         phNum,

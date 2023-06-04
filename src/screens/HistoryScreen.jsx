@@ -31,7 +31,7 @@ export default function HistoryScreen({ navigation }) {
               <Card.Title
                 titleStyle={historyStyle.cardtitle}
                 title="27/01/2023"
-                right={() => <Text style={historyStyle.price}>₺25.00</Text>}
+                right={() => <Text style={historyStyle.price}>₺50.00</Text>}
               />
               <Card.Content style={historyStyle.cardcontent}>
                 <List.Item
