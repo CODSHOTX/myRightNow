@@ -10,6 +10,6 @@ export const headerStyle = StyleSheet.create({
     color: "#74D24F",
     fontSize: 22,
     fontWeight: "bold",
-    marginLeft: 30,
+    marginLeft: 95,
   },
 });

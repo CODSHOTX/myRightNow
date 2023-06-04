@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, ScrollView } from "react-native";
 import { Image, Dimensions, SafeAreaView, StatusBar } from "react-native";
-import { homeStyle } from "../screens/screenStyles/HomeStyle";
+import { homeStyle } from "./screenStyles/HomeStyle";
 import { Icon } from "@rneui/base";
 import HomeHeader from "../components/HomeHeader";
 import { useEffect } from "react";
