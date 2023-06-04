@@ -8,7 +8,7 @@ export default function HomeHeader({ navigation }) {
 
   return (
     <SafeAreaView style={homeheaderStyle.header}>
-      <View style={homeheaderStyle.veiw1}>
+      <View style={homeheaderStyle.view1}>
         <Icon
           type="material-community"
           name="menu"
@@ -19,10 +19,10 @@ export default function HomeHeader({ navigation }) {
           }}
         />
       </View>
-      <View style={homeheaderStyle.veiw2}>
+      <View style={homeheaderStyle.view2}>
         <Text style={homeheaderStyle.text1}>RightNOW</Text>
       </View>
-
+      <View style={homeheaderStyle.view1} />
     </SafeAreaView>
   );
 }

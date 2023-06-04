@@ -7,7 +7,7 @@ import { SafeAreaView } from "react-native";
 export default function Header({ title, type, navigation }) {
   return (
     <SafeAreaView style={headerStyle.header}>
-      <View style={{ marginLeft: 20 }}>
+      <View style={headerStyle.icon}>
         <Icon
           type="material-community"
           name={type}
@@ -18,7 +18,7 @@ export default function Header({ title, type, navigation }) {
           }}
         />
       </View>
-      <View>
+      <View style={headerStyle.title}>
         <Text style={headerStyle.headerText}>{title}</Text>
       </View>
     </SafeAreaView>

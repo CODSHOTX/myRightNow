@@ -18,7 +18,7 @@ export default function ItemHeader({ title, type, navigation }) {
           }}
         />
       </View>
-      <View>
+      <View style={itemheaderStyle.title}>
         <Text style={itemheaderStyle.headerText}>{title}</Text>
       </View>
     </SafeAreaView>

@@ -3,16 +3,21 @@ import { StyleSheet } from "react-native";
 export const itemheaderStyle = StyleSheet.create({
   container: {
     flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
     backgroundColor: "#F5F5F5",
     height: 40,
   },
   view: {
     marginLeft: 20,
   },
+  title: {
+    flex: 1,
+    alignItems: "center",
+  },
   headerText: {
     color: "#74D24F",
-    fontSize: 22,
+    fontSize: 25,
     fontWeight: "bold",
-    marginLeft: 95,
   },
 });

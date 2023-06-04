@@ -6,22 +6,21 @@ export const homeheaderStyle = StyleSheet.create({
     backgroundColor: "#F5F5F5",
     height: 40,
     justifyContent: "space-between",
+    alignItems: "center",
   },
   text1: {
     color: "#74D24F",
     fontSize: 25,
     fontWeight: "bold",
   },
-
-  veiw1: {
+  view1: {
     alignItems: "center",
     justifyContent: "center",
-    marginLeft: 15,
+    flex: 1,
   },
-  veiw2: {
+  view2: {
     alignItems: "center",
     justifyContent: "center",
-    marginRight: 133
+    flex: 2, 
   },
-
 });
