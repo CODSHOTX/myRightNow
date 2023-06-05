@@ -4,13 +4,14 @@ import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import { mapStyle } from "./screenStyles/MapStyle";
 import { firebase } from "../../firebaseConfig";
 import ItemHeader from "../components/ItemHeader";
+import { FAB } from "@rneui/base";
 import { Button, Card, List } from "react-native-paper";
 import { ActivityIndicator, Title } from "react-native-paper";
 
 const originIcon = require("../images/origin.png");
 const deliveryBikeIcon = require("../images/deliverybike_icon.png");
 
-const MapsScreen = ({ navigation }) => {
+const MapCourierScreen = ({ navigation }) => {
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [couriers, setCouriers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -51,7 +52,7 @@ const MapsScreen = ({ navigation }) => {
           }
         }
       } catch (error) {
-        console.log("Error fetching client location:", error);
+        console.log("Error fetching user location:", error);
       }
     };
 
@@ -59,25 +60,13 @@ const MapsScreen = ({ navigation }) => {
     fetchClientLocation();
   }, []);
 
-  const handleMarkerPress = (markerData) => {
-    console.log("Marker data:", markerData);
-    setSelectedMarker(markerData);
-  };
-
-  const handleCancel = () => {
+  const handleClose = () => {
     setSelectedMarker(null);
   };
 
-  const handleConfirm = async () => {
-    try {
-      const requestRef = firebase.firestore().collection("requests");
-      await requestRef.add({
-        courierId: selectedMarker.id,
-      });
-      setSelectedMarker(null);
-    } catch (error) {
-      console.log("Error confirming courier:", error);
-    }
+  const handleMarkerPress = (markerData) => {
+    console.log("Marker data:", markerData);
+    setSelectedMarker(markerData);
   };
 
   if (loading) {
@@ -85,13 +74,9 @@ const MapsScreen = ({ navigation }) => {
       <View style={mapStyle.flexCenter}>
         <ActivityIndicator color={mapStyle.icon.color} animating={true} />
         <Title style={mapStyle.title}>Searching For a Courier Close by.</Title>
-        <Button
-          mode="contained"
-          style={mapStyle.cancelButton2}
-          onPress={() => {
+        <Button mode="contained" style={mapStyle.cancelButton2} onPress={() => {
             navigation.goBack();
-          }}
-        >
+          }}>
           Cancel
         </Button>
       </View>
@@ -112,15 +97,12 @@ const MapsScreen = ({ navigation }) => {
             longitudeDelta: 0.04,
           }}
         >
-          {clientLocation && (
-            <Marker description="Client location" coordinate={clientLocation}>
-              <Image
-                style={mapStyle.markerImage}
-                source={require("../images/origin.png")}
-              />
+          {clientLocation ? (
+            <Marker description={"Client location"} coordinate={clientLocation}>
+              <Image style={mapStyle.markerImage} source={originIcon} />
             </Marker>
-          )}
-
+          ) : null}
+          
           {couriers.map((courier, index) => {
             const isSameCoordinate =
               clientLocation &&
@@ -158,6 +140,15 @@ const MapsScreen = ({ navigation }) => {
           })}
         </MapView>
 
+        {!selectedMarker ? (
+          <FAB
+            style={mapStyle.fab}
+            icon={{ name: "add", color: "white" }}
+            color="#74D24F"
+            onPress={() => navigation.navigate("CourierListScreen")}
+          />
+        ) : null}
+
         {selectedMarker ? (
           <Card style={mapStyle.card}>
             <Card.Content style={mapStyle.cardContent}>
@@ -184,17 +175,10 @@ const MapsScreen = ({ navigation }) => {
             </Card.Content>
             <Card.Actions style={mapStyle.cardActions}>
               <Button
-                mode="contained"
-                style={mapStyle.confirmButton}
-                onPress={handleConfirm}
-              >
-                Confirm
-              </Button>
-              <Button
                 mode="outlined"
                 style={mapStyle.cancelButton}
                 labelStyle={mapStyle.cancelButton}
-                onPress={handleCancel}
+                onPress={handleClose}
               >
                 Cancel
               </Button>
@@ -206,4 +190,4 @@ const MapsScreen = ({ navigation }) => {
   );
 };
 
-export default MapsScreen;
+export default MapCourierScreen;

@@ -34,6 +34,7 @@ export const mapStyle = StyleSheet.create({
   cancelButton: {
     color: "#74D24F",
     borderColor: "#74D24F",
+    marginBottom: 7
   },
   cancelButton2: {
     position: "absolute",

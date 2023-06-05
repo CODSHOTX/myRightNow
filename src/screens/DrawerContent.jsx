@@ -8,7 +8,7 @@ import { Avatar, Icon } from "@rneui/themed";
 import { drawerStyle } from "./screenStyles/DrawerContentStyle";
 import * as Location from "expo-location";
 
-export default function DrawerContent( props ) {
+export default function DrawerContent(props) {
   const [fiName, setFName] = useState("");
   const [emails, setEmail] = useState("");
   const [profileImage, setProfileImage] = useState("");
@@ -103,7 +103,6 @@ export default function DrawerContent( props ) {
         </View>
 
         <DrawerItemList {...props} />
-
       </DrawerContentScrollView>
       <View style={drawerStyle.locview}>
         <Text>Turn on your location</Text>

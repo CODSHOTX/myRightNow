@@ -1,12 +1,6 @@
 import React, { useState } from "react";
-import {
-  Text,
-  View,
-  ScrollView,
-  TextInput,
-  StatusBar,
-  TouchableOpacity,
-} from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
+import { ScrollView, TextInput, StatusBar } from "react-native";
 import { signupscreenStyle } from "./styles/SignupScreenStyle";
 import Header from "../../components/Header";
 import { Formik } from "formik";
@@ -88,9 +82,7 @@ const SignUpscreen = ({ navigation }) => {
           barStyle="dark-content"
           hidden={false}
           backgroundColor="#F5F5F5"
-        >
-          {" "}
-        </StatusBar>
+        />
         <Header title="RightNOW" type="arrow-left" navigation={navigation} />
         <ScrollView keyboardShouldPersistTaps="always">
           <View style={signupscreenStyle.backcolor}>

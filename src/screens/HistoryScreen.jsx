@@ -11,13 +11,12 @@ export default function HistoryScreen({ navigation }) {
   return (
     <SafeAreaView style={historyStyle.safeview}>
       <ItemHeader
-          title="Delivery History"
-          type="arrow-left"
-          navigation={navigation}
-        />
+        title="Delivery History"
+        type="arrow-left"
+        navigation={navigation}
+      />
 
       <View style={historyStyle.view}>
-
         <FlatList
           data={deliveriesdetails}
           keyExtractor={(item, index) => `deliveriesdetails${index}`}

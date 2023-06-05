@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, SafeAreaView } from "react-native";
-import { Icon, withBadge } from "@rneui/base";
+import { Icon } from "@rneui/base";
 import { courierheaderStyle } from "./componentsStyles/courierheaderstyle";
 
 export default function CourierHeader({ navigation }) {

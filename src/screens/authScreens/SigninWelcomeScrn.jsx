@@ -1,8 +1,9 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 import { View, Image, SafeAreaView, StatusBar } from "react-native";
 import { Button } from "@rneui/base";
 import { welcomeStyle } from "./styles/WelcomeScreenStyle";
 
+// The SignInWelcomeScreen's key functional element.
 export default function SignInWelcomeScreen({ navigation }) {
   return (
     <SafeAreaView style={welcomeStyle.safeview}>
@@ -10,9 +11,7 @@ export default function SignInWelcomeScreen({ navigation }) {
         barStyle="dark-content"
         hidden={false}
         backgroundColor="#F5F5F5"
-      >
-        {" "}
-      </StatusBar>
+      />
       <View style={welcomeStyle.view1}>
         <Image
           style={welcomeStyle.imag}
@@ -22,6 +21,7 @@ export default function SignInWelcomeScreen({ navigation }) {
 
       <View style={welcomeStyle.view2}>
         <View style={welcomeStyle.view2_1}>
+          {/* Button that takes you to the SignIn Screen */}
           <Button
             title="SIGN IN"
             buttonStyle={welcomeStyle.welSignupBut}
@@ -32,6 +32,7 @@ export default function SignInWelcomeScreen({ navigation }) {
           />
         </View>
         <View style={welcomeStyle.view3}>
+          {/* Button that takes you to the SignUp Screen. */}
           <Button
             title="Create an account"
             buttonStyle={welcomeStyle.createButton}

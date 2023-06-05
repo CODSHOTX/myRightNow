@@ -3,10 +3,8 @@ import { useState, useEffect } from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import DrawerContent from "../screens/DrawerContent";
 import RootClientTabs from "./ClientTabs";
-import DriverConsoleScreen from "../screens/DriverConsoleScreen";
 import { firebase } from "../../firebaseConfig";
 import { Icon } from "@rneui/base";
-import Application from "../screens/ApplicationScreen";
 import ApplicationScreen from "../screens/ApplicationScreen";
 import CourierTabs from "./CourierTabs";
 import PaymentScreen from "../screens/PaymentScreen";
@@ -86,7 +84,7 @@ export default function DrawerNavigator() {
             }}
           />
 
-<Drawer.Screen
+          <Drawer.Screen
             name="PaymentScreen"
             component={PaymentScreen}
             options={{

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { SafeAreaView, View, Text } from "react-native";
 import { TouchableOpacity, TextInput, ScrollView } from "react-native";
-import { Button, TextInput } from "react-native-paper";
+import { TextInput } from "react-native-paper";
 import { firebase } from "../../firebaseConfig";
 import HomeHeader from "../components/HomeHeader";
 import { adminStyle } from "./screenStyles/AdminStyle";
@@ -70,18 +70,31 @@ export default function AdminScreen({ navigation }) {
           onChangeText={(text) => setEmail(text)}
           value={email}
         />
-        <TouchableOpacity style={adminStyle.imgbutton} onPress={handleCreateUser}>
+        <TouchableOpacity
+          style={adminStyle.imgbutton}
+          onPress={handleCreateUser}
+        >
           <Text>Create User</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={adminStyle.imgbutton} onPress={handleUpdateUser}>
+        <TouchableOpacity
+          style={adminStyle.imgbutton}
+          onPress={handleUpdateUser}
+        >
           <Text>Update User</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={adminStyle.imgbutton} onPress={handleDeleteUser}>
+        <TouchableOpacity
+          style={adminStyle.imgbutton}
+          onPress={handleDeleteUser}
+        >
           <Text>Delete User</Text>
         </TouchableOpacity>
         <ScrollView>
           {users.map((user) => (
-            <TouchableOpacity style={adminStyle.imgbutton} key={user.id} onPress={() => selectUser(user)}>
+            <TouchableOpacity
+              style={adminStyle.imgbutton}
+              key={user.id}
+              onPress={() => selectUser(user)}
+            >
               <Text>{user.name}</Text>
             </TouchableOpacity>
           ))}

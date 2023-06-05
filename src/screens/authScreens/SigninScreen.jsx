@@ -1,29 +1,28 @@
 import React, { useState, useRef } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  SafeAreaView,
-  StatusBar,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, TouchableOpacity } from "react-native";
+import { TextInput, SafeAreaView, StatusBar } from "react-native";
 import * as Animatable from "react-native-animatable";
 import Header from "../../components/Header";
-import { Icon, Button, SocialIcon } from "@rneui/base";
+import { Icon, Button } from "@rneui/base";
 import { firebase } from "../../../firebaseConfig";
 import { signinscreenStyle } from "./styles/SigninScreenStyle";
 
+// The sign-in screen's main functional component
 export default function SignInScreen({ navigation }) {
+  // UseStates are used to hold and manipulate form inputs and show settings.
   const [textInput2Fossued, setTextInput2Fossued] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  // UseRefs for form inputs
   const textInput1 = useRef(1);
   const textInput2 = useRef(2);
 
+  // State for email and password
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  loginUser = async (email, password) => {
+  // Uses Firebase, for function authenticates the user.
+  const loginUser = async (email, password) => {
     try {
       await firebase.auth().signInWithEmailAndPassword(email, password);
     } catch (error) {
@@ -31,6 +30,7 @@ export default function SignInScreen({ navigation }) {
     }
   };
 
+  // Function The file Return by the component
   return (
     <SafeAreaView style={signinscreenStyle.container}>
       <View style={signinscreenStyle.view}>
@@ -38,9 +38,8 @@ export default function SignInScreen({ navigation }) {
           barStyle="dark-content"
           hidden={false}
           backgroundColor="#F5F5F5"
-        >
-          {" "}
-        </StatusBar>
+        />
+        {/* Custom Header component */}
         <Header title="RightNOW" type="arrow-left" navigation={navigation} />
         <View style={signinscreenStyle.backcolor}>
           <View style={signinscreenStyle.view1}>
@@ -55,6 +54,7 @@ export default function SignInScreen({ navigation }) {
             </Text>
           </View>
 
+          {/*Email and Password are the credentials that the user must enter.*/}
           <View style={signinscreenStyle.view3}>
             <View>
               <TextInput
@@ -93,6 +93,7 @@ export default function SignInScreen({ navigation }) {
                 autoCorrect={false}
                 secureTextEntry={!showPassword}
               />
+              {/* Show/hide password*/}
               <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
                 <Animatable.View
                   animation={textInput2Fossued ? "" : "fadeInLeft"}
@@ -107,7 +108,9 @@ export default function SignInScreen({ navigation }) {
               </TouchableOpacity>
             </View>
           </View>
+
           <View style={signinscreenStyle.view4}>
+            {/* Login will only be valide if user inputs existem credentials*/}
             <Button
               title="Log in"
               buttonStyle={signinscreenStyle.styledButton}
@@ -115,6 +118,7 @@ export default function SignInScreen({ navigation }) {
               onPress={() => loginUser(email, password)}
             />
           </View>
+
           <View style={signinscreenStyle.view5}>
             <Text
               style={{
@@ -131,6 +135,7 @@ export default function SignInScreen({ navigation }) {
               New on rightNOW ?
             </Text>
           </View>
+
           <View style={signinscreenStyle.view7}>
             <Button
               title="Create an account"
