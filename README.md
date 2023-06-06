@@ -42,3 +42,5 @@ npm install --save-dev @testing-library/react-native
 npm install --save-dev @babel/core @babel/preset-env @babel/preset-react
 
 https://docs.expo.dev/develop/unit-testing/?redirected
+
+npx expo install expo-notifications expo-device

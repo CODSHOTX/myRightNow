@@ -17,6 +17,8 @@ export const homeStyle = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
+    alignItems: "center", 
+    justifyContent: "center",
   },
   deliveryButton: {
     paddingHorizontal: 20,
@@ -113,33 +115,25 @@ export const homeStyle = StyleSheet.create({
     alignItems: "center",
   },
   borderDox: {
-    flex: 1,
     borderColor: "#74D24F",
     borderWidth: 2,
     borderRadius: 12,
     width: 350,
     justifyContent: "center",
-    marginLeft: 34,
     marginTop: 100,
-    flexDirection: "row", // Arrange items in a row
-    alignItems: "flex-start", // Align items vertically in the center
-    marginLeft: 20,
-    // padding: 5, // Adjust the padding as needed
+    flexDirection: "row",
+    alignItems: "flex-start",
   },
   borderDox2: {
-    flex: 1,
     borderColor: "#74D24F",
     borderWidth: 2,
     borderRadius: 12,
     width: 350,
     height: 100,
     justifyContent: "center",
-    marginLeft: 34,
     marginTop: 50,
-    marginLeft: 20,
-    flexDirection: "row", // Arrange items in a row
-    alignItems: "flex-start", // Align items vertically in the center
-    // padding: 5, // Adjust the padding as needed
+    flexDirection: "row",
+    alignItems: "flex-start",
   },
   imageBox: {
     marginRight: 50,

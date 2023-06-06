@@ -73,9 +73,9 @@ const MapsScreen = ({ navigation }) => {
       const requestRef = firebase.firestore().collection("requests");
       await requestRef.add({
         courierEmail: selectedMarker.email,
-        orderId: selectedMarker.orderId,
-        price,
-        pStatus,
+        // orderId: selectedMarker.orderId,
+        // price,
+        // pStatus,
       });
       setSelectedMarker(null);
     } catch (error) {
