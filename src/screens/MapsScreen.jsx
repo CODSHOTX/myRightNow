@@ -72,13 +72,17 @@ const MapsScreen = ({ navigation }) => {
     try {
       const requestRef = firebase.firestore().collection("requests");
       await requestRef.add({
-        courierId: selectedMarker.id,
+        courierEmail: selectedMarker.email,
+        orderId: selectedMarker.orderId,
+        price,
+        pStatus,
       });
       setSelectedMarker(null);
     } catch (error) {
       console.log("Error confirming courier:", error);
     }
   };
+  
 
   if (loading) {
     return (
@@ -142,6 +146,7 @@ const MapsScreen = ({ navigation }) => {
                 onPress={() =>
                   handleMarkerPress({
                     name: `${courier.fiName} ${courier.laName}`,
+                    email: courier.emails,
                     plate: "XFH-1283",
                     phone: courier.phNum,
                     rate: "Good",
@@ -167,6 +172,10 @@ const MapsScreen = ({ navigation }) => {
               />
               <List.Item
                 title={`Name: ${selectedMarker.name}`}
+                titleStyle={mapStyle.titleText}
+              />
+               <List.Item
+                title={`Email: ${selectedMarker.email}`}
                 titleStyle={mapStyle.titleText}
               />
               <List.Item

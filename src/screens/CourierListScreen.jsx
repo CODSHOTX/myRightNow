@@ -37,7 +37,7 @@ const CourierListScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={mapStyle.safeview}>
         <ItemHeader
-          title="Courier List"
+          title="Courier List"z
           type="arrow-left"
           navigation={navigation}
         />
@@ -67,17 +67,6 @@ const CourierListScreen = ({ navigation }) => {
                 titleStyle={[mapStyle.titleText, { color: "#C9C9C7" }]}
               />
               </Card.Content>
-              {/* {/* <Card.Actions>
-                <Button
-                  onPress={() =>
-                    console.log(
-                      `Selected courier: ${courier.fiName} ${courier.laName}`
-                    )
-                  }
-                >
-                  Select
-                </Button>
-              </Card.Actions> */}
             </Card>
           ))}
         </ScrollView>

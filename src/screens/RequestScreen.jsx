@@ -12,10 +12,11 @@ const RequestScreen = ({ navigation }) => {
   useEffect(() => {
     const fetchRequests = async () => {
       try {
+        const currentUserEmail = firebase.auth().currentUser.email;
         const requestRef = firebase
           .firestore()
           .collection("requests")
-          .where("courierId", "==", firebase.auth().currentUser.uid);
+          .where("courierEmail", "==", currentUserEmail);
         const snapshot = await requestRef.get();
         const requestsData = snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -26,10 +27,10 @@ const RequestScreen = ({ navigation }) => {
         console.log("Error fetching requests:", error);
       }
     };
-
+  
     fetchRequests();
   }, []);
-
+  
   const handleAccept = async (requestId) => {
     // Update the request in Firestore with the status and price
     try {
@@ -69,7 +70,7 @@ const RequestScreen = ({ navigation }) => {
         {requests.map((request, index) => (
           <Card key={index}>
             <Card.Content>
-              <List.Item title={`Package ID: ${request.packageId}`} />
+              <List.Item title={`Package ID: ${request.orderId}`} />
               <List.Item
                 title={"Michael Jackson"}
                 description="53 deliveries"
@@ -114,3 +115,4 @@ const RequestScreen = ({ navigation }) => {
 };
 
 export default RequestScreen;
+

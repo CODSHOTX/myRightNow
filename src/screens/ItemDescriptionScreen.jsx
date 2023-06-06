@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 import { Image, ScrollView, Alert } from "react-native";
 import ItemHeader from "../components/ItemHeader";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as ImagePicker from "expo-image-picker";
 import { firebase } from "../../firebaseConfig";
 import { ProgressStep, ProgressSteps } from "react-native-progress-steps";
@@ -16,8 +16,9 @@ const ItemDescriptionScreen = ({ navigation }) => {
   const [origin, setOrigin] = useState("");
   const [receiverName, setReceiverName] = useState("");
   const [receiverNumber, setReceiverNumber] = useState("");
-
-  const [senderEmail, setSenderEmail] = useState("");
+  const [emails, setEmail] = useState("");
+  const [dLatitude, setDLatitude] = useState("");
+  const [dLongitude, setDlongitude] = useState("");
   const [height, setHeight] = useState("");
   const [description, setDescription] = useState("");
   const [weight, setWeight] = useState("");
@@ -39,22 +40,6 @@ const ItemDescriptionScreen = ({ navigation }) => {
   // Example usage
   const randomNumbers = generateRandomNumbers();
 
-  const addDestination = () => {
-    const newDestinations = [...destinations, destinations.length + 1];
-    setDestinations(newDestinations);
-  };
-
-  const removeDestination = (index) => {
-    const newDestinations = [...destinations];
-    newDestinations.splice(index, 1);
-    setDestinations(newDestinations);
-  };
-
-  const handleDestinationChange = (text, index) => {
-    const newDestinations = [...destinations];
-    newDestinations[index] = text;
-    setDestinations(newDestinations);
-  };
 
   const uploadImage = async (uri) => {
     try {
@@ -146,7 +131,27 @@ const ItemDescriptionScreen = ({ navigation }) => {
   const onPrevStep = () => {
     console.log("called previous step");
   };
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const userDocRef = firebase
+          .firestore()
+          .collection("users")
+          .doc(firebase.auth().currentUser.uid);
+        const doc = await userDocRef.get();
+        if (doc.exists) {
+          const userData = doc.data();
 
+          setEmail(userData.emails);
+        
+        }
+      } catch (error) {
+        console.log("Error fetching user data:", error);
+      }
+    };
+
+    fetchUserData();
+  }, []);
   const handleSubmit = async () => {
     try {
       const data = {
@@ -157,11 +162,12 @@ const ItemDescriptionScreen = ({ navigation }) => {
         weight,
         origin,
         rEmail,
-
-        destinations,
+        image,
+        dLatitude,
+        dLongitude,
         receiverName,
         receiverNumber,
-        senderEmail,
+        senderEmail: emails,
         orderId: randomNumbers,
       };
 
@@ -172,7 +178,7 @@ const ItemDescriptionScreen = ({ navigation }) => {
         .doc(currentUser.uid);
       await userRef.set(data);
       uploadImage();
-      console.log("Data saved, choose Courier");
+      alert("Data saved, choose Courier");
       navigation.navigate("MapsScreen");
     } catch (error) {
       console.log("Error saving data");
@@ -328,10 +334,10 @@ const ItemDescriptionScreen = ({ navigation }) => {
                 <View style={itemdescriptionStyle.view1}>
                   <View style={itemdescriptionStyle.marginhorizontal}>
                     <TextInput
-                      label="Origin"
+                      label="Origin Coordinates"
                       style={itemdescriptionStyle.textinput}
                       activeUnderlineColor="#74D24F"
-                      value={origin.toString()}
+                      value={origin}
                       onChangeText={setOrigin}
                     />
                     <TextInput
@@ -351,47 +357,25 @@ const ItemDescriptionScreen = ({ navigation }) => {
                       keyboardType="email-address"
                     />
                     <TextInput
-                      label="Receiver Number"
+                      label="Destination Longitude"
                       style={itemdescriptionStyle.textinput}
                       activeUnderlineColor="#74D24F"
-                      value={receiverNumber.toString()}
-                      onChangeText={setReceiverNumber}
-                      keyboardType="phone-pad"
+                      value={dLongitude}
+                      onChangeText={setDlongitude}
+                      keyboardType="numbers-and-punctuation"
                     />
-                    {destinations.map((destination, index) => (
-                      <TextInput
-                        label="Destination Coordinates"
-                        style={itemdescriptionStyle.textinput}
-                        key={`destination${index}`}
-                        activeUnderlineColor="#74D24F"
-                        value={destination.toString()}
-                        onChangeText={(text) =>
-                          handleDestinationChange(text, index)
-                        }
-                        right={
-                          destinations.length > 1 ? (
-                            <TextInput.Icon
-                              type="material-comunity"
-                              icon="close"
-                              style={itemdescriptionStyle.buttoniconremove}
-                              iconColor={
-                                itemdescriptionStyle.buttoniconremove.color
-                              }
-                              onPress={() => removeDestination(index)}
-                            />
-                          ) : null
-                        }
-                      />
-                    ))}
-                  </View>
-                  <View>
-                    <Button
-                      icon="plus"
-                      style={itemdescriptionStyle.buttoniconadd}
-                      labelStyle={itemdescriptionStyle.buttoniconlabel}
-                      onPress={addDestination}
+
+                    <TextInput
+                      label="Destination latitude"
+                      style={itemdescriptionStyle.textinput}
+                      activeUnderlineColor="#74D24F"
+                      value={dLatitude}
+                      onChangeText={setDLatitude}
+                      keyboardType="numbers-and-punctuation"
                     />
+                   
                   </View>
+                  
                   <Button
                     mode="contained"
                     style={itemdescriptionStyle.readybutton}
