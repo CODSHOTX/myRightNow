@@ -36,36 +36,37 @@ const CourierListScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={mapStyle.safeview}>
-        <ItemHeader
-          title="Courier List"z
-          type="arrow-left"
-          navigation={navigation}
-        />
+      <ItemHeader
+        title="Courier List"
+        z
+        type="arrow-left"
+        navigation={navigation}
+      />
       <View style={mapStyle.view}>
         <ScrollView>
           {couriers.map((courier, index) => (
             <Card key={index} style={mapStyle.card}>
               <Card.Content style={mapStyle.cardContent}>
                 <Image
-                style={[mapStyle.markerImage, mapStyle.image]}
-                source={courier.profileImage}
-              />
-              <List.Item
-                title={`Name: ${courier.fiName} ${courier.laName}`}
-                titleStyle={mapStyle.titleText}
-              />
-              <List.Item
-                title={`Bike Plate: XFH-1283`}
-                titleStyle={mapStyle.titleText}
-              />
-              <List.Item
-                title={`Phone number: ${courier.phNum}`}
-                titleStyle={mapStyle.titleText}
-              />
-              <List.Item
-                title={`Rate: Good`}
-                titleStyle={[mapStyle.titleText, { color: "#C9C9C7" }]}
-              />
+                  style={[mapStyle.markerImage, mapStyle.image]}
+                  source={courier.profileImage}
+                />
+                <List.Item
+                  title={`Name: ${courier.fiName} ${courier.laName}`}
+                  titleStyle={mapStyle.titleText}
+                />
+                <List.Item
+                  title={`Bike Plate: XFH-1283`}
+                  titleStyle={mapStyle.titleText}
+                />
+                <List.Item
+                  title={`Phone number: ${courier.phNum}`}
+                  titleStyle={mapStyle.titleText}
+                />
+                <List.Item
+                  title={`Rate: Good`}
+                  titleStyle={[mapStyle.titleText, { color: "#C9C9C7" }]}
+                />
               </Card.Content>
             </Card>
           ))}

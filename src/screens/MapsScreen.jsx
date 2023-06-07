@@ -83,7 +83,6 @@ const MapsScreen = ({ navigation, route }) => {
       console.log("Error confirming courier:", error);
     }
   };
-  
 
   if (loading) {
     return (
@@ -175,7 +174,7 @@ const MapsScreen = ({ navigation, route }) => {
                 title={`Name: ${selectedMarker.name}`}
                 titleStyle={mapStyle.titleText}
               />
-               <List.Item
+              <List.Item
                 title={`Email: ${selectedMarker.email}`}
                 titleStyle={mapStyle.titleText}
               />

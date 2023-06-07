@@ -74,9 +74,13 @@ const MapCourierScreen = ({ navigation }) => {
       <View style={mapStyle.flexCenter}>
         <ActivityIndicator color={mapStyle.icon.color} animating={true} />
         <Title style={mapStyle.title}>Searching For a Courier Close by.</Title>
-        <Button mode="contained" style={mapStyle.cancelButton2} onPress={() => {
+        <Button
+          mode="contained"
+          style={mapStyle.cancelButton2}
+          onPress={() => {
             navigation.goBack();
-          }}>
+          }}
+        >
           Cancel
         </Button>
       </View>
@@ -102,7 +106,7 @@ const MapCourierScreen = ({ navigation }) => {
               <Image style={mapStyle.markerImage} source={originIcon} />
             </Marker>
           ) : null}
-          
+
           {couriers.map((courier, index) => {
             const isSameCoordinate =
               clientLocation &&

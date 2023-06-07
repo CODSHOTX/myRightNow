@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { SafeAreaView, ScrollView, TextInput, View } from "react-native";
-import {
-  Card,
-  Title,
-  Paragraph,
-  Button,
-  TouchableRipple,
-} from "react-native-paper";
+import { Card, Title, Paragraph } from "react-native-paper";
+import { Button, TouchableRipple } from "react-native-paper";
 import { firebase } from "../../firebaseConfig";
 import { driverconsoleStyle } from "./screenStyles/DriverConsoleStyle";
 import CourierHeader from "../components/CourierHeader";
+import { requestStyle } from "./screenStyles/RequestStyle";
 
 const PriceInput = ({ requestId }) => {
   const [priceInput, setPriceInput] = useState(null);
@@ -26,13 +22,19 @@ const PriceInput = ({ requestId }) => {
   };
 
   return (
-    <View>
+    <View style={requestStyle.view1}>
       <TextInput
+        style={requestStyle.inputText}
         placeholder="Enter price"
+        selectionColor="#74D24F"
         onChangeText={setPriceInput}
         value={priceInput}
       />
-      <Button mode="contained" onPress={handlePriceSubmit}>
+      <Button
+        style={requestStyle.submitButton}
+        mode="contained"
+        onPress={handlePriceSubmit}
+      >
         Submit
       </Button>
     </View>
@@ -51,11 +53,21 @@ const StatusButtons = ({ requestId }) => {
   };
 
   return (
-    <View>
-      <Button mode="contained" onPress={() => handleStatusUpdate("Accepted")}>
+    <View style={requestStyle.view2}>
+      <Paragraph style={requestStyle.textmargin}>Status: </Paragraph>
+      <Button
+        mode="contained"
+        style={requestStyle.acceptButton}
+        onPress={() => handleStatusUpdate("Accepted")}
+      >
         Accepted
       </Button>
-      <Button mode="contained" onPress={() => handleStatusUpdate("Reject")}>
+      <Button
+        mode="outlined"
+        style={requestStyle.rejectButton}
+        labelStyle={requestStyle.rejectButton}
+        onPress={() => handleStatusUpdate("Rejected")}
+      >
         Rejected
       </Button>
     </View>
@@ -64,7 +76,6 @@ const StatusButtons = ({ requestId }) => {
 
 const RequestScreen = ({ navigation }) => {
   const [requests, setRequests] = useState([]);
-
   const [currentUserEmail, setCurrentUserEmail] = useState("");
 
   useEffect(() => {
@@ -114,9 +125,9 @@ const RequestScreen = ({ navigation }) => {
   }, [currentUserEmail]);
 
   return (
-    <SafeAreaView style={driverconsoleStyle.container}>
+    <SafeAreaView style={requestStyle.container}>
       <CourierHeader navigation={navigation} />
-      <View style={driverconsoleStyle.view2}>
+      <View style={requestStyle.view}>
         <ScrollView>
           {requests.map((request, index) => (
             <TouchableRipple
@@ -127,17 +138,25 @@ const RequestScreen = ({ navigation }) => {
                 })
               }
             >
-              <Card style={{ margin: 10 }}>
+              <Card style={requestStyle.card}>
                 <Card.Content>
-                  <Title>Courier Email: {request.courierEmail}</Title>
-                  <Paragraph>Order ID: {request.orderId}</Paragraph>
+                  <Title style={requestStyle.textmargin}>
+                    Courier Email: {request.courierEmail}
+                  </Title>
+                  <Paragraph style={requestStyle.textmargin}>
+                    Order ID: {request.orderId}
+                  </Paragraph>
                   {request.price ? (
-                    <Paragraph>Price: {request.price}</Paragraph>
+                    <Paragraph style={requestStyle.textmargin}>
+                      Price: {request.price}
+                    </Paragraph>
                   ) : (
                     <PriceInput requestId={request.id} />
                   )}
                   {request.pStatus ? (
-                    <Paragraph>Status: {request.pStatus}</Paragraph>
+                    <Paragraph style={requestStyle.textmargin}>
+                      Status: {request.pStatus}
+                    </Paragraph>
                   ) : (
                     <StatusButtons requestId={request.id} />
                   )}
