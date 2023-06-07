@@ -26,6 +26,7 @@ export default function SignInWelcomeScreen({ navigation }) {
             title="SIGN IN"
             buttonStyle={welcomeStyle.welSignupBut}
             titleStyle={welcomeStyle.buttonTitle}
+            testID="signinButton"
             onPress={() => {
               navigation.navigate("SigininScreen");
             }}
