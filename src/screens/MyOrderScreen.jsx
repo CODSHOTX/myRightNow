@@ -1,122 +1,72 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { View, TouchableOpacity, SafeAreaView } from "react-native";
+import { FlatList } from "react-native-gesture-handler";
+import {
+  Card,
+  Text,
+  List,
+  Button,
+  IconButton,
+  Avatar,
+} from "react-native-paper";
 import HomeHeader from "../components/HomeHeader";
 import { myorderStyle } from "./screenStyles/MyOrderStyle";
-import { FlatList } from "react-native-gesture-handler";
-import { Card, Text, List } from "react-native-paper";
-import { Button, IconButton, Avatar } from "react-native-paper";
 import { mapStyle } from "./screenStyles/MapStyle";
+import { firebase } from "../../firebaseConfig";
 
 export default function OrderHistoryScreen({ navigation }) {
-  const deliveriesdetails = [1, 2, 3, 4];
-  const myorder = [1, 2, 3, 4];
   const [packages, setPackage] = useState(true);
+  const [orderDetails, setOrderDetails] = useState([]);
+
+  useEffect(() => {
+    const ordersRef = firebase.firestore().collection("requests");
+    const unsubscribe = ordersRef.onSnapshot(
+      (snapshot) => {
+        const ordersData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setOrderDetails(ordersData);
+      },
+      (error) => {
+        console.log("Error fetching real-time updates:", error);
+      }
+    );
+
+    // Cleanup subscription on unmount
+    return () => unsubscribe();
+  }, []);
 
   return (
     <SafeAreaView style={myorderStyle.safeview}>
       <HomeHeader navigation={navigation} />
       <View style={myorderStyle.view}>
-        <View style={myorderStyle.view1}>
-          <View style={myorderStyle.view2}>
-            <TouchableOpacity
-              onPress={() => {
-                setPackage(true);
-              }}
-            >
-              <View
-                style={{
-                  ...myorderStyle.deliveryButton,
-                  backgroundColor: packages ? "#74D24F" : "#F5F5F5",
-                }}
-              >
-                <Text style={myorderStyle.deliveryText}>Package</Text>
-              </View>
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              onPress={() => {
-                setPackage(false);
-              }}
-            >
-              <View
-                style={{
-                  ...myorderStyle.deliveryButton,
-                  backgroundColor: !packages ? "#74D24F" : "#F5F5F5",
-                }}
-              >
-                <Text style={myorderStyle.deliveryText}>History</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        {packages ? (
-          <FlatList
-            data={myorder}
-            keyExtractor={(item, index) => `myorder${index}`}
-            renderItem={({ item, index }) => (
-              <Card style={mapStyle.card}>
-                <Card.Content>
-                  <List.Item
-                    title="₺50.00"
-                    description="Total Price"
-                    left={() => (
-                      <IconButton
-                        icon="bike-fast"
-                        size={32}
-                        style={mapStyle.icon}
-                        iconColor={mapStyle.icon.color}
-                      />
-                    )}
-                    right={() => (
-                      <View>
-                        <Button mode="contained" style={mapStyle.confirmButton}>
-                          Confirm
-                        </Button>
-                        <Button labelStyle={mapStyle.cancelButton}>
-                          Cancel
-                        </Button>
-                      </View>
-                    )}
-                  />
-                </Card.Content>
-              </Card>
-            )}
-          />
-        ) : (
-          <FlatList
-            data={deliveriesdetails}
-            keyExtractor={(item, index) => `deliveriesdetails${index}`}
-            renderItem={({ item, index }) => (
-              <Card
-                style={{ ...myorderStyle.card, ...myorderStyle.cardstatus }}
-                onPress={() => {
-                  navigation.navigate("DeliveryDetailScreen");
-                }}
-              >
-                <Card.Title
-                  titleStyle={myorderStyle.cardtitle}
-                  title="27/01/2023"
-                  right={() => <Text style={myorderStyle.price}>₺25.00</Text>}
+        <FlatList
+          data={orderDetails}
+          keyExtractor={(item) => `myorder${item.id}`}
+          renderItem={({ item }) => (
+            <Card style={mapStyle.card}>
+              <Card.Content>
+                <List.Item
+                  title={`Email: ${item.courierEmail}`}
+                  description={`Order ID: ${item.orderId}`}
                 />
-                <Card.Content style={myorderStyle.cardcontent}>
-                  <List.Item
-                    title={"Michael Jackson"}
-                    description="Rate: Good"
-                    left={() => (
-                      <Avatar.Image
-                        size={52}
-                        source={{
-                          uri: "https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/3174456/profile-clipart-md.png",
-                        }}
-                      />
-                    )}
-                  />
-                </Card.Content>
-              </Card>
-            )}
-          />
-        )}
+                <List.Item
+                  title={`₺${item.price}`}
+                  description={`Status: ${item.pStatus}`}
+                  left={() => (
+                    <IconButton
+                      icon="bike-fast"
+                      size={32}
+                      style={mapStyle.icon}
+                      iconColor={mapStyle.icon.color}
+                    />
+                  )}
+                />
+              </Card.Content>
+            </Card>
+          )}
+        />
       </View>
     </SafeAreaView>
   );

@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { SafeAreaView, ScrollView, TextInput, View } from "react-native";
-import { Card, Title, Paragraph, Button } from "react-native-paper";
+import {
+  Card,
+  Title,
+  Paragraph,
+  Button,
+  TouchableRipple,
+} from "react-native-paper";
 import { firebase } from "../../firebaseConfig";
 import { driverconsoleStyle } from "./screenStyles/DriverConsoleStyle";
 import CourierHeader from "../components/CourierHeader";
@@ -47,10 +53,10 @@ const StatusButtons = ({ requestId }) => {
   return (
     <View>
       <Button mode="contained" onPress={() => handleStatusUpdate("Accepted")}>
-        Accepted{" "}
+        Accepted
       </Button>
       <Button mode="contained" onPress={() => handleStatusUpdate("Reject")}>
-        Rejected{" "}
+        Rejected
       </Button>
     </View>
   );
@@ -113,22 +119,31 @@ const RequestScreen = ({ navigation }) => {
       <View style={driverconsoleStyle.view2}>
         <ScrollView>
           {requests.map((request, index) => (
-            <Card key={index} style={{ margin: 10 }}>
-              <Card.Content>
-                <Title>Courier Email: {request.courierEmail}</Title>
-                <Paragraph>Order ID: {request.orderId}</Paragraph>
-                {request.price ? (
-                  <Paragraph>Price: {request.price}</Paragraph>
-                ) : (
-                  <PriceInput requestId={request.id} />
-                )}
-                {request.pStatus ? (
-                  <Paragraph>Status: {request.pStatus}</Paragraph>
-                ) : (
-                  <StatusButtons requestId={request.id} />
-                )}
-              </Card.Content>
-            </Card>
+            <TouchableRipple
+              key={request.id} // Add key here
+              onPress={() =>
+                navigation.navigate("RequestDetailScreen", {
+                  orderId: request.orderId,
+                })
+              }
+            >
+              <Card style={{ margin: 10 }}>
+                <Card.Content>
+                  <Title>Courier Email: {request.courierEmail}</Title>
+                  <Paragraph>Order ID: {request.orderId}</Paragraph>
+                  {request.price ? (
+                    <Paragraph>Price: {request.price}</Paragraph>
+                  ) : (
+                    <PriceInput requestId={request.id} />
+                  )}
+                  {request.pStatus ? (
+                    <Paragraph>Status: {request.pStatus}</Paragraph>
+                  ) : (
+                    <StatusButtons requestId={request.id} />
+                  )}
+                </Card.Content>
+              </Card>
+            </TouchableRipple>
           ))}
         </ScrollView>
       </View>

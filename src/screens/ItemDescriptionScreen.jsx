@@ -27,19 +27,20 @@ const ItemDescriptionScreen = ({ navigation }) => {
   const [rEmail, setREmail] = useState("");
   const [orderId, setOrderId] = useState("");
 
-  function generateRandomNumbers() {
-    const numbers = [];
+  useEffect(() => {
+    function generateRandomNumbers() {
+      const numbers = [];
 
-    const randomInt = Math.floor(Math.random() * 900000); //Generate a random integer between 0 and 99
-    const formattedNumber = "RN" + randomInt.toString().padStart(4, "1"); // Prefix with "RN" and ensure two-digit format
-    numbers.push(formattedNumber);
+      const randomInt = Math.floor(Math.random() * 900000); //Generate a random integer between 0 and 99
+      const formattedNumber = "RN" + randomInt.toString().padStart(4, "1"); // Prefix with "RN" and ensure two-digit format
+      numbers.push(formattedNumber);
 
-    return numbers;
-  }
+      return numbers;
+    }
 
-  // Example usage
-  const randomNumbers = generateRandomNumbers();
-
+    const randomNumbers = generateRandomNumbers();
+    setOrderId(randomNumbers[0]); // Use the generated random number as orderId
+  }, []); // Use the generated random number as orderId
 
   const uploadImage = async (uri) => {
     try {
@@ -143,7 +144,6 @@ const ItemDescriptionScreen = ({ navigation }) => {
           const userData = doc.data();
 
           setEmail(userData.emails);
-        
         }
       } catch (error) {
         console.log("Error fetching user data:", error);
@@ -168,7 +168,7 @@ const ItemDescriptionScreen = ({ navigation }) => {
         receiverName,
         receiverNumber,
         senderEmail: emails,
-        orderId: randomNumbers,
+        orderId: orderId,
       };
 
       const currentUser = firebase.auth().currentUser;
@@ -179,7 +179,7 @@ const ItemDescriptionScreen = ({ navigation }) => {
       await userRef.set(data);
       uploadImage();
       alert("Data saved, choose Courier");
-      navigation.navigate("MapsScreen");
+      navigation.navigate("MapsScreen", { orderId: orderId });
     } catch (error) {
       console.log("Error saving data");
     }
@@ -373,9 +373,8 @@ const ItemDescriptionScreen = ({ navigation }) => {
                       onChangeText={setDLatitude}
                       keyboardType="numbers-and-punctuation"
                     />
-                   
                   </View>
-                  
+
                   <Button
                     mode="contained"
                     style={itemdescriptionStyle.readybutton}

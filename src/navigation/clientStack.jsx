@@ -9,6 +9,7 @@ import HistoryScreen from "../screens/HistoryScreen";
 import MapsScreen from "../screens/MapsScreen";
 import MapCourierScreen from "../screens/MapCourierScreen";
 import CourierListScreen from "../screens/CourierListScreen";
+import RequestDetailScreen from "../screens/RequestDetailScreen";
 
 const Auth = createStackNavigator();
 
@@ -86,6 +87,14 @@ export default function ClientStack() {
         }}
       />
 
+      <Auth.Screen
+        name="RequestDetailScreen"
+        component={RequestDetailScreen}
+        options={{
+          headerShown: false,
+          ...TransitionPresets.RevealFromBottomAndroid,
+        }}
+      />
     </Auth.Navigator>
   );
 }

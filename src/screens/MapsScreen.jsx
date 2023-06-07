@@ -10,7 +10,8 @@ import { ActivityIndicator, Title } from "react-native-paper";
 const originIcon = require("../images/origin.png");
 const deliveryBikeIcon = require("../images/deliverybike_icon.png");
 
-const MapsScreen = ({ navigation }) => {
+const MapsScreen = ({ navigation, route }) => {
+  const orderId = route.params.orderId;
   const [selectedMarker, setSelectedMarker] = useState(null);
   const [couriers, setCouriers] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -73,7 +74,7 @@ const MapsScreen = ({ navigation }) => {
       const requestRef = firebase.firestore().collection("requests");
       await requestRef.add({
         courierEmail: selectedMarker.email,
-        // orderId: selectedMarker.orderId,
+        orderId: orderId,
         // price,
         // pStatus,
       });
