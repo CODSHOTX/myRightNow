@@ -11,6 +11,7 @@ const CourierListScreen = ({ navigation }) => {
 
   useEffect(() => {
     const fetchCouriersData = async () => {
+      //getting courier data form user but using the role to corfim type of user
       try {
         const courierDocRef = firebase
           .firestore()
@@ -56,16 +57,8 @@ const CourierListScreen = ({ navigation }) => {
                   titleStyle={mapStyle.titleText}
                 />
                 <List.Item
-                  title={`Bike Plate: XFH-1283`}
-                  titleStyle={mapStyle.titleText}
-                />
-                <List.Item
                   title={`Phone number: ${courier.phNum}`}
                   titleStyle={mapStyle.titleText}
-                />
-                <List.Item
-                  title={`Rate: Good`}
-                  titleStyle={[mapStyle.titleText, { color: "#C9C9C7" }]}
                 />
               </Card.Content>
             </Card>

@@ -2,7 +2,7 @@ import "react-native-gesture-handler";
 import React from "react";
 import { useState, useEffect } from "react";
 import { firebase } from "./firebaseConfig";
-import { View, StyleSheet, StatusBar } from "react-native";
+import { View, StatusBar } from "react-native";
 import RootNavigator from "./src/navigation/rootNavigator";
 import UserStack from "./src/navigation/userStack";
 import { appStyle } from "./AppStyle";

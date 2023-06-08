@@ -10,6 +10,7 @@ import { Button } from "@rneui/base";
 import { firebase } from "../../../firebaseConfig";
 import { SafeAreaView } from "react-native";
 
+//standard settings for new users
 const initialValue = {
   fName: "",
   lName: "",
@@ -19,6 +20,8 @@ const initialValue = {
 };
 
 const SignUpscreen = ({ navigation }) => {
+
+  //useState hooks to control UI components and form data
   const [emails, setEmail] = useState("");
   const [fiName, setFname] = useState("");
   const [laName, setLname] = useState("");
@@ -26,6 +29,7 @@ const SignUpscreen = ({ navigation }) => {
   const [phNum, setPhNum] = useState("");
   const role = "user";
 
+  //function to handle the user registration of users
   const registerUser = async (
     phNum,
     emails,
@@ -51,6 +55,7 @@ const SignUpscreen = ({ navigation }) => {
             alert(error.message);
           })
           .then(() => {
+            //inputting user details to Firestore
             firebase
               .firestore()
               .collection("users")
@@ -75,6 +80,7 @@ const SignUpscreen = ({ navigation }) => {
   const [passwordBlured, setPasswordBlured] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  //return the UI for this component.
   return (
     <SafeAreaView style={signupscreenStyle.container}>
       <View style={signupscreenStyle.view}>

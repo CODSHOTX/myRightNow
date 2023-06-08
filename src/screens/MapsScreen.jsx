@@ -20,6 +20,7 @@ const MapsScreen = ({ navigation, route }) => {
   useEffect(() => {
     const fetchCouriersData = async () => {
       try {
+         //gets the user location with role courier from firestore
         const courierDocRef = firebase
           .firestore()
           .collection("users")
@@ -37,6 +38,7 @@ const MapsScreen = ({ navigation, route }) => {
       }
     };
 
+    //gets the user location with role user from firestore
     const fetchClientLocation = async () => {
       try {
         const clientDocRef = firebase
@@ -66,6 +68,7 @@ const MapsScreen = ({ navigation, route }) => {
   };
 
   const handleCancel = () => {
+    //cancels the card
     setSelectedMarker(null);
   };
 
@@ -75,8 +78,6 @@ const MapsScreen = ({ navigation, route }) => {
       await requestRef.add({
         courierEmail: selectedMarker.email,
         orderId: orderId,
-        // price,
-        // pStatus,
       });
       setSelectedMarker(null);
     } catch (error) {
@@ -84,6 +85,7 @@ const MapsScreen = ({ navigation, route }) => {
     }
   };
 
+  // Return a loading view if looking for couriers around!
   if (loading) {
     return (
       <View style={mapStyle.flexCenter}>
@@ -215,4 +217,5 @@ const MapsScreen = ({ navigation, route }) => {
   );
 };
 
+//to be able to export this screen to others
 export default MapsScreen;

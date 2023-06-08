@@ -10,11 +10,15 @@ import { firebase } from "../../firebaseConfig";
 const SCREEN_WIDTH = Dimensions.get("window").width;
 
 export default function HomeScreen({ navigation }) {
+
+  //state being initialized
   const [delivery, setDelivery] = useState(true);
   const [indexCheck, setIndexCheck] = useState("0");
   const [street, setStreet] = useState("");
 
+  //When the component is installed, retrieve user data from Firestore only once
   useEffect(() => {
+    //snapshot add for real-time updates of the app
     firebase
       .firestore()
       .collection("users")
