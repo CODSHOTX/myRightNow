@@ -42,6 +42,7 @@ const PriceInput = ({ requestId }) => {
 
 
 const StatusButtons = ({ requestId }) => {
+  //on the click string will be send to update status
   const handleStatusUpdate = async (newStatus) => {
     try {
       await firebase.firestore().collection("requests").doc(requestId).update({
@@ -79,7 +80,7 @@ const RequestScreen = ({ navigation }) => {
   const [currentUserEmail, setCurrentUserEmail] = useState("");
 
   useEffect(() => {
-    // Fetching the current user's email
+    // getting the logged in user's email
     const user = firebase.auth().currentUser;
     if (user !== null) {
       firebase
@@ -119,7 +120,6 @@ const RequestScreen = ({ navigation }) => {
           }
         );
 
-      // Cleanup subscription on unmount
       return () => unsubscribe();
     }
   }, [currentUserEmail]);
@@ -131,7 +131,7 @@ const RequestScreen = ({ navigation }) => {
         <ScrollView>
           {requests.map((request, index) => (
             <TouchableRipple
-              key={request.id} // Add key here
+              key={request.id} 
               onPress={() =>
                 navigation.navigate("RequestDetailScreen", {
                   orderId: request.orderId,

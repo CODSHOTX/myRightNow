@@ -18,20 +18,25 @@ const MapCourierScreen = ({ navigation }) => {
   const [clientLocation, setClientLocation] = useState(null);
 
   useEffect(() => {
-    const fetchCouriersData = async () => {
+    const fetchCouriersData = () => {
       try {
         const courierDocRef = firebase
           .firestore()
           .collection("users")
           .where("role", "==", "courier");
-        const snapshot = await courierDocRef.get();
-        const couriers = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setCouriers(couriers);
-        console.log("Fetched couriers:", couriers);
-        setLoading(false);
+
+        const unsubscribe = courierDocRef.onSnapshot((snapshot) => {
+          //updates the location in real-time
+          const couriers = snapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setCouriers(couriers);
+          console.log("Fetched couriers:", couriers);
+          setLoading(false);
+        });
+
+        return () => unsubscribe();
       } catch (error) {
         console.log("Error fetching courier data:", error);
       }
@@ -101,11 +106,14 @@ const MapCourierScreen = ({ navigation }) => {
             longitudeDelta: 0.04,
           }}
         >
-          {clientLocation ? (
-            <Marker description={"Client location"} coordinate={clientLocation}>
-              <Image style={mapStyle.markerImage} source={originIcon} />
+          {clientLocation && (
+            <Marker description="Client location" coordinate={clientLocation}>
+              <Image
+                style={mapStyle.markerImage}
+                source={require("../images/origin.png")}
+              />
             </Marker>
-          ) : null}
+          )}
 
           {couriers.map((courier, index) => {
             const isSameCoordinate =
@@ -117,9 +125,7 @@ const MapCourierScreen = ({ navigation }) => {
               <Marker
                 key={index}
                 description={
-                  isSameCoordinate
-                    ? "User location"
-                    : courier.fiName
+                  isSameCoordinate ? "User location" : courier.fiName
                 }
                 coordinate={{
                   latitude: courier.latitude,
@@ -128,6 +134,7 @@ const MapCourierScreen = ({ navigation }) => {
                 onPress={() =>
                   handleMarkerPress({
                     name: `${courier.fiName} ${courier.laName}`,
+                    email: courier.emails,
                     phone: courier.phNum,
                   })
                 }

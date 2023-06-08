@@ -17,6 +17,7 @@ export default function DriverConsoleScreen({ navigation }) {
       .collection("users")
       .doc(firebase.auth().currentUser.uid);
   
+    // user location and updates it real-time using onSnapshot
     const unsubscribe = userDocRef.onSnapshot(docSnapshot => {
       if (docSnapshot.exists) {
         const userData = docSnapshot.data();

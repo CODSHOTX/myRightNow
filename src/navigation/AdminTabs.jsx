@@ -24,7 +24,12 @@ export default function AdminTabs() {
           headerShown: false,
           tabBarLabel: "Admin",
           tabBarIcon: ({ color, size }) => (
-            <Icon name="account-cog-outline" type="material-community" color={color} size={size} />
+            <Icon
+              name="account-cog-outline"
+              type="material-community"
+              color={color}
+              size={size}
+            />
           ),
         }}
       />

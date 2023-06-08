@@ -20,7 +20,6 @@ const initialValue = {
 };
 
 const SignUpscreen = ({ navigation }) => {
-
   //useState hooks to control UI components and form data
   const [emails, setEmail] = useState("");
   const [fiName, setFname] = useState("");
@@ -80,7 +79,7 @@ const SignUpscreen = ({ navigation }) => {
   const [passwordBlured, setPasswordBlured] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  //return the UI for this component.
+  //return the screen
   return (
     <SafeAreaView style={signupscreenStyle.container}>
       <View style={signupscreenStyle.view}>

@@ -69,6 +69,7 @@ export default function AdminScreen({ navigation }) {
       });
   };
 
+  //directly update the user seleted
   const handleUpdateUser = () => {
     if (selectedUser) {
       firebase
@@ -90,6 +91,7 @@ export default function AdminScreen({ navigation }) {
     }
   };
 
+  //deletes the user in the app directly from firestore
   const handleDeleteUser = () => {
     if (selectedUser) {
       firebase
@@ -107,6 +109,7 @@ export default function AdminScreen({ navigation }) {
     }
   };
 
+  // selects the users card
   const selectUser = (user) => {
     setSelectedUser(user);
     setName(user.fiName);

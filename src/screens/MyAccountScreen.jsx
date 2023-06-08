@@ -105,7 +105,7 @@ export default function MyAccountScreen({ navigation }) {
     const userDocRef = firebase
       .firestore()
       .collection("users")
-      .doc(firebase.auth().currentUser.uid); // Replace 'userId' with the actual user ID
+      .doc(firebase.auth().currentUser.uid);
     userDocRef
       .update({
         fiName,
@@ -117,11 +117,10 @@ export default function MyAccountScreen({ navigation }) {
       })
       .then(() => {
         alert("Profile updated successfully!");
-        // Handle any additional logic or UI updates after successful update
       })
       .catch((error) => {
         alert("Error updating profile:", error);
-        // Handle the error and show an appropriate message to the user
+        // message if error happens
       });
   };
   return (

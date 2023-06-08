@@ -9,7 +9,7 @@ import ApplicationScreen from "../screens/ApplicationScreen";
 import CourierTabs from "./CourierTabs";
 import PaymentScreen from "../screens/PaymentScreen";
 import HelpScreen from "../screens/HelpScreen";
-import AdminTabs from "./AdminTabs"
+import AdminTabs from "./AdminTabs";
 
 const Drawer = createDrawerNavigator();
 
@@ -119,7 +119,7 @@ export default function DrawerNavigator() {
             }}
           />
         </Drawer.Navigator>
-      ) :userRole === "admin" ? (
+      ) : userRole === "admin" ? (
         <Drawer.Navigator
           screenOptions={{
             drawerActiveTintColor: "#C9C9C7",
@@ -160,7 +160,6 @@ export default function DrawerNavigator() {
               ),
             }}
           />
-
         </Drawer.Navigator>
       ) : (
         <Drawer.Navigator

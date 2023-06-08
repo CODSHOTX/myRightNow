@@ -4,8 +4,6 @@ import { Icon } from "@rneui/base";
 import { courierheaderStyle } from "./componentsStyles/courierheaderstyle";
 
 export default function CourierHeader({ navigation }) {
- 
-
   return (
     <SafeAreaView style={courierheaderStyle.header}>
       <View style={courierheaderStyle.veiw1}>

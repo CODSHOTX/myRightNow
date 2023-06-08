@@ -29,16 +29,16 @@ const ItemDescriptionScreen = ({ navigation }) => {
     function generateRandomNumbers() {
       const numbers = [];
 
-      const randomInt = Math.floor(Math.random() * 900000); //Generate a random integer between 0 and 99
-      const formattedNumber = "RN" + randomInt.toString().padStart(4, "1"); // Prefix with "RN" and ensure two-digit format
+      const randomInt = Math.floor(Math.random() * 900000); // creates random numbers
+      const formattedNumber = "RN" + randomInt.toString().padStart(4, "1"); // the id will start with RN then the numbers
       numbers.push(formattedNumber);
 
       return numbers;
     }
 
     const randomNumbers = generateRandomNumbers();
-    setOrderId(randomNumbers[0]); // Use the generated random number as orderId
-  }, []); // Use the generated random number as orderId
+    setOrderId(randomNumbers[0]); 
+  }, []); 
 
   const uploadImage = async (uri) => {
     try {
@@ -153,7 +153,7 @@ const ItemDescriptionScreen = ({ navigation }) => {
 
   const handleSubmit = async () => {
     try {
-      // Check that all fields have been filled in
+      // required condition for item description 
       if (!origin || !rEmail || !receiverName || !receiverNumber || !dAdress) {
         Alert.alert(
           "Error",

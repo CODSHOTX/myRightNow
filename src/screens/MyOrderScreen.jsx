@@ -32,7 +32,6 @@ export default function OrderHistoryScreen({ navigation }) {
           }
         );
 
-      // Cleanup subscription on unmount
       return () => unsubscribe();
     }
   }, []);

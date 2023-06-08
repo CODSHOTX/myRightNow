@@ -10,10 +10,9 @@ export default function HistoryScreen({ navigation }) {
   const [orderDetails, setOrderDetails] = useState([]);
   const [currentUserEmail, setCurrentUserEmail] = useState("");
   const user = firebase.auth().currentUser;
-const userEmail = user ? user.email : null;
+  const userEmail = user ? user.email : null;
 
-
-  // Function to get the current user's email using Firebase Authentication
+  // Function to get the user tha is logged in email using Firebase Authentication
   useEffect(() => {
     const ordersRef = firebase.firestore().collection("requests");
     const unsubscribe = ordersRef.onSnapshot(
@@ -29,7 +28,6 @@ const userEmail = user ? user.email : null;
       }
     );
 
-    // Cleanup subscription on unmount
     return () => unsubscribe();
   }, []);
 
@@ -52,12 +50,12 @@ const userEmail = user ? user.email : null;
           }
         );
 
-      // Cleanup subscription on unmount
+      
       return () => unsubscribe();
     }
   }, [currentUserEmail]);
 
-  // Render the component
+  // to illustrate all the component
   return (
     <SafeAreaView style={historyStyle.safeview}>
       <ItemHeader

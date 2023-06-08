@@ -16,7 +16,7 @@ const RequestDetailScreen = ({ route, navigation }) => {
         const snapshot = await orderRef.where("orderId", "==", orderId).get();
 
         if (!snapshot.empty) {
-          // Assuming there's only one matching document
+          //this is to make sure that the orderID have a march
           const doc = snapshot.docs[0];
           setOrderDetails(doc.data());
         } else {

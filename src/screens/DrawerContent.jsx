@@ -9,21 +9,21 @@ import { drawerStyle } from "./screenStyles/DrawerContentStyle";
 import * as Location from "expo-location";
 
 export default function DrawerContent(props) {
-  //states for keeping user details and location
+  //states for getting user info and location
   const [fiName, setFName] = useState("");
   const [emails, setEmail] = useState("");
   const [profileImage, setProfileImage] = useState("");
   const [locationEnabled, setLocationEnabled] = useState(false);
   const [currentLocation, setCurrentLocation] = useState(null);
 
-  //changes the location when enable
+  //changes the location when turn on
   useEffect(() => {
     if (locationEnabled) {
       getLocation();
     }
   }, [locationEnabled]);
 
-  //function to fetch user current location
+  //function to gets user location
   const getLocation = async () => {
     let { status } = await Location.requestForegroundPermissionsAsync();
     if (status !== "granted") {
@@ -34,7 +34,7 @@ export default function DrawerContent(props) {
     let location = await Location.getCurrentPositionAsync({});
     setCurrentLocation(location.coords);
 
-    // Save location data to Firestore
+    // keeps location info to Firestore
     const { latitude, longitude } = location.coords;
     const timestamp = firebase.firestore.FieldValue.serverTimestamp();
 

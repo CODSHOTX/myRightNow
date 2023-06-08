@@ -13,7 +13,7 @@ export default function EditProfileScreen({ navigation }) {
   const [city, setCity] = useState("");
   const [street, setStreet] = useState("");
   useEffect(() => {
-    // Fetch the user's existing data from Firestore
+    // getting the user's existing details from Firestore
     const fetchUserData = async () => {
       try {
         const userDocRef = firebase

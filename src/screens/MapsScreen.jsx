@@ -26,9 +26,8 @@ const MapsScreen = ({ navigation, route }) => {
         (doc) => {
           if (doc.exists) {
             const userData = doc.data();
-           
+
             setEmails(userData.emails);
-          
           }
         },
         (error) => console.log("Error fetching user data:", error)
@@ -40,7 +39,7 @@ const MapsScreen = ({ navigation, route }) => {
   useEffect(() => {
     const fetchCouriersData = async () => {
       try {
-         //gets the user location with role courier from firestore
+        //gets the user location with role courier from firestore
         const courierDocRef = firebase
           .firestore()
           .collection("users")
@@ -98,11 +97,11 @@ const MapsScreen = ({ navigation, route }) => {
       await requestRef.add({
         courierEmail: selectedMarker.email,
         orderId: orderId,
-        senderEmail: emails, 
+        senderEmail: emails,
       });
       setSelectedMarker(null);
-      navigation.navigate("RootClientTabs")
-      alert("You have confirm.")
+      navigation.navigate("RootClientTabs");
+      alert("You have confirm.");
     } catch (error) {
       console.log("Error confirming courier:", error);
     }
@@ -160,9 +159,7 @@ const MapsScreen = ({ navigation, route }) => {
               <Marker
                 key={index}
                 description={
-                  isSameCoordinate
-                    ? "User location"
-                    : courier.fiName
+                  isSameCoordinate ? "User location" : courier.fiName
                 }
                 coordinate={{
                   latitude: courier.latitude,
