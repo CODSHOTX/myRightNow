@@ -8,7 +8,7 @@ import { firebase } from "../../../firebaseConfig";
 import { signinscreenStyle } from "./styles/SigninScreenStyle";
 
 // The sign-in screen's main functional component
-export default function SignInScreen({ navigation })
+export default function SignInScreen({ navigation }) {
   // UseStates are used to hold and manipulate form inputs and show settings.
   const [textInput2Fossued, setTextInput2Fossued] = useState(false);
   const [showPassword, setShowPassword] = useState(false);

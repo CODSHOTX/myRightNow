@@ -41,6 +41,7 @@ npm install react-test-renderer@18.2.0
 npm install --save-dev @testing-library/react-native
 npm install --save-dev @babel/core @babel/preset-env @babel/preset-react
 
+https://jestjs.io/docs/configuration
 https://docs.expo.dev/develop/unit-testing/?redirected
 
 npx expo install expo-notifications expo-device

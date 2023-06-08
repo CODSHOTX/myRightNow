@@ -231,7 +231,7 @@ const ItemDescriptionScreen = ({ navigation }) => {
                     <TextInput
                       style={itemdescriptionStyle.textinput}
                       activeUnderlineColor="#74D24F"
-                      placeholder="Please enter package width in kg"
+                      placeholder="Please enter package width in cm"
                       keyboardType="numeric"
                       value={width}
                       onChangeText={setWidth}
@@ -253,7 +253,7 @@ const ItemDescriptionScreen = ({ navigation }) => {
                     <TextInput
                       style={itemdescriptionStyle.textinput}
                       activeUnderlineColor="#74D24F"
-                      placeholder="Please enter package weight in cm"
+                      placeholder="Please enter package weight in kg"
                       keyboardType="numeric"
                       value={weight}
                       onChangeText={setWeight}
