@@ -28,4 +28,9 @@ export const deliveryinfoStyle = StyleSheet.create({
     fontWeight: "bold",
     marginEnd: 15,
   },
+  text: {
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: 25,
+  }
 });

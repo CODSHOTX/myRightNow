@@ -80,11 +80,11 @@ const RequestDetailScreen = ({ route, navigation }) => {
               />
               <List.Item
                 titleStyle={requestDetailsStyle.listItem}
-                title={`Delivery Latitude: ${orderDetails.dLatitude}`}
+                title={`Delivery Origin: ${orderDetails.origin}`}
               />
               <List.Item
                 titleStyle={requestDetailsStyle.listItem}
-                title={`Delivery Longitude: ${orderDetails.dLongitude}`}
+                title={`Delivery Destination: ${orderDetails.dAdress}`}
               />
               <List.Item
                 titleStyle={requestDetailsStyle.listItem}
@@ -102,12 +102,6 @@ const RequestDetailScreen = ({ route, navigation }) => {
                 titleStyle={requestDetailsStyle.listItem}
                 title={`Sender Email: ${orderDetails.senderEmail}`}
               />
-              {orderDetails.image && orderDetails.image.uri && (
-                <Image
-                  source={{ uri: orderDetails.image.uri }}
-                  style={requestDetailsStyle.img}
-                />
-              )}
             </Card.Content>
           </Card>
         </ScrollView>

@@ -48,10 +48,6 @@ const CourierListScreen = ({ navigation }) => {
           {couriers.map((courier, index) => (
             <Card key={index} style={mapStyle.card}>
               <Card.Content style={mapStyle.cardContent}>
-                <Image
-                  style={[mapStyle.markerImage, mapStyle.image]}
-                  source={courier.profileImage}
-                />
                 <List.Item
                   title={`Name: ${courier.fiName} ${courier.laName}`}
                   titleStyle={mapStyle.titleText}

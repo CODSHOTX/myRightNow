@@ -1,40 +1,40 @@
 import React, { useEffect, useState } from "react";
-import { View, TouchableOpacity, SafeAreaView } from "react-native";
+import { View, SafeAreaView } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
-import {
-  Card,
-  Text,
-  List,
-  Button,
-  IconButton,
-  Avatar,
-} from "react-native-paper";
+import { Card, List, IconButton } from "react-native-paper";
 import HomeHeader from "../components/HomeHeader";
 import { myorderStyle } from "./screenStyles/MyOrderStyle";
 import { mapStyle } from "./screenStyles/MapStyle";
 import { firebase } from "../../firebaseConfig";
 
 export default function OrderHistoryScreen({ navigation }) {
-  const [packages, setPackage] = useState(true);
   const [orderDetails, setOrderDetails] = useState([]);
 
+ 
   useEffect(() => {
-    const ordersRef = firebase.firestore().collection("requests");
-    const unsubscribe = ordersRef.onSnapshot(
-      (snapshot) => {
-        const ordersData = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setOrderDetails(ordersData);
-      },
-      (error) => {
-        console.log("Error fetching real-time updates:", error);
-      }
-    );
+    const user = firebase.auth().currentUser;
+    const userEmail = user ? user.email : null;
 
-    // Cleanup subscription on unmount
-    return () => unsubscribe();
+    if (userEmail) {
+      const ordersRef = firebase.firestore().collection("requests");
+      const unsubscribe = ordersRef
+        .where("senderEmail", "==", userEmail)
+        .onSnapshot(
+          (snapshot) => {
+            const ordersData = snapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data(),
+            }));
+            setOrderDetails(ordersData);
+          },
+          (error) => {
+            console.log("Error fetching real-time updates:", error);
+          }
+        );
+
+      // Cleanup subscription on unmount
+      return () => unsubscribe();
+    }
   }, []);
 
   return (

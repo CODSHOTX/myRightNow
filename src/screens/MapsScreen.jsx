@@ -16,7 +16,27 @@ const MapsScreen = ({ navigation, route }) => {
   const [couriers, setCouriers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [clientLocation, setClientLocation] = useState(null);
+  const [emails, setEmails] = useState("");
+  useEffect(() => {
+    const unsubscribe = firebase
+      .firestore()
+      .collection("users")
+      .doc(firebase.auth().currentUser.uid)
+      .onSnapshot(
+        (doc) => {
+          if (doc.exists) {
+            const userData = doc.data();
+           
+            setEmails(userData.emails);
+          
+          }
+        },
+        (error) => console.log("Error fetching user data:", error)
+      );
 
+    // Cleanup function
+    return () => unsubscribe();
+  }, []);
   useEffect(() => {
     const fetchCouriersData = async () => {
       try {
@@ -78,8 +98,11 @@ const MapsScreen = ({ navigation, route }) => {
       await requestRef.add({
         courierEmail: selectedMarker.email,
         orderId: orderId,
+        senderEmail: emails, 
       });
       setSelectedMarker(null);
+      navigation.navigate("RootClientTabs")
+      alert("You have confirm.")
     } catch (error) {
       console.log("Error confirming courier:", error);
     }
@@ -138,7 +161,7 @@ const MapsScreen = ({ navigation, route }) => {
                 key={index}
                 description={
                   isSameCoordinate
-                    ? "User and Courier location"
+                    ? "User location"
                     : courier.fiName
                 }
                 coordinate={{
@@ -149,10 +172,7 @@ const MapsScreen = ({ navigation, route }) => {
                   handleMarkerPress({
                     name: `${courier.fiName} ${courier.laName}`,
                     email: courier.emails,
-                    plate: "XFH-1283",
                     phone: courier.phNum,
-                    rate: "Good",
-                    photo: courier.profileImage,
                   })
                 }
               >
@@ -168,10 +188,6 @@ const MapsScreen = ({ navigation, route }) => {
         {selectedMarker ? (
           <Card style={mapStyle.card}>
             <Card.Content style={mapStyle.cardContent}>
-              <Image
-                style={[mapStyle.markerImage, mapStyle.image]}
-                source={selectedMarker.photo}
-              />
               <List.Item
                 title={`Name: ${selectedMarker.name}`}
                 titleStyle={mapStyle.titleText}
@@ -181,16 +197,8 @@ const MapsScreen = ({ navigation, route }) => {
                 titleStyle={mapStyle.titleText}
               />
               <List.Item
-                title={`Bike Plate: ${selectedMarker.plate}`}
-                titleStyle={mapStyle.titleText}
-              />
-              <List.Item
                 title={`Phone number: ${selectedMarker.phone}`}
                 titleStyle={mapStyle.titleText}
-              />
-              <List.Item
-                title={`Rate: ${selectedMarker.rate}`}
-                titleStyle={[mapStyle.titleText, { color: "#C9C9C7" }]}
               />
             </Card.Content>
             <Card.Actions style={mapStyle.cardActions}>

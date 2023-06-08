@@ -3,7 +3,6 @@ import { SafeAreaView, ScrollView, TextInput, View } from "react-native";
 import { Card, Title, Paragraph } from "react-native-paper";
 import { Button, TouchableRipple } from "react-native-paper";
 import { firebase } from "../../firebaseConfig";
-import { driverconsoleStyle } from "./screenStyles/DriverConsoleStyle";
 import CourierHeader from "../components/CourierHeader";
 import { requestStyle } from "./screenStyles/RequestStyle";
 
@@ -40,6 +39,7 @@ const PriceInput = ({ requestId }) => {
     </View>
   );
 };
+
 
 const StatusButtons = ({ requestId }) => {
   const handleStatusUpdate = async (newStatus) => {

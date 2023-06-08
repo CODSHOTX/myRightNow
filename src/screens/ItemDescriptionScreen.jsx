@@ -17,8 +17,7 @@ const ItemDescriptionScreen = ({ navigation }) => {
   const [receiverName, setReceiverName] = useState("");
   const [receiverNumber, setReceiverNumber] = useState("");
   const [emails, setEmail] = useState("");
-  const [dLatitude, setDLatitude] = useState("");
-  const [dLongitude, setDlongitude] = useState("");
+  const [dAdress, setDAdress] = useState("");
   const [height, setHeight] = useState("");
   const [description, setDescription] = useState("");
   const [weight, setWeight] = useState("");
@@ -152,6 +151,7 @@ const ItemDescriptionScreen = ({ navigation }) => {
 
     fetchUserData();
   }, []);
+
   const handleSubmit = async () => {
     try {
       const data = {
@@ -163,27 +163,23 @@ const ItemDescriptionScreen = ({ navigation }) => {
         origin,
         rEmail,
         image,
-        dLatitude,
-        dLongitude,
+        dAdress,
         receiverName,
         receiverNumber,
         senderEmail: emails,
         orderId: orderId,
       };
 
-      const currentUser = firebase.auth().currentUser;
-      const userRef = firebase
-        .firestore()
-        .collection("orders")
-        .doc(currentUser.uid);
-      await userRef.set(data);
+      const ordersRef = firebase.firestore().collection("orders");
+      await ordersRef.add(data);
       uploadImage();
       alert("Data saved, choose Courier");
       navigation.navigate("MapsScreen", { orderId: orderId });
     } catch (error) {
       console.log("Error saving data");
     }
-  };
+};
+
   return (
     <SafeAreaView style={itemdescriptionStyle.container}>
       <View style={itemdescriptionStyle.view1}>
@@ -334,7 +330,7 @@ const ItemDescriptionScreen = ({ navigation }) => {
                 <View style={itemdescriptionStyle.view1}>
                   <View style={itemdescriptionStyle.marginhorizontal}>
                     <TextInput
-                      label="Origin Coordinates"
+                      label="Origin address or Google plus code"
                       style={itemdescriptionStyle.textinput}
                       activeUnderlineColor="#74D24F"
                       value={origin}
@@ -356,21 +352,20 @@ const ItemDescriptionScreen = ({ navigation }) => {
                       onChangeText={setREmail}
                       keyboardType="email-address"
                     />
-                    <TextInput
-                      label="Destination Longitude"
-                      style={itemdescriptionStyle.textinput}
-                      activeUnderlineColor="#74D24F"
-                      value={dLongitude}
-                      onChangeText={setDlongitude}
-                      keyboardType="numbers-and-punctuation"
-                    />
 
                     <TextInput
-                      label="Destination latitude"
+                      label="Receiver Number"
                       style={itemdescriptionStyle.textinput}
                       activeUnderlineColor="#74D24F"
-                      value={dLatitude}
-                      onChangeText={setDLatitude}
+                      value={receiverNumber}
+                      onChangeText={setReceiverNumber}
+                    />
+                    <TextInput
+                      label="Destination address or Google plus code"
+                      style={itemdescriptionStyle.textinput}
+                      activeUnderlineColor="#74D24F"
+                      value={dAdress}
+                      onChangeText={setDAdress}
                       keyboardType="numbers-and-punctuation"
                     />
                   </View>

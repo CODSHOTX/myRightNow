@@ -21,31 +21,29 @@ export default function MyAccountScreen({ navigation }) {
   const [profileImage, setProfileImage] = useState(null);
 
   useEffect(() => {
-    // Fetch the user's existing data from Firestore
-    const fetchUserData = async () => {
-      try {
-        const userDocRef = firebase
-          .firestore()
-          .collection("users")
-          .doc(firebase.auth().currentUser.uid);
-        const doc = await userDocRef.get();
-        if (doc.exists) {
-          const userData = doc.data();
-          setStreet(userData.street);
-          setCity(userData.city);
-          setEmail(userData.emails);
-          setFName(userData.fiName);
-          setLName(userData.laName);
-          setPNum(userData.phNum);
-          setCountry(userData.country);
-          setProfileImage(userData.profileImage);
-        }
-      } catch (error) {
-        console.log("Error fetching user data:", error);
-      }
-    };
+    const unsubscribe = firebase
+      .firestore()
+      .collection("users")
+      .doc(firebase.auth().currentUser.uid)
+      .onSnapshot(
+        (doc) => {
+          if (doc.exists) {
+            const userData = doc.data();
+            setStreet(userData.street);
+            setCity(userData.city);
+            setEmail(userData.emails);
+            setFName(userData.fiName);
+            setLName(userData.laName);
+            setPNum(userData.phNum);
+            setCountry(userData.country);
+            setProfileImage(userData.profileImage);
+          }
+        },
+        (error) => console.log("Error fetching user data:", error)
+      );
 
-    fetchUserData();
+    // Cleanup function
+    return () => unsubscribe();
   }, []);
 
   const pickImage = async () => {

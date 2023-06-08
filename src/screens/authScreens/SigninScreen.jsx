@@ -30,6 +30,16 @@ export default function SignInScreen({ navigation }) {
     }
   };
 
+  //Forget password
+  const forgetPassword =()=>{
+    firebase.auth().sendPasswordResetEmail(email)
+    .then(() => {
+      alert("Password reset email sent")
+    }).catch((error) => {
+      alert(error)
+    })
+  }
+
   // Function The file Return by the component
   return (
     <SafeAreaView style={signinscreenStyle.container}>
@@ -120,19 +130,24 @@ export default function SignInScreen({ navigation }) {
           </View>
 
           <View style={signinscreenStyle.view5}>
-            <Text
-              style={{
-                ...signinscreenStyle.text1,
-                textDecorationLine: "underline",
-              }}
+            <TouchableOpacity
+              onPress={()=>{forgetPassword()}}
+              
             >
-              Forgot Password ?
-            </Text>
+              <Text
+                style={{
+                  ...signinscreenStyle.text1,
+                  textDecorationLine: "underline",
+                }}
+              >
+                Forgot Password?
+              </Text>
+            </TouchableOpacity>
           </View>
 
           <View style={signinscreenStyle.view6}>
             <Text style={{ ...signinscreenStyle.text1 }}>
-              New on rightNOW ?
+              New on rightNOW?
             </Text>
           </View>
 

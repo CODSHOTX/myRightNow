@@ -95,6 +95,7 @@ export default function ClientStack() {
           ...TransitionPresets.RevealFromBottomAndroid,
         }}
       />
+      
     </Auth.Navigator>
   );
 }

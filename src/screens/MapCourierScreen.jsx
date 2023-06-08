@@ -118,7 +118,7 @@ const MapCourierScreen = ({ navigation }) => {
                 key={index}
                 description={
                   isSameCoordinate
-                    ? "User and Courier location"
+                    ? "User location"
                     : courier.fiName
                 }
                 coordinate={{
@@ -128,10 +128,7 @@ const MapCourierScreen = ({ navigation }) => {
                 onPress={() =>
                   handleMarkerPress({
                     name: `${courier.fiName} ${courier.laName}`,
-                    plate: "XFH-1283",
                     phone: courier.phNum,
-                    rate: "Good",
-                    photo: courier.profileImage,
                   })
                 }
               >
@@ -156,25 +153,13 @@ const MapCourierScreen = ({ navigation }) => {
         {selectedMarker ? (
           <Card style={mapStyle.card}>
             <Card.Content style={mapStyle.cardContent}>
-              <Image
-                style={[mapStyle.markerImage, mapStyle.image]}
-                source={selectedMarker.photo}
-              />
               <List.Item
                 title={`Name: ${selectedMarker.name}`}
                 titleStyle={mapStyle.titleText}
               />
               <List.Item
-                title={`Bike Plate: ${selectedMarker.plate}`}
-                titleStyle={mapStyle.titleText}
-              />
-              <List.Item
                 title={`Phone number: ${selectedMarker.phone}`}
                 titleStyle={mapStyle.titleText}
-              />
-              <List.Item
-                title={`Rate: ${selectedMarker.rate}`}
-                titleStyle={[mapStyle.titleText, { color: "#C9C9C7" }]}
               />
             </Card.Content>
             <Card.Actions style={mapStyle.cardActions}>

@@ -77,7 +77,7 @@ export default function HomeScreen({ navigation }) {
                     backgroundColor: delivery ? "#F5F5F5" : "#74D24F",
                   }}
                 >
-                  <Text style={homeStyle.deliveryText}>Pick Up</Text>
+                  <Text style={homeStyle.deliveryText}>Maps</Text>
                 </View>
               </TouchableOpacity>
             </View>

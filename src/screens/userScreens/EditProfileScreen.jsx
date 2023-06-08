@@ -55,6 +55,7 @@ export default function EditProfileScreen({ navigation }) {
       })
       .then(() => {
         alert("Profile updated successfully!");
+        navigation.navigate("MyAccountScreen")
         // Handle any additional logic or UI updates after successful update
       })
       .catch((error) => {
