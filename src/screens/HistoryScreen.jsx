@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, SafeAreaView } from "react-native";
 import ItemHeader from "../components/ItemHeader";
 import { FlatList } from "react-native-gesture-handler";
-import { Card, Text, List, Avatar } from "react-native-paper";
+import { Card, Text, List } from "react-native-paper";
 import { historyStyle } from "./screenStyles/HistoryStyle";
 import { firebase } from "../../firebaseConfig";
 

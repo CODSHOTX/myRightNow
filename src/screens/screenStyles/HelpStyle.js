@@ -7,6 +7,8 @@ export const helpStyle = StyleSheet.create({
     },
     view: { 
         flex: 1, 
-        backgroundColor: "white" 
+        backgroundColor: "white",
+        alignContent:"center",
+        justifyContent:"center" 
     }
 })

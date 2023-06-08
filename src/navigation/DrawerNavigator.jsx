@@ -9,6 +9,7 @@ import ApplicationScreen from "../screens/ApplicationScreen";
 import CourierTabs from "./CourierTabs";
 import PaymentScreen from "../screens/PaymentScreen";
 import HelpScreen from "../screens/HelpScreen";
+import AdminTabs from "./AdminTabs"
 
 const Drawer = createDrawerNavigator();
 
@@ -77,6 +78,82 @@ export default function DrawerNavigator() {
                 <Icon
                   type="material-community"
                   name="bike"
+                  color={focused ? "#74D24F" : "#74D24F"}
+                  size={size}
+                />
+              ),
+            }}
+          />
+
+          <Drawer.Screen
+            name="PaymentScreen"
+            component={PaymentScreen}
+            options={{
+              title: "Payment",
+              headerShown: false,
+              drawerIcon: ({ focused, size }) => (
+                <Icon
+                  type="material-community"
+                  name="credit-card"
+                  color={focused ? "#74D24F" : "#74D24F"}
+                  size={size}
+                />
+              ),
+            }}
+          />
+
+          <Drawer.Screen
+            name="HelpScreen"
+            component={HelpScreen}
+            options={{
+              title: "Help",
+              headerShown: false,
+              drawerIcon: ({ focused, size }) => (
+                <Icon
+                  type="material-community"
+                  name="help-circle"
+                  color={focused ? "#74D24F" : "#74D24F"}
+                  size={size}
+                />
+              ),
+            }}
+          />
+        </Drawer.Navigator>
+      ) :userRole === "admin" ? (
+        <Drawer.Navigator
+          screenOptions={{
+            drawerActiveTintColor: "#C9C9C7",
+            drawerLabelStyle: { color: "#74D24F" },
+          }}
+          drawerContent={(props) => <DrawerContent {...props} />}
+        >
+          <Drawer.Screen
+            name="RootClientTabs"
+            component={RootClientTabs}
+            options={{
+              title: "Client",
+              headerShown: false,
+              drawerIcon: ({ focused, size }) => (
+                <Icon
+                  type="material-community"
+                  name="home"
+                  color={focused ? "#74D24F" : "#74D24F"}
+                  size={size}
+                />
+              ),
+            }}
+          />
+
+          <Drawer.Screen
+            name="AdminTabs"
+            component={AdminTabs}
+            options={{
+              title: "Admin",
+              headerShown: false,
+              drawerIcon: ({ focused, size }) => (
+                <Icon
+                  type="material-community"
+                  name="account-cog"
                   color={focused ? "#74D24F" : "#74D24F"}
                   size={size}
                 />

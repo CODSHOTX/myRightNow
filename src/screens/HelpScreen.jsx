@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, Text, View } from "react-native";
+import { SafeAreaView, Image, View } from "react-native";
 import HomeHeader from "../components/HomeHeader";
 import { helpStyle } from "./screenStyles/HelpStyle";
 
@@ -8,7 +8,10 @@ export default function HelpScreen({ navigation }) {
     <SafeAreaView style={helpStyle.container}>
       <HomeHeader navigation={navigation} />
       <View style={helpStyle.view}>
-        <Text>Help</Text>
+      <Image
+          style={{height:"100%", width:"100%"  }}
+          source={require("../images/RightNOWHelp.png")}
+        />
       </View>
     </SafeAreaView>
   );

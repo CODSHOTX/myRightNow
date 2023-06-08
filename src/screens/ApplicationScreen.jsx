@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, Text, View } from "react-native";
+import { SafeAreaView, Image, View } from "react-native";
 import HomeHeader from "../components/HomeHeader";
 import { applyStyle } from "./screenStyles/ApplyStyle";
 
@@ -8,7 +8,10 @@ export default function ApplicationScreen({ navigation }) {
     <SafeAreaView style={applyStyle.container}>
       <HomeHeader navigation={navigation} />
       <View style={applyStyle.view}>
-        <Text>Apply</Text>
+        <Image
+          style={{ height: "100%", width: "100%" }}
+          source={require("../images/RightNOWCourier.png")}
+        />
       </View>
     </SafeAreaView>
   );
