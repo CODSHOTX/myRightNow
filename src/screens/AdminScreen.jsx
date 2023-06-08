@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { SafeAreaView, View, TouchableOpacity, ScrollView, Alert } from "react-native";
+import {
+  SafeAreaView,
+  View,
+  TouchableOpacity,
+  ScrollView,
+  Alert,
+} from "react-native";
 import { TextInput, Button, Card, List } from "react-native-paper";
 import { firebase } from "../../firebaseConfig";
 import HomeHeader from "../components/HomeHeader";
@@ -27,44 +33,58 @@ export default function AdminScreen({ navigation }) {
   }, []);
 
   const handleCreateUser = () => {
-    firebase.firestore().collection("users").add({
-      fiName: fiName,
-      emails: emails,
-      role: role,
-    }).then(() => {
-      Alert.alert("User Created");
-      setName("");
-      setEmail("");
-      setRole("");
-      setSelectedUser(null);
-    });
-  };
-
-  const handleUpdateUser = () => {
-    if (selectedUser) {
-      firebase.firestore().collection("users").doc(selectedUser.id).set({
+    firebase
+      .firestore()
+      .collection("users")
+      .add({
         fiName: fiName,
         emails: emails,
         role: role,
-      }).then(() => {
-        Alert.alert("User Updated");
+      })
+      .then(() => {
+        Alert.alert("User Created");
         setName("");
         setEmail("");
         setRole("");
         setSelectedUser(null);
       });
+  };
+
+  const handleUpdateUser = () => {
+    if (selectedUser) {
+      firebase
+        .firestore()
+        .collection("users")
+        .doc(selectedUser.id)
+        .set({
+          fiName: fiName,
+          emails: emails,
+          role: role,
+        })
+        .then(() => {
+          Alert.alert("User Updated");
+          setName("");
+          setEmail("");
+          setRole("");
+          setSelectedUser(null);
+        });
     }
   };
 
   const handleDeleteUser = () => {
     if (selectedUser) {
-      firebase.firestore().collection("users").doc(selectedUser.id).delete().then(() => {
-        Alert.alert("User Deleted");
-        setName("");
-        setEmail("");
-        setRole("");
-        setSelectedUser(null);
-      });
+      firebase
+        .firestore()
+        .collection("users")
+        .doc(selectedUser.id)
+        .delete()
+        .then(() => {
+          Alert.alert("User Deleted");
+          setName("");
+          setEmail("");
+          setRole("");
+          setSelectedUser(null);
+        });
     }
   };
 
@@ -89,6 +109,7 @@ export default function AdminScreen({ navigation }) {
         <TextInput
           label="Email"
           style={adminStyle.textinput}
+          keyboardType="email-address"
           activeUnderlineColor="#74D24F"
           onChangeText={(text) => setEmail(text)}
           value={emails}
@@ -100,16 +121,30 @@ export default function AdminScreen({ navigation }) {
           onChangeText={(text) => setRole(text)}
           value={role}
         />
-        <Button mode="contained" style={adminStyle.button} onPress={handleCreateUser}>
+        <Button
+          mode="contained"
+          style={adminStyle.button}
+          onPress={handleCreateUser}
+        >
           Create User
         </Button>
-        <Button mode="elevated" labelStyle={adminStyle.upbutton} style={adminStyle.upbutton} onPress={handleUpdateUser}>
+        <Button
+          mode="elevated"
+          labelStyle={adminStyle.upbutton}
+          style={adminStyle.upbutton}
+          onPress={handleUpdateUser}
+        >
           Update User
         </Button>
-        <Button mode="outlined" labelStyle={adminStyle.canbutton} style={adminStyle.canbutton} onPress={handleDeleteUser}>
+        <Button
+          mode="outlined"
+          labelStyle={adminStyle.canbutton}
+          style={adminStyle.canbutton}
+          onPress={handleDeleteUser}
+        >
           Delete User
         </Button>
-        <View style={{ flex: 1, backgroundColor: "white" }}>
+        <View style={adminStyle.view}>
           <ScrollView>
             {users.map((user) => (
               <TouchableOpacity key={user.id} onPress={() => selectUser(user)}>
