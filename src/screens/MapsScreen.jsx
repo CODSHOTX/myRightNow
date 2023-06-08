@@ -118,7 +118,7 @@ const MapsScreen = ({ navigation, route }) => {
           mode="contained"
           style={mapStyle.cancelButton2}
           onPress={() => {
-            navigation.goBack();
+            navigation.navigate("MapsScreen");
           }}
         >
           Cancel

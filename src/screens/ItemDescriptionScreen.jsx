@@ -12,7 +12,6 @@ import { itemdescriptionStyle } from "./screenStyles/ItemDescriptionStyle";
 const ItemDescriptionScreen = ({ navigation }) => {
   const [image, setImage] = useState(null);
   const [uploading, setUploading] = useState(false);
-  const [destinations, setDestinations] = useState([""]);
   const [origin, setOrigin] = useState("");
   const [receiverName, setReceiverName] = useState("");
   const [receiverNumber, setReceiverNumber] = useState("");
@@ -154,6 +153,15 @@ const ItemDescriptionScreen = ({ navigation }) => {
 
   const handleSubmit = async () => {
     try {
+      // Check that all fields have been filled in
+      if (!origin || !rEmail || !receiverName || !receiverNumber || !dAdress) {
+        Alert.alert(
+          "Error",
+          "Please fill all input fields in Necessary details."
+        );
+        return;
+      }
+
       const data = {
         description,
         height,
@@ -178,7 +186,7 @@ const ItemDescriptionScreen = ({ navigation }) => {
     } catch (error) {
       console.log("Error saving data");
     }
-};
+  };
 
   return (
     <SafeAreaView style={itemdescriptionStyle.container}>

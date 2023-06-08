@@ -18,8 +18,8 @@ export const requestDetailsStyle = StyleSheet.create({
     margin: 10,
   },
   listItem: {
-    fontSize: 18,
-    color: "#74D24F",
+    fontSize: 16,
+    color: "#013500",
   },
   img: {
     width: 200,

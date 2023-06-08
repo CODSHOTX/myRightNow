@@ -9,7 +9,7 @@ export default function PaymentScreen({ navigation }) {
       <HomeHeader navigation={navigation} />
       <View style={paymentStyle.view}>
       <Image
-          style={{height:"100%", width:"100%"  }}
+          style={paymentStyle.img}
           source={require("../images/RightNOWCashPayment.png")}
         />
       </View>

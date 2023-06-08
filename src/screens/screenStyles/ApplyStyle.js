@@ -8,5 +8,9 @@ export const applyStyle = StyleSheet.create({
     view: { 
         flex: 1, 
         backgroundColor: "white" 
+    },
+    img: { 
+        height: "100%", 
+        width: "100%" 
     }
 })

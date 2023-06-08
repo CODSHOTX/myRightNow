@@ -3,7 +3,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { TransitionPresets } from "@react-navigation/stack";
 import EditProfileScreen from "../screens/userScreens/EditProfileScreen";
 import DrawerNavigator from "./DrawerNavigator";
-import DeliveryDetailScreen from "../screens/DeliveryDetailScreen";
 import ItemDescriptionScreen from "../screens/ItemDescriptionScreen";
 import HistoryScreen from "../screens/HistoryScreen";
 import MapsScreen from "../screens/MapsScreen";
@@ -70,15 +69,6 @@ export default function ClientStack() {
       />
 
       <Auth.Screen
-        name="DeliveryDetailScreen"
-        component={DeliveryDetailScreen}
-        options={{
-          headerShown: false,
-          ...TransitionPresets.RevealFromBottomAndroid,
-        }}
-      />
-
-      <Auth.Screen
         name="HistoryScreen"
         component={HistoryScreen}
         options={{
@@ -95,7 +85,6 @@ export default function ClientStack() {
           ...TransitionPresets.RevealFromBottomAndroid,
         }}
       />
-      
     </Auth.Navigator>
   );
 }

@@ -9,7 +9,7 @@ export default function ApplicationScreen({ navigation }) {
       <HomeHeader navigation={navigation} />
       <View style={applyStyle.view}>
         <Image
-          style={{ height: "100%", width: "100%" }}
+          style={applyStyle.img}
           source={require("../images/RightNOWCourier.png")}
         />
       </View>

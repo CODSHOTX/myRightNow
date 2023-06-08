@@ -81,10 +81,12 @@ const RequestDetailScreen = ({ route, navigation }) => {
               <List.Item
                 titleStyle={requestDetailsStyle.listItem}
                 title={`Delivery Origin: ${orderDetails.origin}`}
+                description={`${orderDetails.origin}`}
               />
               <List.Item
                 titleStyle={requestDetailsStyle.listItem}
                 title={`Delivery Destination: ${orderDetails.dAdress}`}
+                description={`${orderDetails.dAdress}`}
               />
               <List.Item
                 titleStyle={requestDetailsStyle.listItem}

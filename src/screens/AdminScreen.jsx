@@ -32,7 +32,17 @@ export default function AdminScreen({ navigation }) {
     return () => unsubscribe();
   }, []);
 
-  const handleCreateUser = () => {
+  const handleCreateUser = async () => {
+    // Firebase Authentication for the user that has been created
+    let authUser;
+    try {
+      authUser = await firebase.auth().createUserWithEmailAndPassword(emails, Math.random().toString(36).substring(2, 7) + Math.random().toString(36).substring(2, 7));
+    } catch (error) {
+      Alert.alert("Error", "Failed to create user: " + error.message);
+      return;
+    }
+
+    // creation of user directy link to Firestore
     firebase
       .firestore()
       .collection("users")
@@ -42,11 +52,20 @@ export default function AdminScreen({ navigation }) {
         role: role,
       })
       .then(() => {
-        Alert.alert("User Created");
+        Alert.alert("User Info Created");
         setName("");
         setEmail("");
         setRole("");
         setSelectedUser(null);
+
+        // mail Send to new user to input new password
+        firebase.auth().sendPasswordResetEmail(emails)
+          .then(() => {
+            Alert.alert("Email Sent", "Password reset email has been sent to " + emails);
+          })
+          .catch((error) => {
+            Alert.alert("Error", "Failed to send password reset email: " + error.message);
+          });
       });
   };
 
@@ -62,7 +81,7 @@ export default function AdminScreen({ navigation }) {
           role: role,
         })
         .then(() => {
-          Alert.alert("User Updated");
+          Alert.alert("User Info Updated");
           setName("");
           setEmail("");
           setRole("");
@@ -79,7 +98,7 @@ export default function AdminScreen({ navigation }) {
         .doc(selectedUser.id)
         .delete()
         .then(() => {
-          Alert.alert("User Deleted");
+          Alert.alert("User Info Deleted");
           setName("");
           setEmail("");
           setRole("");

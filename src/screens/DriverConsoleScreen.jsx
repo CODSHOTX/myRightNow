@@ -9,26 +9,30 @@ import { firebase } from "../../firebaseConfig";
 export default function DriverConsoleScreen({ navigation }) {
   const [latitude, setLatitude] = useState("");
   const [longitude, setLongitude] = useState("");
+  const [fiName, setName]  = useState("");
+  
   useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const userDocRef = firebase
-          .firestore()
-          .collection("users")
-          .doc(firebase.auth().currentUser.uid);
-        const doc = await userDocRef.get();
-        if (doc.exists) {
-          const userData = doc.data();
-          setLatitude(userData.latitude);
-          setLongitude(userData.longitude);
-        }
-      } catch (error) {
-        console.log("Error fetching user data:", error);
+    const userDocRef = firebase
+      .firestore()
+      .collection("users")
+      .doc(firebase.auth().currentUser.uid);
+  
+    const unsubscribe = userDocRef.onSnapshot(docSnapshot => {
+      if (docSnapshot.exists) {
+        const userData = docSnapshot.data();
+        setLatitude(userData.latitude);
+        setLongitude(userData.longitude);
+        setName(userData.fiName);
+      } else {
+        console.log("No such document!");
       }
-    };
-
-    fetchUserData();
+    }, err => {
+      console.log(`Encountered error: ${err}`);
+    });
+  
+    return () => unsubscribe();
   }, []);
+  
 
   return (
     <SafeAreaView style={driverconsoleStyle.container}>
@@ -55,7 +59,6 @@ export default function DriverConsoleScreen({ navigation }) {
           </Marker>
         </MapView>
         <View style={driverconsoleStyle.view1}>
-          <TouchableOpacity onPress={() => {}}>
             <View style={{ flexDirection: "row" }}>
               <View style={driverconsoleStyle.imageBox}>
                 <Image
@@ -66,13 +69,12 @@ export default function DriverConsoleScreen({ navigation }) {
                 />
               </View>
               <View style={driverconsoleStyle.viewBox}>
-                <Text style={driverconsoleStyle.textBox}>View History</Text>
+                <Text style={driverconsoleStyle.textBox}>Welcome {fiName}</Text>
                 <Text style={driverconsoleStyle.textBox1}>
-                  History of all {"\n"}packages you delivered
+                  Courier is able to see his{"\n"} location and check the request
                 </Text>
               </View>
             </View>
-          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>

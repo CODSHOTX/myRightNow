@@ -161,39 +161,6 @@ export default function DrawerNavigator() {
             }}
           />
 
-          <Drawer.Screen
-            name="PaymentScreen"
-            component={PaymentScreen}
-            options={{
-              title: "Payment",
-              headerShown: false,
-              drawerIcon: ({ focused, size }) => (
-                <Icon
-                  type="material-community"
-                  name="credit-card"
-                  color={focused ? "#74D24F" : "#74D24F"}
-                  size={size}
-                />
-              ),
-            }}
-          />
-
-          <Drawer.Screen
-            name="HelpScreen"
-            component={HelpScreen}
-            options={{
-              title: "Help",
-              headerShown: false,
-              drawerIcon: ({ focused, size }) => (
-                <Icon
-                  type="material-community"
-                  name="help-circle"
-                  color={focused ? "#74D24F" : "#74D24F"}
-                  size={size}
-                />
-              ),
-            }}
-          />
         </Drawer.Navigator>
       ) : (
         <Drawer.Navigator

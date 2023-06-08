@@ -9,7 +9,7 @@ export default function HelpScreen({ navigation }) {
       <HomeHeader navigation={navigation} />
       <View style={helpStyle.view}>
       <Image
-          style={{height:"100%", width:"100%"  }}
+          style={helpStyle.img}
           source={require("../images/RightNOWHelp.png")}
         />
       </View>
