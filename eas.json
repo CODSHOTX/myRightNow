@@ -1,18 +1,28 @@
 {
   "cli": {
-    "version": ">= 3.13.0"
+    "version": ">= 3.13.3"
   },
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal",
-      "channel": "development"
+      "distribution": "internal"
     },
     "preview": {
+      "channel": "preview",
       "distribution": "internal",
-      "channel": "preview"
+      "android": {
+        "buildType": "apk"
+      }
     },
-    "production": {
+    "preview2": {
+      "android": {
+        "gradleCommand": ":app:assembleRelease"
+      }
+    },
+    "preview3": {
+      "developmentClient": true
+    },
+    "production": { 
       "channel": "production"
     }
   },
