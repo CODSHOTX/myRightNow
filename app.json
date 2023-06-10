@@ -18,8 +18,8 @@
       "bundleIdentifier": "com.group4.rightnow",
       "buildNumber": "1.0.0",
       "supportsTablet": true,
-      "config": {
-        "googleMapsApiKey": "AIzaSyDudiLNW2DhHRr3f_nuirYkmY7asuHSa2Q"
+      "runtimeVersion": {
+        "policy": "sdkVersion"
       }
     },
     "android": {
@@ -29,11 +29,7 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "config": {
-        "googleMaps": {
-          "apiKey": "AIzaSyBcR4pkViLtew8Uh1TtZCEqXL2Ips-7Qjw"
-        }
-      }
+      "runtimeVersion": "1.0.0"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -42,6 +38,9 @@
       "eas": {
         "projectId": "d2dd62ea-b5f6-436c-bc90-b9f3c6f6291f"
       }
+    },
+    "updates": {
+      "url": "https://u.expo.dev/d2dd62ea-b5f6-436c-bc90-b9f3c6f6291f"
     }
   }
 }
