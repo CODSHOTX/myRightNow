@@ -113,9 +113,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.rightnow"
+    namespace "com.group4.rightnow"
     defaultConfig {
-        applicationId "com.rightnow"
+        applicationId "com.group4.rightnow"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
